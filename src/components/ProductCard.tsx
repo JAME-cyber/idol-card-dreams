@@ -22,7 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <div className="korean-card p-8 group hover-glow">
       <div className="relative mb-6 overflow-hidden rounded-xl">
         <img 
-          src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop" 
+          src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
           alt={product.name}
           className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
         />
@@ -37,7 +37,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.name}
         </h4>
         <p className="text-stone-black/70 mb-4 font-korean">
-          {product.description}
+          3 Cartes collection Kdramas à découvrir parmi plus de 200!
         </p>
         <div className="flex items-center justify-center mb-6">
           <span className="text-3xl font-bold text-korean-gold font-poppins">
