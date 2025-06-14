@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// K-drama inspired color palette
+				'stone-black': '#1a1a1a',
+				'stone-beige': '#f5f1eb',
+				'stone-powder': '#f4c2c2',
+				'stone-blue': '#b3d4f4',
+				'stone-lavender': '#e0c3fc',
+				'korean-gold': '#d4af37',
+			},
+			fontFamily: {
+				'korean': ['Noto Sans KR', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +96,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'hover-lift': {
+					'0%': {
+						transform: 'translateY(0) scale(1)'
+					},
+					'100%': {
+						transform: 'translateY(-8px) scale(1.02)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out',
+				'hover-lift': 'hover-lift 0.3s ease-out',
 			}
 		}
 	},
