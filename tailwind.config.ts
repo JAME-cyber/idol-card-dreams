@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -74,6 +73,7 @@ export default {
 			fontFamily: {
 				'korean': ['Noto Sans KR', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'snap': ['Snappy Service', 'cursive'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
