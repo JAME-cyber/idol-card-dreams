@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
@@ -14,40 +17,39 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <h1 className="text-5xl md:text-7xl font-bold text-stone-black mb-6 font-poppins">
-          Discover the Magic of
+          {t('hero.title1')}
           <span className="block text-transparent bg-clip-text korean-accent font-korean">
-            K-Drama Cards
+            {t('hero.title2')}
           </span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-stone-black/70 mb-8 font-korean leading-relaxed">
-          Collect your favorite K-Drama moments in exclusive surprise packs.<br/>
-          Each pack contains 3 carefully curated collectible cards.
+        <p className="text-xl md:text-2xl text-stone-black/70 mb-8 font-korean leading-relaxed whitespace-pre-line">
+          {t('hero.description')}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className="korean-button text-lg px-8 py-4 hover-glow">
-            Shop Surprise Packs
+            {t('hero.shopButton')}
           </button>
           <button className="bg-transparent border-2 border-stone-black text-stone-black hover:bg-stone-black hover:text-stone-beige transition-all duration-300 font-medium px-8 py-4 rounded-full">
-            Explore Goodies
+            {t('hero.exploreButton')}
           </button>
         </div>
         
         <div className="mt-12 flex justify-center items-center space-x-8 text-stone-black/60">
           <div className="text-center">
             <div className="text-2xl font-bold text-korean-gold">3</div>
-            <div className="text-sm font-korean">Cards per pack</div>
+            <div className="text-sm font-korean">{t('hero.cardsPerPack')}</div>
           </div>
           <div className="w-px h-8 bg-stone-black/20"></div>
           <div className="text-center">
             <div className="text-2xl font-bold text-korean-gold">15+</div>
-            <div className="text-sm font-korean">K-Drama series</div>
+            <div className="text-sm font-korean">{t('hero.series')}</div>
           </div>
           <div className="w-px h-8 bg-stone-black/20"></div>
           <div className="text-center">
             <div className="text-2xl font-bold text-korean-gold">100%</div>
-            <div className="text-sm font-korean">Surprise</div>
+            <div className="text-sm font-korean">{t('hero.surprise')}</div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Product {
   id: string;
@@ -15,6 +16,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const { t } = useLanguage();
+
   return (
     <div className="korean-card p-8 group hover-glow">
       <div className="relative mb-6 overflow-hidden rounded-xl">
@@ -25,7 +28,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div className="absolute top-4 right-4 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
-          Surprise!
+          {t('hero.surprise')}!
         </div>
       </div>
       
@@ -42,7 +45,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         </div>
         <button className="korean-button w-full hover-glow">
-          Add to Cart
+          {t('shop.addToCart')}
         </button>
       </div>
     </div>

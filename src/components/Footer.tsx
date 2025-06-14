@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-stone-black text-stone-beige">
       {/* Main Footer Content */}
@@ -14,8 +17,8 @@ const Footer = () => {
                 <span className="text-stone-black font-bold text-xl font-korean">SI</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold font-poppins">STONE IDOL</h3>
-                <p className="text-xs text-stone-beige/70 font-korean">K-Drama Collectibles</p>
+                <h3 className="text-xl font-bold font-poppins">{t('header.title')}</h3>
+                <p className="text-xs text-stone-beige/70 font-korean">{t('header.subtitle')}</p>
               </div>
             </div>
             <p className="text-stone-beige/80 font-korean text-sm leading-relaxed">
@@ -25,38 +28,38 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2 font-korean">
-              <li><a href="#home" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Home</a></li>
-              <li><a href="#shop" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Shop</a></li>
-              <li><a href="#surprise-packs" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Surprise Packs</a></li>
-              <li><a href="#goodies" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Goodies</a></li>
+              <li><a href="#home" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.home')}</a></li>
+              <li><a href="#shop" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.shop')}</a></li>
+              <li><a href="#surprise-packs" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('shop.surprisePacks')}</a></li>
+              <li><a href="#goodies" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('shop.goodies')}</a></li>
             </ul>
           </div>
 
           {/* Customer Service */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">Customer Service</h4>
+            <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.customerService')}</h4>
             <ul className="space-y-2 font-korean text-sm">
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Return Policy</a></li>
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Shipping Info</a></li>
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">Size Guide</a></li>
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">FAQ</a></li>
+              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.returnPolicy')}</a></li>
+              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.shippingInfo')}</a></li>
+              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.sizeGuide')}  </a></li>
+              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.faq')}</a></li>
             </ul>
           </div>
 
           {/* Contact & Social */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">Connect With Us</h4>
+            <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.connectWithUs')}</h4>
             <div className="space-y-3 font-korean text-sm">
               <div>
-                <p className="text-stone-beige/60 mb-1">Email:</p>
+                <p className="text-stone-beige/60 mb-1">{t('footer.email')}</p>
                 <a href="mailto:stone.idol@yahoo.com" className="text-stone-beige hover:text-korean-gold transition-colors">
                   stone.idol@yahoo.com
                 </a>
               </div>
               <div>
-                <p className="text-stone-beige/60 mb-1">TikTok:</p>
+                <p className="text-stone-beige/60 mb-1">{t('footer.tiktok')}</p>
                 <a href="https://tiktok.com/@Stoneidol1" className="text-stone-beige hover:text-korean-gold transition-colors">
                   @Stoneidol1
                 </a>
@@ -71,16 +74,16 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-korean text-stone-beige/60">
             <div className="space-y-1">
-              <p><strong>Company:</strong> DECOUVERTE LAURIE</p>
-              <p><strong>SIREN:</strong> 951853654</p>
-              <p><strong>Hosting:</strong> HOSTINGER</p>
+              <p><strong>{t('footer.company')}</strong> DECOUVERTE LAURIE</p>
+              <p><strong>{t('footer.siren')}</strong> 951853654</p>
+              <p><strong>{t('footer.hosting')}</strong> HOSTINGER</p>
             </div>
             <div className="space-y-1 md:text-right">
-              <p>© 2024 Stone Idol. All rights reserved.</p>
+              <p>{t('footer.copyright')}</p>
               <div className="space-x-4">
-                <a href="#" className="hover:text-korean-gold transition-colors">Legal Terms</a>
-                <a href="#" className="hover:text-korean-gold transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-korean-gold transition-colors">Returns</a>
+                <a href="#" className="hover:text-korean-gold transition-colors">{t('footer.legalTerms')}</a>
+                <a href="#" className="hover:text-korean-gold transition-colors">{t('footer.privacyPolicy')}</a>
+                <a href="#" className="hover:text-korean-gold transition-colors">{t('footer.returns')}</a>
               </div>
             </div>
           </div>

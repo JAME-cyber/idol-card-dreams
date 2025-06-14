@@ -1,9 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { ShoppingCart } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
+  const { t } = useLanguage();
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-white/20 shadow-sm">
       <div className="container mx-auto px-4 py-4">
@@ -15,22 +18,22 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-stone-black font-poppins tracking-wide">
-                STONE IDOL
+                {t('header.title')}
               </h1>
-              <p className="text-xs text-stone-black/60 font-korean">K-Drama Collectibles</p>
+              <p className="text-xs text-stone-black/60 font-korean">{t('header.subtitle')}</p>
             </div>
           </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className="text-stone-black hover:text-korean-gold transition-colors font-medium">
-              Home
+              {t('nav.home')}
             </a>
             <a href="#shop" className="text-stone-black hover:text-korean-gold transition-colors font-medium">
-              Shop
+              {t('nav.shop')}
             </a>
             <a href="#about" className="text-stone-black hover:text-korean-gold transition-colors font-medium">
-              About
+              {t('nav.about')}
             </a>
           </nav>
 

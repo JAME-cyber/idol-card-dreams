@@ -1,14 +1,15 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const LanguageSelector = () => {
-  const [language, setLanguage] = useState('en');
+  const { language, setLanguage } = useLanguage();
 
   const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'ko', name: '한국어', flag: '🇰🇷' },
+    { code: 'en' as const, name: 'English', flag: '🇺🇸' },
+    { code: 'fr' as const, name: 'Français', flag: '🇫🇷' },
+    { code: 'ko' as const, name: '한국어', flag: '🇰🇷' },
   ];
 
   return (
