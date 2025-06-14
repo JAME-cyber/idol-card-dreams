@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from '@/hooks/use-toast';
 
 interface Product {
   id: string;
@@ -17,6 +19,21 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const { t } = useLanguage();
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: "/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png"
+    });
+    
+    toast({
+      title: "Added to cart!",
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
 
   return (
     <div className="korean-card p-8 group hover-glow">
@@ -44,7 +61,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             €{product.price}
           </span>
         </div>
-        <button className="korean-button w-full hover-glow">
+        <button onClick={handleAddToCart} className="korean-button w-full hover-glow">
           {t('shop.addToCart')}
         </button>
       </div>

@@ -1,6 +1,7 @@
-
 import React, { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from '@/hooks/use-toast';
 
 interface Product {
   id: string;
@@ -21,6 +22,7 @@ interface GoodiesCardProps {
 const GoodiesCard = ({ product }: GoodiesCardProps) => {
   const [selectedDesign, setSelectedDesign] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const { addItem } = useCart();
 
   const designOptions = [
     'Mr Plankton', 'Crash Landing on You', 'When Life Gives You Tangerines',
@@ -48,6 +50,45 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
       'handkerchief-set': 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop'
     };
     return imageMap[productId as keyof typeof imageMap] || '/placeholder.svg';
+  };
+
+  const handleAddToCart = () => {
+    // Check if required options are selected
+    if (product.hasDesignOptions || product.hasSpecialDesignOptions) {
+      if (!selectedDesign) {
+        toast({
+          title: "Please select a design",
+          description: "You need to choose a design before adding to cart.",
+          variant: "destructive"
+        });
+        return;
+      }
+    }
+    
+    if (product.hasSizeOptions && !selectedSize) {
+      toast({
+        title: "Please select a size",
+        description: "You need to choose a size before adding to cart.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    addItem({
+      id: `${product.id}-${selectedDesign}-${selectedSize}`,
+      name: product.name,
+      price: product.price,
+      image: getImageForProduct(product.id),
+      selectedOptions: {
+        design: selectedDesign || undefined,
+        size: selectedSize || undefined,
+      }
+    });
+    
+    toast({
+      title: "Added to cart!",
+      description: `${product.name} has been added to your cart.`,
+    });
   };
 
   return (
@@ -124,7 +165,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
             €{product.price}
           </span>
         </div>
-        <button className="korean-button w-full hover-glow">
+        <button onClick={handleAddToCart} className="korean-button w-full hover-glow">
           Add to Cart
         </button>
       </div>
