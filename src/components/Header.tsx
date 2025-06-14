@@ -13,15 +13,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-stone-powder to-stone-lavender rounded-full flex items-center justify-center">
-              <span className="text-stone-black font-bold text-xl font-korean">SI</span>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-stone-black font-poppins tracking-wide">
-                {t('header.title')}
-              </h1>
-              <p className="text-xs text-stone-black/60 font-korean">{t('header.subtitle')}</p>
-            </div>
+            <img 
+              src="/lovable-uploads/922214f7-53ed-4332-9085-b848adaba843.png" 
+              alt="Stone Idol Logo"
+              className="h-16 w-auto object-contain"
+            />
           </div>
 
           {/* Navigation */}
