@@ -43,9 +43,9 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.customerService')}</h4>
             <ul className="space-y-2 font-korean text-sm">
               <li><Link to="/return-policy" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.returnPolicy')}</Link></li>
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.shippingInfo')}</a></li>
+              <li><Link to="/shipping-info" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.shippingInfo')}</Link></li>
               <li><Link to="/size-guide" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.sizeGuide')}</Link></li>
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.faq')}</a></li>
+              <li><Link to="/faq" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.faq')}</Link></li>
             </ul>
           </div>
 
