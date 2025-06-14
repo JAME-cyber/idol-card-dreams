@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -41,7 +42,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.customerService')}</h4>
             <ul className="space-y-2 font-korean text-sm">
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.returnPolicy')}</a></li>
+              <li><Link to="/return-policy" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.returnPolicy')}</Link></li>
               <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.shippingInfo')}</a></li>
               <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.sizeGuide')}  </a></li>
               <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.faq')}</a></li>
@@ -83,7 +84,7 @@ const Footer = () => {
               <div className="space-x-4">
                 <a href="#" className="hover:text-korean-gold transition-colors">{t('footer.legalTerms')}</a>
                 <a href="#" className="hover:text-korean-gold transition-colors">{t('footer.privacyPolicy')}</a>
-                <a href="#" className="hover:text-korean-gold transition-colors">{t('footer.returns')}</a>
+                <Link to="/return-policy" className="hover:text-korean-gold transition-colors">{t('footer.returns')}</Link>
               </div>
             </div>
           </div>
