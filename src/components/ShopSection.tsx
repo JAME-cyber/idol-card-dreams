@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProductCard from './ProductCard';
@@ -90,6 +89,41 @@ const ShopSection = () => {
           <div className="flex justify-center">
             <div className="max-w-md">
               <ProductCard product={surprisePackProduct} />
+            </div>
+          </div>
+          
+          {/* K-drama Surprise Pack Ad Video */}
+          <div className="mt-12 flex justify-center">
+            <div className="max-w-2xl w-full">
+              <div className="korean-card p-6 bg-gradient-to-r from-korean-gold/10 to-stone-powder/20">
+                <div className="text-center mb-4">
+                  <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
+                    🎬 Discover Your K-Drama Surprise Pack!
+                  </h4>
+                  <p className="text-stone-black/70 font-korean">
+                    Get a sneak peek of what awaits you in our exclusive collection
+                  </p>
+                </div>
+                <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <video 
+                    className="w-full h-full object-cover"
+                    autoPlay 
+                    muted 
+                    loop
+                    playsInline
+                  >
+                    <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-black/30 to-transparent flex items-end">
+                    <div className="p-4 text-white">
+                      <p className="text-sm font-korean">
+                        ✨ 3 Random K-Drama Cards • Premium Quality • Collector's Edition
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
