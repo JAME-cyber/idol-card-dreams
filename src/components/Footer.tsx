@@ -44,7 +44,7 @@ const Footer = () => {
             <ul className="space-y-2 font-korean text-sm">
               <li><Link to="/return-policy" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.returnPolicy')}</Link></li>
               <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.shippingInfo')}</a></li>
-              <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.sizeGuide')}  </a></li>
+              <li><Link to="/size-guide" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.sizeGuide')}</Link></li>
               <li><a href="#" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.faq')}</a></li>
             </ul>
           </div>
