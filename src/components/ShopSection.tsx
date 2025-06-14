@@ -79,9 +79,14 @@ const ShopSection = () => {
 
         {/* Surprise Packs Section */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-stone-black mb-8 text-center font-poppins">
-            {t('shop.surprisePacks')}
-          </h3>
+          <div className="text-center mb-8">
+            <h3 className="text-4xl font-bold text-stone-black mb-2 font-snap">
+              Cartes collection Kdramas
+            </h3>
+            <p className="text-lg text-stone-black/80 font-snap">
+              Je les aime tous!
+            </p>
+          </div>
           <div className="flex justify-center">
             <div className="max-w-md">
               <ProductCard product={surprisePackProduct} />
