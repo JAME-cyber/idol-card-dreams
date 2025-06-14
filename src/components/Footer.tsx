@@ -31,7 +31,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2 font-korean">
-              <li><a href="#home" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.home')}</a></li>
+              <li><Link to="/" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.home')}</Link></li>
               <li><a href="#shop" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.shop')}</a></li>
               <li><a href="#surprise-packs" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('shop.surprisePacks')}</a></li>
               <li><a href="#goodies" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('shop.goodies')}</a></li>

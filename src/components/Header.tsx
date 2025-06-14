@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCart } from '@/contexts/CartContext';
 import LanguageSelector from './LanguageSelector';
@@ -18,18 +19,20 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo Section */}
             <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/922214f7-53ed-4332-9085-b848adaba843.png" 
-                alt="Stone Idol Logo"
-                className="h-16 w-auto object-contain"
-              />
+              <Link to="/">
+                <img 
+                  src="/lovable-uploads/922214f7-53ed-4332-9085-b848adaba843.png" 
+                  alt="Stone Idol Logo"
+                  className="h-16 w-auto object-contain"
+                />
+              </Link>
             </div>
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-stone-black hover:text-korean-gold transition-colors font-medium">
+              <Link to="/" className="text-stone-black hover:text-korean-gold transition-colors font-medium">
                 {t('nav.home')}
-              </a>
+              </Link>
               <a href="#shop" className="text-stone-black hover:text-korean-gold transition-colors font-medium">
                 {t('nav.shop')}
               </a>
