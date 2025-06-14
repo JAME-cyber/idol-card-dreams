@@ -81,10 +81,10 @@ const ShopSection = () => {
         <div className="mb-20">
           <div className="text-center mb-8">
             <h3 className="text-4xl font-bold text-stone-black mb-2 font-snap">
-              Cartes collection Kdramas
+              {t('shop.cardsCollectionTitle')}
             </h3>
             <p className="text-lg text-stone-black/80 font-snap">
-              Je les aime tous!
+              {t('shop.cardsCollectionSubtitle')}
             </p>
           </div>
           <div className="flex justify-center">
@@ -98,13 +98,13 @@ const ShopSection = () => {
         <div>
           <div className="text-center mb-8">
             <h3 className="text-4xl font-bold text-stone-black mb-2 font-snap">
-              Goodies Stone Idol
+              {t('shop.goodiesTitle')}
             </h3>
             <p className="text-lg text-stone-black/80 font-snap">
-              Choisis ton drama préféré parmi les plus populaires!
+              {t('shop.goodiesSubtitle')}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-2 lg:grid-cols-3 gap-8">
             {goodiesProducts.map((product) => (
               <GoodiesCard key={product.id} product={product} />
             ))}

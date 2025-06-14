@@ -40,6 +40,10 @@ const translations = {
     'shop.addToCart': 'Add to Cart',
     'shop.selectDesign': 'Select Design',
     'shop.selectSize': 'Select Size',
+    'shop.cardsCollectionTitle': 'K-Drama Cards Collection',
+    'shop.cardsCollectionSubtitle': 'I love them all!',
+    'shop.goodiesTitle': 'Stone Idol Goodies',
+    'shop.goodiesSubtitle': 'Choose your favorite drama among the most popular ones!',
     
     // Products
     'product.toteBag': 'K-Drama Tote Bag',
@@ -99,6 +103,10 @@ const translations = {
     'shop.addToCart': 'Ajouter au Panier',
     'shop.selectDesign': 'Sélectionner le Design',
     'shop.selectSize': 'Sélectionner la Taille',
+    'shop.cardsCollectionTitle': 'Cartes collection Kdramas',
+    'shop.cardsCollectionSubtitle': 'Je les aime tous!',
+    'shop.goodiesTitle': 'Goodies Stone Idol',
+    'shop.goodiesSubtitle': 'Choisis ton drama préféré parmi les plus populaires!',
     
     // Products
     'product.toteBag': 'Sac Tote K-Drama',
@@ -158,6 +166,10 @@ const translations = {
     'shop.addToCart': '장바구니에 추가',
     'shop.selectDesign': '디자인 선택',
     'shop.selectSize': '사이즈 선택',
+    'shop.cardsCollectionTitle': '케이드라마 카드 컬렉션',
+    'shop.cardsCollectionSubtitle': '모두 사랑해요!',
+    'shop.goodiesTitle': '스톤 아이돌 굿즈',
+    'shop.goodiesSubtitle': '가장 인기 있는 드라마 중에서 좋아하는 것을 선택하세요!',
     
     // Products
     'product.toteBag': '케이드라마 토트백',
