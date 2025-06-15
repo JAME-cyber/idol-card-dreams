@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProductCard from './ProductCard';
@@ -66,16 +65,16 @@ const ShopSection = () => {
   ];
 
   return (
-    <section id="shop" className="py-12 md:py-16 bg-gradient-to-b from-stone-beige via-white to-stone-beige/50">
+    <section id="shop" className="section-spacing bg-gradient-to-b from-stone-beige via-white to-stone-beige/50">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Surprise Packs Section */}
-        <div className="mb-20">
+        <div className="content-spacing">
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-5xl font-bold text-stone-black mb-4 font-snap">
+            <h3 className="section-title font-snap">
               {t('shop.cardsCollectionTitle')}
             </h3>
             <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
-            <p className="text-lg md:text-xl text-stone-black/80 font-korean max-w-2xl mx-auto">
+            <p className="section-subtitle">
               {t('shop.cardsCollectionSubtitle')}
             </p>
           </div>
@@ -130,7 +129,7 @@ const ShopSection = () => {
               {t('shop.goodiesTitle')}
             </h3>
             <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
-            <p className="text-lg md:text-xl text-stone-black/80 font-korean max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-stone-black/80 font-snap">
               {t('shop.goodiesSubtitle')}
             </p>
           </div>
