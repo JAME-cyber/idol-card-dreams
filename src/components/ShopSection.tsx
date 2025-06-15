@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProductCard from './ProductCard';
@@ -74,7 +75,7 @@ const ShopSection = () => {
               {t('shop.cardsCollectionTitle')}
             </h3>
             <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
-            <p className="section-subtitle">
+            <p className="section-subtitle font-snap">
               {t('shop.cardsCollectionSubtitle')}
             </p>
           </div>
