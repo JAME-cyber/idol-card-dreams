@@ -66,21 +66,10 @@ const ShopSection = () => {
   ];
 
   return (
-    <section id="shop" className="py-16 md:py-24 bg-gradient-to-b from-stone-beige via-white to-stone-beige/50">
+    <section id="shop" className="py-12 md:py-16 bg-gradient-to-b from-stone-beige via-white to-stone-beige/50">
       <div className="container mx-auto px-4 max-w-7xl">
-        {/* Main Title Section */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-stone-black mb-6 font-poppins leading-tight">
-            {t('shop.title')}
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-korean-gold to-stone-powder mx-auto mb-6"></div>
-          <p className="text-xl md:text-2xl text-stone-black/70 font-korean max-w-3xl mx-auto leading-relaxed">
-            {t('shop.description')}
-          </p>
-        </div>
-
         {/* Surprise Packs Section */}
-        <div className="mb-24">
+        <div className="mb-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-5xl font-bold text-stone-black mb-4 font-snap">
               {t('shop.cardsCollectionTitle')}
