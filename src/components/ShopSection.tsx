@@ -66,46 +66,51 @@ const ShopSection = () => {
   ];
 
   return (
-    <section id="shop" className="py-20 bg-gradient-to-b from-stone-beige to-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-black mb-4 font-poppins">
+    <section id="shop" className="py-16 md:py-24 bg-gradient-to-b from-stone-beige via-white to-stone-beige/50">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Main Title Section */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-stone-black mb-6 font-poppins leading-tight">
             {t('shop.title')}
           </h2>
-          <p className="text-xl text-stone-black/70 font-korean max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-korean-gold to-stone-powder mx-auto mb-6"></div>
+          <p className="text-xl md:text-2xl text-stone-black/70 font-korean max-w-3xl mx-auto leading-relaxed">
             {t('shop.description')}
           </p>
         </div>
 
         {/* Surprise Packs Section */}
-        <div className="mb-20">
-          <div className="text-center mb-8">
-            <h3 className="text-4xl font-bold text-stone-black mb-2 font-snap">
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-5xl font-bold text-stone-black mb-4 font-snap">
               {t('shop.cardsCollectionTitle')}
             </h3>
-            <p className="text-lg text-stone-black/80 font-snap">
+            <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
+            <p className="text-lg md:text-xl text-stone-black/80 font-korean max-w-2xl mx-auto">
               {t('shop.cardsCollectionSubtitle')}
             </p>
           </div>
-          <div className="flex justify-center">
-            <div className="max-w-md">
+          
+          <div className="flex justify-center mb-16">
+            <div className="max-w-md w-full">
               <ProductCard product={surprisePackProduct} />
             </div>
           </div>
           
           {/* K-drama Surprise Pack Ad Video */}
-          <div className="mt-12 flex justify-center">
-            <div className="max-w-2xl w-full">
-              <div className="korean-card p-6 bg-gradient-to-r from-korean-gold/10 to-stone-powder/20">
-                <div className="text-center mb-4">
-                  <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
+          <div className="flex justify-center">
+            <div className="max-w-4xl w-full">
+              <div className="korean-card p-8 bg-gradient-to-br from-korean-gold/5 via-stone-powder/10 to-stone-lavender/5 border-2 border-korean-gold/20">
+                <div className="text-center mb-6">
+                  <h4 className="text-2xl md:text-3xl font-bold text-stone-black mb-3 font-snap">
                     🎬 Discover Your K-Drama Surprise Pack!
                   </h4>
-                  <p className="text-stone-black/70 font-korean">
+                  <div className="w-12 h-0.5 bg-korean-gold mx-auto mb-3"></div>
+                  <p className="text-stone-black/70 font-korean text-lg">
                     Get a sneak peek of what awaits you in our exclusive collection
                   </p>
                 </div>
-                <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
                   <video 
                     className="w-full h-full object-cover"
                     autoPlay 
@@ -116,9 +121,9 @@ const ShopSection = () => {
                     <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-black/30 to-transparent flex items-end">
-                    <div className="p-4 text-white">
-                      <p className="text-sm font-korean">
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-black/40 via-transparent to-transparent flex items-end">
+                    <div className="p-6 text-white w-full">
+                      <p className="text-sm md:text-base font-korean text-center">
                         ✨ 3 Random K-Drama Cards • Premium Quality • Collector's Edition
                       </p>
                     </div>
@@ -131,33 +136,36 @@ const ShopSection = () => {
 
         {/* Goodies Section */}
         <div>
-          <div className="text-center mb-8">
-            <h3 className="text-4xl font-bold text-stone-black mb-2 font-snap">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-5xl font-bold text-stone-black mb-4 font-snap">
               {t('shop.goodiesTitle')}
             </h3>
-            <p className="text-lg text-stone-black/80 font-snap">
+            <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
+            <p className="text-lg md:text-xl text-stone-black/80 font-korean max-w-2xl mx-auto">
               {t('shop.goodiesSubtitle')}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-2 lg:grid-cols-3 gap-8">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {goodiesProducts.map((product) => (
               <GoodiesCard key={product.id} product={product} />
             ))}
           </div>
           
           {/* Stone Idol Goodies Ad Video */}
-          <div className="mt-12 flex justify-center">
-            <div className="max-w-2xl w-full">
-              <div className="korean-card p-6 bg-gradient-to-r from-stone-powder/20 to-korean-gold/10">
-                <div className="text-center mb-4">
-                  <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
+          <div className="flex justify-center">
+            <div className="max-w-4xl w-full">
+              <div className="korean-card p-8 bg-gradient-to-br from-stone-powder/5 via-korean-gold/5 to-stone-blue/10 border-2 border-stone-powder/30">
+                <div className="text-center mb-6">
+                  <h4 className="text-2xl md:text-3xl font-bold text-stone-black mb-3 font-snap">
                     🎭 Stone Idol Goodies Collection
                   </h4>
-                  <p className="text-stone-black/70 font-korean">
+                  <div className="w-12 h-0.5 bg-korean-gold mx-auto mb-3"></div>
+                  <p className="text-stone-black/70 font-korean text-lg">
                     Express your K-drama passion with our premium merchandise
                   </p>
                 </div>
-                <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
                   <video 
                     className="w-full h-full object-cover"
                     autoPlay 
@@ -168,9 +176,9 @@ const ShopSection = () => {
                     <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-black/30 to-transparent flex items-end">
-                    <div className="p-4 text-white">
-                      <p className="text-sm font-korean">
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-black/40 via-transparent to-transparent flex items-end">
+                    <div className="p-6 text-white w-full">
+                      <p className="text-sm md:text-base font-korean text-center">
                         👕 Premium T-shirts • 🎒 Stylish Backpacks • 🖼️ Custom Frames • ✨ And More!
                       </p>
                     </div>
