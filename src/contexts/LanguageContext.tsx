@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'en' | 'fr' | 'ko';
@@ -103,36 +102,36 @@ const translations = {
     'shop.addToCart': 'Ajouter au Panier',
     'shop.selectDesign': 'Sélectionner le Design',
     'shop.selectSize': 'Sélectionner la Taille',
-    'shop.cardsCollectionTitle': 'Cartes collection Kdramas',
-    'shop.cardsCollectionSubtitle': 'Je les aime tous!',
+    'shop.cardsCollectionTitle': 'Collection de Cartes K-Drama',
+    'shop.cardsCollectionSubtitle': 'Je les aime tous !',
     'shop.goodiesTitle': 'Goodies Stone Idol',
-    'shop.goodiesSubtitle': 'Choisis ton drama préféré parmi les plus populaires!',
+    'shop.goodiesSubtitle': 'Choisis ton drama préféré parmi les plus populaires !',
     
     // Products
     'product.toteBag': 'Sac Tote K-Drama',
-    'product.toteBagDesc': '100% coton, Taille: 38cm x 42cm',
+    'product.toteBagDesc': '100% coton, Taille : 38cm x 42cm',
     'product.tshirt': 'T-Shirt K-Drama',
     'product.tshirtDesc': 'Mélange coton et polyester',
     'product.backpack': 'Sac à Dos K-Drama',
-    'product.backpackDesc': '100% coton, Taille: 38cm x 40cm',
+    'product.backpackDesc': '100% coton, Taille : 38cm x 40cm',
     'product.pictureFrame': 'Cadre Photo K-Drama',
-    'product.pictureFrameDesc': 'Taille: 10cm x 15cm',
+    'product.pictureFrameDesc': 'Taille : 10cm x 15cm',
     'product.handkerchiefSet': 'Set de Mouchoirs en Tissu',
-    'product.handkerchiefSetDesc': '100% coton, Taille: 23cm x 23cm avec pochette de transport',
+    'product.handkerchiefSetDesc': '100% coton, Taille : 23cm x 23cm avec pochette de transport',
     
     // Footer
     'footer.quickLinks': 'Liens Rapides',
     'footer.customerService': 'Service Client',
-    'footer.connectWithUs': 'Connectez-vous avec Nous',
+    'footer.connectWithUs': 'Restez Connectés',
     'footer.returnPolicy': 'Politique de Retour',
     'footer.shippingInfo': 'Infos Livraison',
     'footer.sizeGuide': 'Guide des Tailles',
     'footer.faq': 'FAQ',
-    'footer.email': 'Email:',
-    'footer.tiktok': 'TikTok:',
-    'footer.company': 'Société:',
-    'footer.siren': 'SIREN:',
-    'footer.hosting': 'Hébergement:',
+    'footer.email': 'Email :',
+    'footer.tiktok': 'TikTok :',
+    'footer.company': 'Société :',
+    'footer.siren': 'SIREN :',
+    'footer.hosting': 'Hébergement :',
     'footer.copyright': '© 2024 Stone Idol. Tous droits réservés.',
     'footer.legalTerms': 'Mentions Légales',
     'footer.privacyPolicy': 'Politique de Confidentialité',
@@ -152,7 +151,7 @@ const translations = {
     'hero.description': '독점 서프라이즈 팩으로 좋아하는 케이드라마 순간들을 수집하세요.\n각 팩에는 엄선된 3장의 수집용 카드가 들어있습니다.',
     'hero.shopButton': '서프라이즈 팩 쇼핑',
     'hero.exploreButton': '굿즈 탐색',
-    'hero.cardsPerPack': '팩당 카드',
+    'hero.cardsPerPack': '팩당 카드 수',
     'hero.series': '케이드라마 시리즈',
     'hero.surprise': '서프라이즈',
     
@@ -186,7 +185,7 @@ const translations = {
     // Footer
     'footer.quickLinks': '빠른 링크',
     'footer.customerService': '고객 서비스',
-    'footer.connectWithUs': '연결하기',
+    'footer.connectWithUs': '소셜 미디어',
     'footer.returnPolicy': '반품 정책',
     'footer.shippingInfo': '배송 정보',
     'footer.sizeGuide': '사이즈 가이드',
