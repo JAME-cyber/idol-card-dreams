@@ -8,9 +8,10 @@ import { Loader2 } from 'lucide-react';
 interface CheckoutButtonProps {
   className?: string;
   children: React.ReactNode;
+  shippingCost?: number;
 }
 
-const CheckoutButton = ({ className, children }: CheckoutButtonProps) => {
+const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButtonProps) => {
   const { items, clearCart } = useCart();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
@@ -32,10 +33,23 @@ const CheckoutButton = ({ className, children }: CheckoutButtonProps) => {
       const { data: { user } } = await supabase.auth.getUser();
       
       console.log("Starting checkout process with items:", items);
+      console.log("Shipping cost:", shippingCost);
+
+      // Add shipping as a line item if there's a cost
+      const checkoutItems = [...items];
+      if (shippingCost > 0) {
+        checkoutItems.push({
+          id: 'shipping',
+          name: 'Shipping',
+          price: shippingCost,
+          quantity: 1,
+          image: ''
+        });
+      }
 
       const { data, error } = await supabase.functions.invoke('create-payment', {
         body: {
-          items: items,
+          items: checkoutItems,
           customerEmail: user?.email || null,
         },
       });
