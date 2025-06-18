@@ -45,6 +45,7 @@ const Header = () => {
             <div className="flex items-center space-x-4">
               <LanguageSelector />
               <button 
+                data-cart-button
                 onClick={() => setIsCartOpen(true)}
                 className="relative p-2 hover:bg-stone-powder/20 rounded-full transition-colors"
               >

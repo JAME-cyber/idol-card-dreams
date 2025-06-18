@@ -3,6 +3,7 @@ import React from 'react';
 import { X, Minus, Plus, Trash2 } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import CheckoutButton from './CheckoutButton';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -90,9 +91,9 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 <span className="text-lg font-bold font-poppins">Total:</span>
                 <span className="text-xl font-bold text-korean-gold">€{total.toFixed(2)}</span>
               </div>
-              <button className="korean-button w-full hover-glow">
+              <CheckoutButton className="korean-button w-full hover-glow">
                 Proceed to Checkout
-              </button>
+              </CheckoutButton>
             </div>
           )}
         </div>
