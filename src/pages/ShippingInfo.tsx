@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
@@ -17,7 +16,7 @@ const ShippingInfo = () => {
         },
         {
           title: "Délais de traitement",
-          content: "Les commandes sont traitées sous 1 à 3 jours ouvrés."
+          content: "Les commandes seront traitées sous 1 à 5 jours ouvrés."
         },
         {
           title: "Délais de livraison",
