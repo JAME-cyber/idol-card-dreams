@@ -60,7 +60,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.name}
         </h4>
         <p className="text-stone-black/70 mb-4 font-korean">
-          3 Cartes collection Kdramas à découvrir parmi plus de 200!
+          3 Cartes collection Stone Idol à découvrir parmi plus de 200!
         </p>
         <div className="flex items-center justify-center mb-4">
           <span className="text-3xl font-bold text-korean-gold font-poppins">
