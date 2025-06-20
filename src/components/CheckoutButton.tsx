@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
+import { Loader2, LogIn } from 'lucide-react';
 
 interface CheckoutButtonProps {
   className?: string;
@@ -29,9 +29,19 @@ const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButto
     setIsLoading(true);
 
     try {
-      // Get current user if authenticated
-      const { data: { user } } = await supabase.auth.getUser();
+      // Check if user is authenticated
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
       
+      if (authError || !user) {
+        toast({
+          title: "Authentication Required",
+          description: "Please sign in to proceed with checkout.",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
       console.log("Starting checkout process with items:", items);
       console.log("Shipping cost:", shippingCost);
 
@@ -50,12 +60,22 @@ const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButto
       const { data, error } = await supabase.functions.invoke('create-payment', {
         body: {
           items: checkoutItems,
-          customerEmail: user?.email || null,
         },
       });
 
       if (error) {
         console.error("Checkout error:", error);
+        
+        // Handle authentication errors specifically
+        if (error.message?.includes("Authentication") || error.message?.includes("Invalid authentication")) {
+          toast({
+            title: "Authentication Required",
+            description: "Please sign in to proceed with checkout.",
+            variant: "destructive",
+          });
+          return;
+        }
+        
         throw new Error(error.message || 'Failed to create checkout session');
       }
 
