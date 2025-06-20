@@ -48,7 +48,7 @@ const ShopSection = () => {
       id: 'picture-frame',
       name: t('product.pictureFrame'),
       description: t('product.pictureFrameDesc'),
-      price: 12.99,
+      price: 5.99,
       image: '/placeholder.svg',
       category: 'goodies',
       hasDesignOptions: true
