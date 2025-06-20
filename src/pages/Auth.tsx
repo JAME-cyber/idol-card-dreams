@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, LogIn, UserPlus, ArrowLeft } from 'lucide-react';
+import { Eye, EyeOff, LogIn, UserPlus, ArrowLeft, Mail } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
@@ -9,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -27,6 +27,40 @@ const Auth = () => {
     };
     checkUser();
   }, [navigate]);
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth?mode=recovery`,
+      });
+
+      if (error) {
+        toast({
+          title: "Reset Failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Reset Email Sent",
+        description: "Check your email for password reset instructions.",
+      });
+      setShowForgotPassword(false);
+    } catch (error) {
+      toast({
+        title: "Reset Failed",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -134,6 +168,77 @@ const Auth = () => {
       setIsLoading(false);
     }
   };
+
+  if (showForgotPassword) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-stone-powder via-white to-stone-beige/30">
+        <div className="container mx-auto px-4 py-8">
+          <div className="mb-8">
+            <Link
+              to="/"
+              className="inline-flex items-center text-stone-black hover:text-korean-gold transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Store
+            </Link>
+          </div>
+
+          <div className="max-w-md mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-stone-black mb-2 font-poppins">
+                  Reset Password
+                </h1>
+                <p className="text-stone-black/70 font-korean">
+                  Enter your email to receive reset instructions
+                </p>
+              </div>
+
+              <form onSubmit={handleForgotPassword} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-stone-black mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 border border-stone-beige rounded-lg focus:outline-none focus:ring-2 focus:ring-korean-gold/50 focus:border-korean-gold"
+                    placeholder="Enter your email"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full korean-button hover-glow"
+                >
+                  {isLoading ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <Mail className="w-4 h-4 mr-2" />
+                      Send Reset Email
+                    </>
+                  )}
+                </Button>
+              </form>
+
+              <div className="mt-6 text-center">
+                <button
+                  onClick={() => setShowForgotPassword(false)}
+                  className="text-korean-gold hover:underline font-medium"
+                >
+                  Back to Sign In
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-powder via-white to-stone-beige/30">
@@ -259,13 +364,33 @@ const Auth = () => {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-stone-black/60">
-                {isLogin ? "Don't have an account? " : "Already have an account? "}
-                <button
-                  onClick={() => setIsLogin(!isLogin)}
-                  className="text-korean-gold hover:underline font-medium"
-                >
-                  {isLogin ? 'Sign up' : 'Sign in'}
-                </button>
+                {isLogin ? (
+                  <>
+                    <button
+                      onClick={() => setShowForgotPassword(true)}
+                      className="text-korean-gold hover:underline font-medium mr-4"
+                    >
+                      Forgot password?
+                    </button>
+                    Don't have an account?{' '}
+                    <button
+                      onClick={() => setIsLogin(false)}
+                      className="text-korean-gold hover:underline font-medium"
+                    >
+                      Sign up
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    Already have an account?{' '}
+                    <button
+                      onClick={() => setIsLogin(true)}
+                      className="text-korean-gold hover:underline font-medium"
+                    >
+                      Sign in
+                    </button>
+                  </>
+                )}
               </p>
             </div>
           </div>
