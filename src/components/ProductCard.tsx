@@ -44,12 +44,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="korean-card p-8 group hover-glow">
       <div className="relative mb-6 overflow-hidden rounded-xl">
-        <img 
-          src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
-          alt={product.name}
-          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        {/* Two image placeholders side by side */}
+        <div className="grid grid-cols-2 gap-2">
+          <div className="relative overflow-hidden rounded-lg">
+            <img 
+              src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
+              alt={`${product.name} - Image 1`}
+              className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div className="relative overflow-hidden rounded-lg">
+            <img 
+              src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
+              alt={`${product.name} - Image 2`}
+              className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+        </div>
         <div className="absolute top-4 right-4 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
           {t('hero.surprise')}!
         </div>
