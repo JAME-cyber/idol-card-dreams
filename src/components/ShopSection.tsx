@@ -39,7 +39,7 @@ const ShopSection = () => {
       id: 'backpack',
       name: t('product.backpack'),
       description: t('product.backpackDesc'),
-      price: 39.99,
+      price: 35.99,
       image: '/placeholder.svg',
       category: 'goodies',
       hasDesignOptions: true
