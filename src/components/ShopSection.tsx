@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProductCard from './ProductCard';
@@ -57,7 +58,7 @@ const ShopSection = () => {
       id: 'handkerchief-set',
       name: t('product.handkerchiefSet'),
       description: t('product.handkerchiefSetDesc'),
-      price: 16.99,
+      price: 6.99,
       image: '/placeholder.svg',
       category: 'goodies',
       hasSpecialDesignOptions: true
