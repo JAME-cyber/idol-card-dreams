@@ -75,7 +75,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-korean text-stone-beige/60">
             <div className="space-y-1">
-              <p><strong>{t('footer.company')}</strong> DECOUVERTE LAURIE</p>
+              <p><strong>{t('footer.company')}</strong> DECOUVETTE LAURIE</p>
               <p><strong>{t('footer.siren')}</strong> 951853654</p>
               <p><strong>{t('footer.hosting')}</strong> HOSTINGER</p>
             </div>
