@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useCart } from '@/contexts/CartContext';
@@ -35,9 +34,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
   ];
 
   const handkerchiefOptions = [
-    'Mr Plankton', 'Crash Landing on You', 'When Life Gives You Tangerines',
-    'Twenty-one Twenty-five', 'Dear Hongrang', 'Itaewon Class', 'My Dearest',
-    'Alchemy of Souls', 'My Demon', 'Weak Hero Class', 'True Beauty'
+    '#kdramagirlspower', '#kdramalovers'
   ];
 
   const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
