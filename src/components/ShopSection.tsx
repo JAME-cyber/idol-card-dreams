@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProductCard from './ProductCard';
@@ -30,7 +29,7 @@ const ShopSection = () => {
       id: 't-shirt',
       name: t('product.tshirt'),
       description: t('product.tshirtDesc'),
-      price: 24.99,
+      price: 35.99,
       image: '/placeholder.svg',
       category: 'goodies',
       hasDesignOptions: true,
