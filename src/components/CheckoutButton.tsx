@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, LogIn } from 'lucide-react';
@@ -13,7 +15,9 @@ interface CheckoutButtonProps {
 
 const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButtonProps) => {
   const { items, clearCart } = useCart();
+  const { user, session } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleCheckout = async () => {
@@ -26,22 +30,20 @@ const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButto
       return;
     }
 
+    // Check if user is authenticated
+    if (!user || !session) {
+      toast({
+        title: "Sign In Required",
+        description: "Please sign in to continue with checkout.",
+        variant: "destructive",
+      });
+      navigate('/auth');
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      // Check if user is authenticated
-      const { data: { user }, error: authError } = await supabase.auth.getUser();
-      
-      if (authError || !user) {
-        toast({
-          title: "Authentication Required",
-          description: "Please sign in to proceed with checkout.",
-          variant: "destructive",
-        });
-        setIsLoading(false);
-        return;
-      }
-
       console.log("Starting checkout process with items:", items);
       console.log("Shipping cost:", shippingCost);
 
@@ -73,6 +75,7 @@ const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButto
             description: "Please sign in to proceed with checkout.",
             variant: "destructive",
           });
+          navigate('/auth');
           return;
         }
         
@@ -104,6 +107,19 @@ const CheckoutButton = ({ className, children, shippingCost = 0 }: CheckoutButto
       setIsLoading(false);
     }
   };
+
+  // Show sign-in prompt for unauthenticated users
+  if (!user) {
+    return (
+      <button
+        onClick={() => navigate('/auth')}
+        className={className}
+      >
+        <LogIn className="w-4 h-4 mr-2" />
+        Sign In to Checkout
+      </button>
+    );
+  }
 
   return (
     <button
