@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProductCard from './ProductCard';
@@ -11,7 +10,7 @@ const ShopSection = () => {
     id: 'surprise-pack',
     name: t('shop.surprisePackName'),
     description: t('shop.surprisePackDesc'),
-    price: 15.99,
+    price: 3.99,
     image: '/placeholder.svg',
     category: 'cards'
   };
