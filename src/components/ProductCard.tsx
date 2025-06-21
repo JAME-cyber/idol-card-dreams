@@ -18,12 +18,12 @@ interface ProductCardProps {
   product: Product;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const { t } = useLanguage();
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState("1");
 
-  const handleAddToCart = () => {
+  const handleAddToCart = React.useCallback(() => {
     const selectedQuantity = parseInt(quantity);
     
     for (let i = 0; i < selectedQuantity; i++) {
@@ -39,7 +39,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       title: "Added to cart!",
       description: `${selectedQuantity} x ${product.name} has been added to your cart.`,
     });
-  };
+  }, [product, quantity, addItem]);
 
   return (
     <div className="korean-card p-8 group hover-glow">
@@ -51,6 +51,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
               alt={`${product.name} - Image 1`}
               className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
@@ -59,6 +60,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
               alt={`${product.name} - Image 2`}
               className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
@@ -106,6 +108,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
     </div>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';
 
 export default ProductCard;
