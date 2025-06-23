@@ -9,8 +9,10 @@ import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { Suspense, lazy } from "react";
 
-// Lazy loading optimisé des pages
-const Index = lazy(() => import("./pages/Index"));
+// Import direct pour la page principale pour éviter les problèmes de lazy loading
+import Index from "./pages/Index";
+
+// Lazy loading pour les autres pages
 const Auth = lazy(() => import("./pages/Auth"));
 const ReturnPolicy = lazy(() => import("./pages/ReturnPolicy"));
 const SizeGuide = lazy(() => import("./pages/SizeGuide"));
@@ -35,6 +37,7 @@ const queryClient = new QueryClient({
     queries: {
       staleTime: 5 * 60 * 1000, // 5 minutes
       gcTime: 10 * 60 * 1000, // 10 minutes (was cacheTime)
+      retry: 1, // Réduire les tentatives pour éviter les boucles
     },
   },
 });
@@ -48,19 +51,49 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <Suspense fallback={<PageFallback />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/auth" element={<Auth />} />
-                  <Route path="/return-policy" element={<ReturnPolicy />} />
-                  <Route path="/size-guide" element={<SizeGuide />} />
-                  <Route path="/shipping-info" element={<ShippingInfo />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/checkout/success" element={<CheckoutSuccess />} />
-                  <Route path="/checkout/cancel" element={<CheckoutCancel />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/auth" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <Auth />
+                  </Suspense>
+                } />
+                <Route path="/return-policy" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <ReturnPolicy />
+                  </Suspense>
+                } />
+                <Route path="/size-guide" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <SizeGuide />
+                  </Suspense>
+                } />
+                <Route path="/shipping-info" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <ShippingInfo />
+                  </Suspense>
+                } />
+                <Route path="/faq" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <FAQ />
+                  </Suspense>
+                } />
+                <Route path="/checkout/success" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <CheckoutSuccess />
+                  </Suspense>
+                } />
+                <Route path="/checkout/cancel" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <CheckoutCancel />
+                  </Suspense>
+                } />
+                <Route path="*" element={
+                  <Suspense fallback={<PageFallback />}>
+                    <NotFound />
+                  </Suspense>
+                } />
+              </Routes>
             </BrowserRouter>
           </TooltipProvider>
         </CartProvider>

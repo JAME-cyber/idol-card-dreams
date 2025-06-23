@@ -2,10 +2,8 @@
 import React, { Suspense } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
-// Lazy loading des sections pour réduire le bundle initial
-const HeroSection = React.lazy(() => import('../components/HeroSection'));
-const ShopSection = React.lazy(() => import('../components/ShopSection'));
+import HeroSection from '../components/HeroSection';
+import ShopSection from '../components/ShopSection';
 
 const SectionFallback = () => (
   <div className="w-full h-64 bg-stone-beige/10 animate-pulse rounded-xl"></div>
@@ -15,7 +13,7 @@ const Index = React.memo(() => {
   return (
     <div className="min-h-screen">
       <Header />
-      {/* Banner Image avec lazy loading */}
+      {/* Banner Image avec lazy loading et gestion d'erreur */}
       <div className="w-full">
         <img 
           src="/lovable-uploads/f34ed131-a6b0-4be7-8028-7e53cc3a1898.png" 
@@ -23,6 +21,10 @@ const Index = React.memo(() => {
           className="w-full h-auto object-cover"
           loading="lazy"
           decoding="async"
+          onError={(e) => {
+            console.log('Banner image failed to load');
+            e.currentTarget.style.display = 'none';
+          }}
         />
       </div>
       <Suspense fallback={<SectionFallback />}>
