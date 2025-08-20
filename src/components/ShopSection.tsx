@@ -45,12 +45,13 @@ const ShopSection = () => {
     },
     {
       id: 'picture-frame',
-      name: t('product.pictureFrame'),
-      description: t('product.pictureFrameDesc'),
-      price: 5.99,
+      name: t('product.tshirt'),
+      description: t('product.tshirtDesc'),
+      price: 24.99,
       image: '/placeholder.svg',
       category: 'goodies',
-      hasDesignOptions: true
+      hasDesignOptions: true,
+      hasSizeOptions: true
     },
     {
       id: 'handkerchief-set',

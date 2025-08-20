@@ -44,7 +44,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
       'keychain': '/lovable-uploads/cb7a13f6-c443-42bd-aac9-1cb9b52f2e67.png',
       'badge': '/lovable-uploads/4902926d-b6ae-4d9c-9502-65c796083e49.png',
       'backpack': '/lovable-uploads/7c02c0ae-eeb5-4faa-b02a-06fbaf2a7532.png',
-      'picture-frame': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop',
+      'picture-frame': '/lovable-uploads/c8270c71-24ae-4551-a109-d1b9d549684a.png',
       'handkerchief-set': 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=300&fit=crop'
     };
     return imageMap[productId as keyof typeof imageMap] || '/placeholder.svg';
