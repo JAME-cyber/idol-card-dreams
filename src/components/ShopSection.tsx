@@ -17,10 +17,10 @@ const ShopSection = () => {
 
   const goodiesProducts = [
     {
-      id: 'tote-bag',
-      name: t('product.toteBag'),
-      description: t('product.toteBagDesc'),
-      price: 29.99,
+      id: 'keychain',
+      name: t('product.keychain'),
+      description: t('product.keychainDesc'),
+      price: 8.99,
       image: '/placeholder.svg',
       category: 'goodies',
       hasDesignOptions: true

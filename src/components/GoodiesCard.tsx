@@ -41,7 +41,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
 
   const getImageForProduct = (productId: string) => {
     const imageMap = {
-      'tote-bag': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop',
+      'keychain': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop',
       't-shirt': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
       'backpack': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop',
       'picture-frame': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop',
