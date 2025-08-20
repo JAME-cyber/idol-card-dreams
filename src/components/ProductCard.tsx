@@ -31,7 +31,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         id: `${product.id}-${Date.now()}-${i}`,
         name: product.name,
         price: product.price,
-        image: "/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png"
+        image: "/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png"
       });
     }
     
@@ -48,7 +48,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         <div className="grid grid-cols-2 gap-2">
           <div className="relative overflow-hidden rounded-lg">
             <img 
-              src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
+              src="/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png" 
               alt={`${product.name} - Image 1`}
               className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
               loading="lazy"
@@ -57,7 +57,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
           </div>
           <div className="relative overflow-hidden rounded-lg">
             <img 
-              src="/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png" 
+              src="/lovable-uploads/e0b8ae8e-4081-44c3-bc6c-080fe7a78ac5.png" 
               alt={`${product.name} - Image 2`}
               className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
               loading="lazy"
