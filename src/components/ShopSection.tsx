@@ -26,14 +26,13 @@ const ShopSection = () => {
       hasDesignOptions: true
     },
     {
-      id: 't-shirt',
-      name: t('product.tshirt'),
-      description: t('product.tshirtDesc'),
-      price: 35.99,
+      id: 'badge',
+      name: t('product.badge'),
+      description: t('product.badgeDesc'),
+      price: 4.99,
       image: '/placeholder.svg',
       category: 'goodies',
-      hasDesignOptions: true,
-      hasSizeOptions: true
+      hasDesignOptions: true
     },
     {
       id: 'backpack',
@@ -167,7 +166,7 @@ const ShopSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-black/40 via-transparent to-transparent flex items-end">
                     <div className="p-6 text-white w-full">
                       <p className="text-sm md:text-base font-korean text-center">
-                        👕 Premium T-shirts • 🎒 Stylish Backpacks • 🖼️ Custom Frames • ✨ And More!
+                        🎒 Stylish Backpacks • 🏅 Premium Badges • 🖼️ Custom Frames • ✨ And More!
                       </p>
                     </div>
                   </div>
