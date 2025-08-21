@@ -134,10 +134,23 @@ const ShopSection = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {goodiesProducts.map((product) => (
               <GoodiesCard key={product.id} product={product} />
             ))}
+          </div>
+          
+          {/* Characters List Section */}
+          <div className="mb-16 max-w-4xl mx-auto">
+            <div className="korean-card p-6 bg-gradient-to-br from-stone-powder/10 via-white to-stone-lavender/5 border-2 border-korean-gold/20">
+              <h4 className="text-xl font-bold text-stone-black mb-4 font-snap">
+                * Personnages disponibles pour les badges, sacs et T-shirts
+              </h4>
+              <div className="text-stone-black/70 font-korean">
+                {/* Contenu à compléter plus tard */}
+                <p className="italic">Liste à compléter...</p>
+              </div>
+            </div>
           </div>
           
           {/* Stone Idol Goodies Ad Video */}
