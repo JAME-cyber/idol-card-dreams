@@ -40,7 +40,7 @@ const translations = {
     'shop.selectDesign': 'Select Design',
     'shop.selectSize': 'Select Size',
     'shop.cardsCollectionTitle': 'Stone Idol Collection cards',
-    'shop.cardsCollectionSubtitle': 'ils ont tous fait partie de nos vies à un moment donné',
+    'shop.cardsCollectionSubtitle': 'They all became part of our lives at some point',
     'shop.goodiesTitle': 'Stone Idol Goodies',
     'shop.goodiesSubtitle': 'Choose your favorite drama among the most popular ones!',
     
@@ -103,7 +103,7 @@ const translations = {
     'shop.selectDesign': 'Sélectionner le Design',
     'shop.selectSize': 'Sélectionner la Taille',
     'shop.cardsCollectionTitle': 'Cartes de Collection Stone Idol',
-    'shop.cardsCollectionSubtitle': 'Je les aime tous !',
+    'shop.cardsCollectionSubtitle': 'Ils ont tous fait partie de nos vies à un moment donné',
     'shop.goodiesTitle': 'Goodies Stone Idol',
     'shop.goodiesSubtitle': 'Choisis ton drama préféré parmi les plus populaires !',
     
