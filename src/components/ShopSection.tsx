@@ -55,12 +55,12 @@ const ShopSection = () => {
     },
     {
       id: 'handkerchief-set',
-      name: t('product.handkerchiefSet'),
-      description: t('product.handkerchiefSetDesc'),
-      price: 6.99,
+      name: 'Stone Idol Tote bag',
+      description: 'Stylish tote bag with K-drama inspired designs',
+      price: 19.99,
       image: '/placeholder.svg',
       category: 'goodies',
-      hasSpecialDesignOptions: true
+      hasDesignOptions: true
     }
   ];
 
