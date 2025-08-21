@@ -40,7 +40,7 @@ const translations = {
     'shop.selectDesign': 'Select Design',
     'shop.selectSize': 'Select Size',
     'shop.cardsCollectionTitle': 'Stone Idol Collection cards',
-    'shop.cardsCollectionSubtitle': 'I love them all!',
+    'shop.cardsCollectionSubtitle': 'ils ont tous fait partie de nos vies à un moment donné',
     'shop.goodiesTitle': 'Stone Idol Goodies',
     'shop.goodiesSubtitle': 'Choose your favorite drama among the most popular ones!',
     
