@@ -27,10 +27,6 @@ const HeroSection = () => {
         <p className="text-lg md:text-xl text-stone-black/80 mb-6 font-snap italic">
           Site en cours de construction
         </p>
-        
-        <p className="text-xl md:text-2xl text-stone-black/70 mb-8 font-snap leading-relaxed">
-          inspirés des Séries Coréennes
-        </p>
       </div>
     </section>
   );
