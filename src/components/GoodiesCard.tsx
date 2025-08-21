@@ -119,6 +119,11 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
             <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
               Design:
             </label>
+            {product.id === 'keychain' && (
+              <p className="text-xs text-stone-black/60 mb-2 font-korean italic">
+                Choisis ton/tes personnages parmi la liste disponible*
+              </p>
+            )}
             {product.id === 'keychain' ? (
               <Select value={selectedDesign} onValueChange={setSelectedDesign}>
                 <SelectTrigger className="w-full bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors">
