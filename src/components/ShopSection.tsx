@@ -58,7 +58,7 @@ const ShopSection = () => {
       name: 'Stone Idol Tote bag',
       description: 'Stylish tote bag with K-drama inspired designs',
       price: 19.99,
-      image: '/placeholder.svg',
+      image: '/lovable-uploads/9179dd04-6fb7-46b6-a661-a6f0fed3db28.png',
       category: 'goodies',
       hasDesignOptions: true
     }
