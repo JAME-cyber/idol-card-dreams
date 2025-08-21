@@ -10,7 +10,7 @@ const ShopSection = () => {
     id: 'surprise-pack',
     name: t('shop.surprisePackName'),
     description: t('shop.surprisePackDesc'),
-    price: 3.99,
+    price: 5.99,
     image: '/placeholder.svg',
     category: 'cards'
   };
