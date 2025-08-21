@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from '@/hooks/use-toast';
 
@@ -21,6 +22,7 @@ interface GoodiesCardProps {
 
 const GoodiesCard = ({ product }: GoodiesCardProps) => {
   const [selectedDesign, setSelectedDesign] = useState('');
+  const [customDesign, setCustomDesign] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const { addItem } = useCart();
 
@@ -53,10 +55,11 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
   const handleAddToCart = () => {
     // Check if required options are selected
     if (product.hasDesignOptions || product.hasSpecialDesignOptions) {
-      if (!selectedDesign) {
+      const designValue = product.id === 'keychain' ? selectedDesign : customDesign;
+      if (!designValue) {
         toast({
-          title: "Please select a design",
-          description: "You need to choose a design before adding to cart.",
+          title: "Please enter a design",
+          description: "You need to choose or enter a design before adding to cart.",
           variant: "destructive"
         });
         return;
@@ -72,13 +75,15 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
       return;
     }
 
+    const finalDesign = product.id === 'keychain' ? selectedDesign : customDesign;
+
     addItem({
-      id: `${product.id}-${selectedDesign}-${selectedSize}`,
+      id: `${product.id}-${finalDesign}-${selectedSize}`,
       name: product.name,
       price: product.price,
       image: getImageForProduct(product.id),
       selectedOptions: {
-        design: selectedDesign || undefined,
+        design: finalDesign || undefined,
         size: selectedSize || undefined,
       }
     });
@@ -114,22 +119,32 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
             <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
               Design:
             </label>
-            <Select value={selectedDesign} onValueChange={setSelectedDesign}>
-              <SelectTrigger className="w-full bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors">
-                <SelectValue placeholder="Choose design" />
-              </SelectTrigger>
-              <SelectContent className="bg-white border-stone-black/20 shadow-lg max-h-60 overflow-y-auto z-50">
-                {(product.hasSpecialDesignOptions ? handkerchiefOptions : designOptions).map((option) => (
-                  <SelectItem 
-                    key={option} 
-                    value={option}
-                    className="hover:bg-stone-powder/20 cursor-pointer font-korean"
-                  >
-                    {option}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {product.id === 'keychain' ? (
+              <Select value={selectedDesign} onValueChange={setSelectedDesign}>
+                <SelectTrigger className="w-full bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors">
+                  <SelectValue placeholder="Choose design" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border-stone-black/20 shadow-lg max-h-60 overflow-y-auto z-50">
+                  {(product.hasSpecialDesignOptions ? handkerchiefOptions : designOptions).map((option) => (
+                    <SelectItem 
+                      key={option} 
+                      value={option}
+                      className="hover:bg-stone-powder/20 cursor-pointer font-korean"
+                    >
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : (
+              <Input
+                type="text"
+                placeholder="Enter your custom design"
+                value={customDesign}
+                onChange={(e) => setCustomDesign(e.target.value)}
+                className="w-full bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors font-korean"
+              />
+            )}
           </div>
         )}
 
