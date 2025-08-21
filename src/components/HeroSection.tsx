@@ -17,8 +17,12 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <h1 className="text-5xl md:text-7xl font-bold text-stone-black mb-4 font-snap">
-          Cartes collection et Goodies
+          Kculture
         </h1>
+        
+        <p className="text-lg md:text-xl text-stone-black/80 mb-6 font-snap italic">
+          Parce qu'ils ont fait partie de nos vies à un moment donné...
+        </p>
         
         <p className="text-lg md:text-xl text-stone-black/80 mb-6 font-snap italic">
           Site en cours de construction
