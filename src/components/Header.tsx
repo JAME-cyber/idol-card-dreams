@@ -25,7 +25,7 @@ const Header = () => {
       <header className="bg-white/90 backdrop-blur-sm border-b border-stone-beige/30 sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <Link to="/" className="text-2xl font-bold text-stone-black font-poppins hover:text-korean-gold transition-colors">
+            <Link to="/" className="text-2xl font-bold text-stone-black font-snap hover:text-korean-gold transition-colors">
               Stone Idol
             </Link>
           </div>

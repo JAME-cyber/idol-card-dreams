@@ -15,22 +15,22 @@ const Footer = () => {
           <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-stone-powder to-stone-lavender rounded-full flex items-center justify-center">
-                <span className="text-stone-black font-bold text-xl font-korean">SI</span>
+                <span className="text-stone-black font-bold text-xl font-snap">SI</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold font-poppins">{t('header.title')}</h3>
-                <p className="text-xs text-stone-beige/70 font-korean">{t('header.subtitle')}</p>
+                <h3 className="text-xl font-bold font-snap">{t('header.title')}</h3>
+                <p className="text-xs text-stone-beige/70 font-snap">{t('header.subtitle')}</p>
               </div>
             </div>
-            <p className="text-stone-beige/80 font-korean text-sm leading-relaxed">
+            <p className="text-stone-beige/80 font-snap text-sm leading-relaxed">
               Your premier destination for exclusive K-Drama collectible cards and premium merchandise.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.quickLinks')}</h4>
-            <ul className="space-y-2 font-korean">
+            <h4 className="text-lg font-semibold mb-4 font-snap">{t('footer.quickLinks')}</h4>
+            <ul className="space-y-2 font-snap">
               <li><Link to="/" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.home')}</Link></li>
               <li><a href="#shop" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('nav.shop')}</a></li>
               <li><a href="#surprise-packs" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('shop.surprisePacks')}</a></li>
@@ -40,8 +40,8 @@ const Footer = () => {
 
           {/* Customer Service */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.customerService')}</h4>
-            <ul className="space-y-2 font-korean text-sm">
+            <h4 className="text-lg font-semibold mb-4 font-snap">{t('footer.customerService')}</h4>
+            <ul className="space-y-2 font-snap text-sm">
               <li><Link to="/return-policy" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.returnPolicy')}</Link></li>
               <li><Link to="/shipping-info" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.shippingInfo')}</Link></li>
               <li><Link to="/size-guide" className="text-stone-beige/80 hover:text-korean-gold transition-colors">{t('footer.sizeGuide')}</Link></li>
@@ -51,8 +51,8 @@ const Footer = () => {
 
           {/* Contact & Social */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">{t('footer.connectWithUs')}</h4>
-            <div className="space-y-3 font-korean text-sm">
+            <h4 className="text-lg font-semibold mb-4 font-snap">{t('footer.connectWithUs')}</h4>
+            <div className="space-y-3 font-snap text-sm">
               <div>
                 <p className="text-stone-beige/60 mb-1">{t('footer.email')}</p>
                 <a href="mailto:stone.idol@yahoo.com" className="text-stone-beige hover:text-korean-gold transition-colors">
@@ -73,7 +73,7 @@ const Footer = () => {
       {/* Legal Footer */}
       <div className="border-t border-stone-beige/20">
         <div className="container mx-auto px-4 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-korean text-stone-beige/60">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-snap text-stone-beige/60">
             <div className="space-y-1">
               <p><strong>{t('footer.company')}</strong> DECOUVETTE LAURIE</p>
               <p><strong>{t('footer.siren')}</strong> 951853654</p>

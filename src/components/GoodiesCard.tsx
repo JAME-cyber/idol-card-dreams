@@ -106,20 +106,20 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
       </div>
       
       <div>
-        <h4 className="text-xl font-bold text-stone-black mb-2 font-poppins">
+        <h4 className="text-xl font-bold text-stone-black mb-2 font-snap">
           {product.name}
         </h4>
-        <p className="text-stone-black/70 mb-4 font-korean text-sm">
+        <p className="text-stone-black/70 mb-4 font-snap text-sm">
           {product.description}
         </p>
 
         {/* Design Options */}
         {(product.hasDesignOptions || product.hasSpecialDesignOptions) && (
           <div className="mb-4">
-            <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
+            <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
               Design:
             </label>
-            <p className="text-xs text-stone-black/60 mb-2 font-korean italic">
+            <p className="text-xs text-stone-black/60 mb-2 font-snap italic">
               Choisis ton/tes personnages parmi la liste disponible*
             </p>
             {product.id === 'keychain' ? (
@@ -132,7 +132,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
                     <SelectItem 
                       key={option} 
                       value={option}
-                      className="hover:bg-stone-powder/20 cursor-pointer font-korean"
+                      className="hover:bg-stone-powder/20 cursor-pointer font-snap"
                     >
                       {option}
                     </SelectItem>
@@ -145,7 +145,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
                 placeholder="Enter your custom design"
                 value={customDesign}
                 onChange={(e) => setCustomDesign(e.target.value)}
-                className="w-full bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors font-korean"
+                className="w-full bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors font-snap"
               />
             )}
           </div>
@@ -154,7 +154,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
         {/* Size Options */}
         {product.hasSizeOptions && (
           <div className="mb-4">
-            <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
+            <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
               Size:
             </label>
             <Select value={selectedSize} onValueChange={setSelectedSize}>
@@ -166,7 +166,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
                   <SelectItem 
                     key={size} 
                     value={size}
-                    className="hover:bg-stone-powder/20 cursor-pointer font-korean"
+                    className="hover:bg-stone-powder/20 cursor-pointer font-snap"
                   >
                     {size}
                   </SelectItem>
@@ -177,7 +177,7 @@ const GoodiesCard = ({ product }: GoodiesCardProps) => {
         )}
 
         <div className="flex items-center justify-between mb-4">
-          <span className="text-2xl font-bold text-korean-gold font-poppins">
+          <span className="text-2xl font-bold text-korean-gold font-snap">
             €{product.price}
           </span>
         </div>

@@ -71,21 +71,21 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       </div>
       
       <div className="text-center">
-        <h4 className="text-2xl font-bold text-stone-black mb-2 font-poppins">
+        <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
           {product.name}
         </h4>
-        <p className="text-stone-black/70 mb-4 font-korean">
+        <p className="text-stone-black/70 mb-4 font-snap">
           3 Cartes collection Stone Idol à découvrir parmi plus de 200!
         </p>
         <div className="flex items-center justify-center mb-4">
-          <span className="text-3xl font-bold text-korean-gold font-poppins">
+          <span className="text-3xl font-bold text-korean-gold font-snap">
             €{product.price}
           </span>
         </div>
         
         {/* Quantity Selector */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
+          <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
             Nombre de packs:
           </label>
           <Select value={quantity} onValueChange={setQuantity}>
