@@ -18,7 +18,7 @@ const Index = React.memo(() => {
         <img 
           src="/lovable-uploads/df261ee6-26f7-43c6-b60b-ecb31aa6f1d8.png" 
           alt="Stone Idol Banner"
-          className="w-full h-auto object-cover"
+          className="w-full h-auto max-h-[400px] object-cover"
           loading="lazy"
           decoding="async"
           onError={(e) => {
