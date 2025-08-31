@@ -16,7 +16,7 @@ const Index = React.memo(() => {
       {/* Banner Image avec lazy loading et gestion d'erreur */}
       <div className="w-full">
         <img 
-          src="/lovable-uploads/5f17cbb0-6cc2-437d-b6df-e6b5091cc25e.png" 
+          src="/lovable-uploads/485f0eaa-2152-4dc3-bfa7-1157fd649b06.png" 
           alt="Stone Idol Banner - What is your Safe Place?"
           className="w-full h-auto max-h-[400px] object-cover"
           loading="lazy"
