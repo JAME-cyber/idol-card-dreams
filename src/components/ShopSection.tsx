@@ -8,7 +8,7 @@ const ShopSection = () => {
   const products = [
     {
       id: 'custom-chibis',
-      name: 'Chibis personnalisés',
+      name: 'Chibibis personnalisés',
       description: 'Créez vos propres designs de chibis personnalisés',
       price: 24.99,
       image: '/placeholder.svg',
@@ -16,7 +16,7 @@ const ShopSection = () => {
     },
     {
       id: 'preprinted-chibis',
-      name: 'Chibibi préimprimés',
+      name: 'Chibibis préimprimés',
       description: 'Collection de chibibis avec designs pré-imprimés',
       price: 19.99,
       image: '/placeholder.svg',
