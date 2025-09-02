@@ -71,6 +71,7 @@ export default {
 				'korean-gold': '#d4af37',
 			},
 			fontFamily: {
+				'sans': ['Arial', 'sans-serif'],
 				'korean': ['Noto Sans KR', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
 				'snap': ['Snappy Service', 'cursive'],
