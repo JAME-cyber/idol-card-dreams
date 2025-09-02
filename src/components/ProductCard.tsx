@@ -85,25 +85,6 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
           </span>
         </div>
         
-        {/* Quantity Selector */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
-            Nombre de packs:
-          </label>
-          <Select value={quantity} onValueChange={setQuantity}>
-            <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
-              <SelectValue placeholder="Choisir la quantité" />
-            </SelectTrigger>
-            <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
-              {[1, 2, 3, 4, 5].map((num) => (
-                <SelectItem key={num} value={num.toString()} className="hover:bg-korean-gold/10">
-                  {num} pack{num > 1 ? 's' : ''}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
         {/* Custom options for Chibibis personnalisés and préimprimés */}
         {(product.id === 'custom-chibis' || product.id === 'preprinted-chibis') && (
           <>
