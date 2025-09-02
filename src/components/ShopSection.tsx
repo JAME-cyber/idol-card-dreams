@@ -34,7 +34,7 @@ const ShopSection = () => {
             </h3>
             <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
             <p className="section-subtitle font-snap">
-              Cadeaux personnalisés façon Chibibis "My Safe Place"
+              Que préfères-tu?
             </p>
           </div>
           
