@@ -22,6 +22,8 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const { t } = useLanguage();
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState("1");
+  const [characterCount, setCharacterCount] = useState("1");
+  const [supportType, setSupportType] = useState("papier-sans-cadre");
 
   const handleAddToCart = React.useCallback(() => {
     const selectedQuantity = parseInt(quantity);
@@ -101,6 +103,47 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             </SelectContent>
           </Select>
         </div>
+
+        {/* Custom options for Chibibis personnalisés */}
+        {product.id === 'custom-chibis' && (
+          <>
+            {/* Character Count Selector */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
+                Nombre de personnages:
+              </label>
+              <Select value={characterCount} onValueChange={setCharacterCount}>
+                <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
+                  <SelectValue placeholder="Choisir le nombre" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
+                  <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage</SelectItem>
+                  <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages</SelectItem>
+                  <SelectItem value="famille" className="hover:bg-korean-gold/10">Famille</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Support Type Selector */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
+                Support:
+              </label>
+              <Select value={supportType} onValueChange={setSupportType}>
+                <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
+                  <SelectValue placeholder="Choisir le support" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
+                  <SelectItem value="papier-sans-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 sans cadre</SelectItem>
+                  <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 avec cadre</SelectItem>
+                  <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">Tote Bag</SelectItem>
+                  <SelectItem value="backpack" className="hover:bg-korean-gold/10">Backpack</SelectItem>
+                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">T-shirt</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </>
+        )}
         
         <button onClick={handleAddToCart} className="korean-button w-full hover-glow">
           {t('shop.addToCart')}
