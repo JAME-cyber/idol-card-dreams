@@ -20,8 +20,11 @@ const HeroSection = () => {
         <p className="text-lg md:text-xl text-stone-black/80 mb-4 font-snap italic">
           Site en cours de construction
         </p>
-        <p className="text-base md:text-lg text-stone-black/70 mb-6 font-medium">
+        <p className="text-base md:text-lg text-stone-black/70 mb-4 font-medium">
           Cadeaux personnalisés façon Chibibis "My Safe Place"
+        </p>
+        <p className="text-sm md:text-base text-stone-black/60 mb-6 italic">
+          Pour être certain de faire plaisir...
         </p>
       </div>
     </section>
