@@ -104,8 +104,8 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
           </Select>
         </div>
 
-        {/* Custom options for Chibibis personnalisés */}
-        {product.id === 'custom-chibis' && (
+        {/* Custom options for Chibibis personnalisés and préimprimés */}
+        {(product.id === 'custom-chibis' || product.id === 'preprinted-chibis') && (
           <>
             {/* Character Count Selector */}
             <div className="mb-6">
