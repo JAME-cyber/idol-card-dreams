@@ -30,7 +30,7 @@ const ShopSection = () => {
         <div className="content-spacing">
           <div className="text-center mb-12">
             <h3 className="section-title font-snap">
-              {t('shop.title')}
+              Stone Idol Chibibis
             </h3>
             <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
             <p className="section-subtitle font-snap">
