@@ -56,6 +56,27 @@ const translations = {
     'product.handkerchiefSet': 'Fabric Handkerchief Set',
     'product.handkerchiefSetDesc': '100% cotton, Size: 23cm x 23cm with carrying pouch',
     
+    // Cart
+    'cart.title': 'Shopping Cart',
+    'cart.empty': 'Your cart is empty',
+    'cart.shipping': 'Shipping',
+    'cart.country': 'Destination Country',
+    'cart.calculate': 'Calculate',
+    'cart.subtotal': 'Subtotal',
+    'cart.total': 'Total',
+    'cart.freeShipping': 'Free Shipping!',
+    'cart.checkout': 'Proceed to Checkout',
+    
+    // Shipping Calculator
+    'shipping.title': 'Shipping Calculator',
+    'shipping.country': 'Destination Country',
+    'shipping.postalCode': 'Postal Code (optional)',
+    'shipping.calculate': 'Calculate',
+    'shipping.cost': 'Shipping Cost',
+    'shipping.free': 'Free Shipping!',
+    'shipping.emptyCart': 'Add items to cart to calculate shipping',
+    'shipping.deliveryTime': 'Estimated Delivery Time',
+    
     // Footer
     'footer.quickLinks': 'Quick Links',
     'footer.customerService': 'Customer Service',
@@ -119,6 +140,27 @@ const translations = {
     'product.handkerchiefSet': 'Set de Mouchoirs en Tissu',
     'product.handkerchiefSetDesc': '100% coton, Taille : 23cm x 23cm avec pochette de transport',
     
+    // Cart
+    'cart.title': 'Panier',
+    'cart.empty': 'Votre panier est vide',
+    'cart.shipping': 'Frais de livraison',
+    'cart.country': 'Pays de destination',
+    'cart.calculate': 'Calculer',
+    'cart.subtotal': 'Sous-total',
+    'cart.total': 'Total',
+    'cart.freeShipping': 'Livraison gratuite !',
+    'cart.checkout': 'Passer la commande',
+    
+    // Shipping Calculator
+    'shipping.title': 'Calculateur de Livraison',
+    'shipping.country': 'Pays de destination',
+    'shipping.postalCode': 'Code postal (optionnel)',
+    'shipping.calculate': 'Calculer',
+    'shipping.cost': 'Frais de livraison',
+    'shipping.free': 'Livraison gratuite !',
+    'shipping.emptyCart': 'Ajoutez des articles au panier pour calculer les frais de livraison',
+    'shipping.deliveryTime': 'Délai de livraison estimé',
+    
     // Footer
     'footer.quickLinks': 'Liens Rapides',
     'footer.customerService': 'Service Client',
@@ -181,6 +223,27 @@ const translations = {
     'product.pictureFrameDesc': '사이즈: 10cm x 15cm',
     'product.handkerchiefSet': '패브릭 손수건 세트',
     'product.handkerchiefSetDesc': '100% 코튼, 사이즈: 23cm x 23cm 휴대용 파우치 포함',
+    
+    // Cart
+    'cart.title': '장바구니',
+    'cart.empty': '장바구니가 비어있습니다',
+    'cart.shipping': '배송비',
+    'cart.country': '배송 국가',
+    'cart.calculate': '계산하기',
+    'cart.subtotal': '소계',
+    'cart.total': '총액',
+    'cart.freeShipping': '무료 배송!',
+    'cart.checkout': '결제하기',
+    
+    // Shipping Calculator
+    'shipping.title': '배송비 계산기',
+    'shipping.country': '배송 국가',
+    'shipping.postalCode': '우편번호 (선택사항)',
+    'shipping.calculate': '계산하기',
+    'shipping.cost': '배송비',
+    'shipping.free': '무료 배송!',
+    'shipping.emptyCart': '배송비 계산을 위해 장바구니에 상품을 추가해주세요',
+    'shipping.deliveryTime': '예상 배송 시간',
     
     // Footer
     'footer.quickLinks': '빠른 링크',

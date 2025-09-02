@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input';
 
 const ShippingCalculator = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const { total, itemCount } = useCart();
   const [selectedCountry, setSelectedCountry] = useState('');
   const [postalCode, setPostalCode] = useState('');
@@ -72,52 +72,6 @@ const ShippingCalculator = () => {
     setShippingCost(finalCost);
   };
 
-  const getText = (key: string) => {
-    const texts = {
-      title: {
-        fr: 'Calculateur de Livraison',
-        ko: '배송비 계산기',
-        en: 'Shipping Calculator'
-      },
-      country: {
-        fr: 'Pays de destination',
-        ko: '배송 국가',
-        en: 'Destination Country'
-      },
-      postalCode: {
-        fr: 'Code postal (optionnel)',
-        ko: '우편번호 (선택사항)',
-        en: 'Postal Code (optional)'
-      },
-      calculate: {
-        fr: 'Calculer',
-        ko: '계산하기',
-        en: 'Calculate'
-      },
-      shippingCost: {
-        fr: 'Frais de livraison',
-        ko: '배송비',
-        en: 'Shipping Cost'
-      },
-      freeShipping: {
-        fr: 'Livraison gratuite !',
-        ko: '무료 배송!',
-        en: 'Free Shipping!'
-      },
-      emptyCart: {
-        fr: 'Ajoutez des articles au panier pour calculer les frais de livraison',
-        ko: '배송비 계산을 위해 장바구니에 상품을 추가해주세요',
-        en: 'Add items to cart to calculate shipping'
-      },
-      deliveryTime: {
-        fr: 'Délai de livraison estimé',
-        ko: '예상 배송 시간',
-        en: 'Estimated Delivery Time'
-      }
-    };
-    return texts[key]?.[language] || texts[key]?.en || '';
-  };
-
   const getDeliveryTime = (zone: string) => {
     const times = {
       domestic: language === 'fr' ? '2-5 jours ouvrés' : language === 'ko' ? '영업일 2-5일' : '2-5 business days',
@@ -133,7 +87,7 @@ const ShippingCalculator = () => {
       <div className="flex items-center gap-3 mb-6">
         <Calculator className="w-6 h-6 text-korean-gold" />
         <h3 className="text-xl font-bold text-stone-black font-poppins">
-          {getText('title')}
+          {t('shipping.title')}
         </h3>
       </div>
 
@@ -141,14 +95,14 @@ const ShippingCalculator = () => {
         <div className="text-center py-8">
           <Package className="w-12 h-12 text-stone-black/30 mx-auto mb-4" />
           <p className="text-stone-black/60 font-korean">
-            {getText('emptyCart')}
+            {t('shipping.emptyCart')}
           </p>
         </div>
       ) : (
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
-              {getText('country')}
+              {t('shipping.country')}
             </label>
             <Select value={selectedCountry} onValueChange={setSelectedCountry}>
               <SelectTrigger className="w-full">
@@ -169,7 +123,7 @@ const ShippingCalculator = () => {
 
           <div>
             <label className="block text-sm font-medium text-stone-black mb-2 font-korean">
-              {getText('postalCode')}
+              {t('shipping.postalCode')}
             </label>
             <Input
               type="text"
@@ -185,17 +139,17 @@ const ShippingCalculator = () => {
             disabled={!selectedCountry}
             className="korean-button w-full hover-glow disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {getText('calculate')}
+            {t('shipping.calculate')}
           </button>
 
           {shippingCost !== null && selectedCountry && (
             <div className="bg-stone-beige/30 rounded-lg p-4 border-2 border-korean-gold/20">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-medium text-stone-black font-korean">
-                  {getText('shippingCost')}:
+                  {t('shipping.cost')}:
                 </span>
                 <span className="text-xl font-bold text-korean-gold">
-                  {shippingCost === 0 ? getText('freeShipping') : `€${shippingCost.toFixed(2)}`}
+                  {shippingCost === 0 ? t('shipping.free') : `€${shippingCost.toFixed(2)}`}
                 </span>
               </div>
               
@@ -204,7 +158,7 @@ const ShippingCalculator = () => {
                 const deliveryTime = country ? getDeliveryTime(country.zone) : '';
                 return deliveryTime && (
                   <div className="text-sm text-stone-black/70 font-korean">
-                    <span className="font-medium">{getText('deliveryTime')}:</span> {deliveryTime}
+                    <span className="font-medium">{t('shipping.deliveryTime')}:</span> {deliveryTime}
                   </div>
                 );
               })()}
