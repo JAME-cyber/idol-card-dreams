@@ -17,8 +17,11 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         
-        <p className="text-lg md:text-xl text-stone-black/80 mb-6 font-snap italic">
+        <p className="text-lg md:text-xl text-stone-black/80 mb-4 font-snap italic">
           Site en cours de construction
+        </p>
+        <p className="text-base md:text-lg text-stone-black/70 mb-6 font-medium">
+          Cadeaux personnalisés façon Chibibis "My Safe Place"
         </p>
       </div>
     </section>
