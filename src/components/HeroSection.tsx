@@ -26,6 +26,20 @@ const HeroSection = () => {
         <p className="text-sm md:text-base text-stone-black/60 mb-6 italic">
           Pour être certain de faire plaisir...
         </p>
+        
+        {/* Photo placeholder */}
+        <div className="mb-6 flex justify-center">
+          <div className="w-64 h-48 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
+            <div className="text-center text-stone-black/50">
+              <div className="w-12 h-12 mx-auto mb-2 opacity-30">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                </svg>
+              </div>
+              <p className="text-sm font-snap">Photo à venir</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
