@@ -82,30 +82,43 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
         </DialogHeader>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
-          {collections.map((collection) => (
-            <div key={collection.id} className="korean-card p-6">
-              <h3 className="text-xl font-bold text-stone-black mb-2 font-snap text-center">
-                {collection.name}
-              </h3>
-              <p className="text-stone-black/70 text-sm mb-4 text-center font-snap">
-                {collection.description}
-              </p>
-              
-              <div className="grid grid-cols-2 gap-2">
-                {collection.images.map((image, index) => (
-                  <div key={index} className="relative overflow-hidden rounded-lg group">
-                    <img
-                      src={image}
-                      alt={`${collection.name} - ${index + 1}`}
-                      className="w-full h-24 object-cover group-hover:scale-110 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                ))}
+          {collections.map((collection, collectionIndex) => {
+            // Calculer le numéro de départ pour cette collection
+            const startNumber = collections.slice(0, collectionIndex).reduce((sum, col) => sum + col.images.length, 0) + 1;
+            
+            return (
+              <div key={collection.id} className="korean-card p-6">
+                <h3 className="text-xl font-bold text-stone-black mb-2 font-snap text-center">
+                  {collection.name}
+                </h3>
+                <p className="text-stone-black/70 text-sm mb-4 text-center font-snap">
+                  {collection.description}
+                </p>
+                
+                <div className="grid grid-cols-2 gap-3">
+                  {collection.images.map((image, index) => {
+                    const imageNumber = startNumber + index;
+                    return (
+                      <div key={index} className="flex flex-col items-center">
+                        <div className="relative overflow-hidden rounded-lg group w-full">
+                          <img
+                            src={image}
+                            alt={`${collection.name} - ${imageNumber}`}
+                            className="w-full h-24 object-cover group-hover:scale-110 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <div className="mt-2 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
+                          #{imageNumber}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         <div className="text-center p-4 border-t border-korean-gold/20">
