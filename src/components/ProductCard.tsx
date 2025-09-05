@@ -27,20 +27,10 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [supportType, setSupportType] = useState("papier-sans-cadre");
   const [tshirtSize, setTshirtSize] = useState("M");
 
-  const getSupportPrice = React.useCallback(() => {
-    switch (supportType) {
-      case "papier-sans-cadre": return 0.00;
-      case "papier-avec-cadre": return 3.00;
-      case "tote-bag": return 6.00;
-      case "backpack": return 6.00;
-      case "t-shirt": return 15.00;
-      default: return 0.00;
-    }
-  }, [supportType]);
-
   const getPrice = React.useCallback(() => {
     let basePrice = product.price;
     
+    // Calcul du prix de base selon le nombre de personnages
     if (product.id === 'custom-chibis') {
       switch (characterCount) {
         case "1": basePrice = 19.99; break;
@@ -59,7 +49,17 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       }
     }
     
-    const supportPrice = getSupportPrice();
+    // Calcul du prix du support
+    let supportPrice = 0;
+    switch (supportType) {
+      case "papier-sans-cadre": supportPrice = 0.00; break;
+      case "papier-avec-cadre": supportPrice = 3.00; break;
+      case "tote-bag": supportPrice = 6.00; break;
+      case "backpack": supportPrice = 6.00; break;
+      case "t-shirt": supportPrice = 15.00; break;
+      default: supportPrice = 0.00;
+    }
+    
     return basePrice + supportPrice;
   }, [product.id, product.price, characterCount, supportType]);
 
