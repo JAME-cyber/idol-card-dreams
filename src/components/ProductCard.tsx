@@ -26,14 +26,28 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [characterCount, setCharacterCount] = useState("1");
   const [supportType, setSupportType] = useState("papier-sans-cadre");
 
+  const getPrice = React.useCallback(() => {
+    if (product.id === 'custom-chibis') {
+      switch (characterCount) {
+        case "1": return 19.99;
+        case "2": return 24.99;
+        case "3": return 29.99;
+        case "famille": return 34.99;
+        default: return product.price;
+      }
+    }
+    return product.price;
+  }, [product.id, product.price, characterCount]);
+
   const handleAddToCart = React.useCallback(() => {
     const selectedQuantity = parseInt(quantity);
+    const finalPrice = getPrice();
     
     for (let i = 0; i < selectedQuantity; i++) {
       addItem({
         id: `${product.id}-${Date.now()}-${i}`,
         name: product.name,
-        price: product.price,
+        price: finalPrice,
         image: "/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png"
       });
     }
@@ -42,7 +56,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       title: "Added to cart!",
       description: `${selectedQuantity} x ${product.name} has been added to your cart.`,
     });
-  }, [product, quantity, addItem]);
+  }, [product, quantity, addItem, getPrice]);
 
   return (
     <div className="korean-card p-8 group hover-glow">
@@ -82,7 +96,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         </p>
         <div className="flex items-center justify-center mb-4">
           <span className="text-3xl font-bold text-korean-gold font-snap">
-            À partir de €{product.price}
+            {product.id === 'custom-chibis' ? `€${getPrice()}` : `À partir de €${product.price}`}
           </span>
         </div>
         
@@ -99,9 +113,20 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   <SelectValue placeholder="Choisir le nombre" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
-                  <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage</SelectItem>
-                  <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages</SelectItem>
-                  <SelectItem value="famille" className="hover:bg-korean-gold/10">Famille</SelectItem>
+                  {product.id === 'custom-chibis' ? (
+                    <>
+                      <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage (19.99€)</SelectItem>
+                      <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages (24.99€)</SelectItem>
+                      <SelectItem value="3" className="hover:bg-korean-gold/10">3 personnages (29.99€)</SelectItem>
+                      <SelectItem value="famille" className="hover:bg-korean-gold/10">Famille (max. 5 personnages: 34.99€)</SelectItem>
+                    </>
+                  ) : (
+                    <>
+                      <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage</SelectItem>
+                      <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages</SelectItem>
+                      <SelectItem value="famille" className="hover:bg-korean-gold/10">Famille</SelectItem>
+                    </>
+                  )}
                 </SelectContent>
               </Select>
             </div>
