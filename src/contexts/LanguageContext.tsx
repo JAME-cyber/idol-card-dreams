@@ -96,6 +96,13 @@ const translations = {
     'cart.freeShipping': 'Free Shipping!',
     'cart.checkout': 'Proceed to Checkout',
     
+    // Upload
+    'upload.addFile': 'Add photo or PDF',
+    'upload.success': 'File uploaded!',
+    'upload.uploaded': 'has been uploaded successfully.',
+    'upload.error': 'Upload error',
+    'upload.invalidFormat': 'Please select an image (JPG, PNG) or PDF file.',
+    
     // Shipping Calculator
     'shipping.title': 'Shipping Calculator',
     'shipping.country': 'Destination Country',
@@ -210,6 +217,13 @@ const translations = {
     'cart.freeShipping': 'Livraison gratuite !',
     'cart.checkout': 'Passer la commande',
     
+    // Upload
+    'upload.addFile': 'Ajouter photo ou PDF',
+    'upload.success': 'Fichier téléchargé !',
+    'upload.uploaded': 'a été téléchargé avec succès.',
+    'upload.error': 'Erreur de téléchargement',
+    'upload.invalidFormat': 'Veuillez sélectionner une image (JPG, PNG) ou un fichier PDF.',
+    
     // Shipping Calculator
     'shipping.title': 'Calculateur de Livraison',
     'shipping.country': 'Pays de destination',
@@ -321,6 +335,13 @@ const translations = {
     'cart.total': '총액',
     'cart.freeShipping': '무료 배송!',
     'cart.checkout': '결제하기',
+    
+    // Upload
+    'upload.addFile': '사진 또는 PDF 추가',
+    'upload.success': '파일 업로드 완료!',
+    'upload.uploaded': '성공적으로 업로드되었습니다.',
+    'upload.error': '업로드 오류',
+    'upload.invalidFormat': '이미지 파일(JPG, PNG) 또는 PDF 파일을 선택해주세요.',
     
     // Shipping Calculator
     'shipping.title': '배송비 계산기',

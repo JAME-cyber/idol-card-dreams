@@ -1,9 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Upload } from 'lucide-react';
 import CollectionModal from './CollectionModal';
 
 interface Product {
@@ -26,6 +27,33 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [characterCount, setCharacterCount] = useState("1");
   const [supportType, setSupportType] = useState("papier-sans-cadre");
   const [tshirtSize, setTshirtSize] = useState("M");
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUpload = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Vérifier si c'est une image ou un PDF
+      const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+      if (validTypes.includes(file.type)) {
+        setUploadedFile(file);
+        toast({
+          title: t('upload.success'),
+          description: `${file.name} ${t('upload.uploaded')}`,
+        });
+      } else {
+        toast({
+          title: t('upload.error'),
+          description: t('upload.invalidFormat'),
+          variant: "destructive",
+        });
+      }
+    }
+  }, [t]);
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
+  };
 
   const getPrice = React.useCallback(() => {
     let basePrice = product.price;
@@ -110,6 +138,24 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         </div>
         <div className="absolute top-4 right-4 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
           {t('hero.surprise')}!
+        </div>
+        
+        {/* Upload File Icon */}
+        <div className="absolute top-4 left-4">
+          <button
+            onClick={triggerFileUpload}
+            className="bg-white/90 hover:bg-white text-stone-black p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+            title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
+          >
+            <Upload size={20} className={uploadedFile ? "text-korean-gold" : "text-stone-black"} />
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*,.pdf"
+            onChange={handleFileUpload}
+            className="hidden"
+          />
         </div>
       </div>
       
