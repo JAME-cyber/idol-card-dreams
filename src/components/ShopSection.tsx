@@ -8,16 +8,16 @@ const ShopSection = () => {
   const products = [
     {
       id: 'custom-chibis',
-      name: 'Chibibis personnalisés',
-      description: 'Choisis ta Safe Place',
+      name: t('shop.customChibis'),
+      description: t('shop.customChibisDesc'),
       price: 19.99,
       image: '/placeholder.svg',
       category: 'custom'
     },
     {
       id: 'preprinted-chibis',
-      name: 'Chibibis pré-dessinés',
-      description: 'Découvre nos collections',
+      name: t('shop.preprinted'),
+      description: t('shop.preprintedDesc'),
       price: 9.99,
       image: '/placeholder.svg',
       category: 'preprinted'
@@ -30,11 +30,11 @@ const ShopSection = () => {
         <div className="content-spacing">
           <div className="text-center mb-12">
             <h3 className="section-title font-snap">
-              Stone Idol Chibibis
+              {t('shop.title')}
             </h3>
             <div className="w-16 h-0.5 bg-korean-gold mx-auto mb-4"></div>
             <p className="section-subtitle font-snap">
-              Que préfères-tu?
+              {t('shop.subtitle')}
             </p>
           </div>
           

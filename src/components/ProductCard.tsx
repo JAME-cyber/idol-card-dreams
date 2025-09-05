@@ -79,8 +79,8 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     }
     
     toast({
-      title: "Added to cart!",
-      description: `${selectedQuantity} x ${product.name} has been added to your cart.`,
+      title: t('cart.itemAdded'),
+      description: `${selectedQuantity} x ${product.name} ${t('cart.addedToCart')}`,
     });
   }, [product, quantity, addItem, getPrice, supportType, tshirtSize]);
 
@@ -122,7 +122,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         </p>
         <div className="flex items-center justify-center mb-4">
           <span className="text-3xl font-bold text-korean-gold font-snap">
-            {(product.id === 'custom-chibis' || product.id === 'preprinted-chibis') ? `€${getPrice()}` : `À partir de €${product.price}`}
+            {(product.id === 'custom-chibis' || product.id === 'preprinted-chibis') ? `€${getPrice()}` : `${t('shop.startingFrom')}${product.price}`}
           </span>
         </div>
         
@@ -132,26 +132,26 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             {/* Character Count Selector */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
-                Nombre de personnages:
+                {t('shop.charactersLabel')}
               </label>
               <Select value={characterCount} onValueChange={setCharacterCount}>
                 <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
-                  <SelectValue placeholder="Choisir le nombre" />
+                  <SelectValue placeholder={t('shop.chooseNumber')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
                   {product.id === 'custom-chibis' ? (
                     <>
-                      <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage (19.99€)</SelectItem>
-                      <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages (24.99€)</SelectItem>
-                      <SelectItem value="3" className="hover:bg-korean-gold/10">3 personnages (29.99€)</SelectItem>
-                      <SelectItem value="famille" className="hover:bg-korean-gold/10">Famille (max. 5 personnages: 34.99€)</SelectItem>
+                      <SelectItem value="1" className="hover:bg-korean-gold/10">{t('shop.character1')} (19.99€)</SelectItem>
+                      <SelectItem value="2" className="hover:bg-korean-gold/10">{t('shop.characters2')} (24.99€)</SelectItem>
+                      <SelectItem value="3" className="hover:bg-korean-gold/10">{t('shop.characters3')} (29.99€)</SelectItem>
+                      <SelectItem value="famille" className="hover:bg-korean-gold/10">{t('shop.family')} (34.99€)</SelectItem>
                     </>
                   ) : (
                     <>
-                      <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage (9.99€)</SelectItem>
-                      <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages (15.99€)</SelectItem>
-                      <SelectItem value="3" className="hover:bg-korean-gold/10">3 personnages (19.99€)</SelectItem>
-                      <SelectItem value="4" className="hover:bg-korean-gold/10">4 personnages (22.99€)</SelectItem>
+                      <SelectItem value="1" className="hover:bg-korean-gold/10">{t('shop.character1')} (9.99€)</SelectItem>
+                      <SelectItem value="2" className="hover:bg-korean-gold/10">{t('shop.characters2')} (15.99€)</SelectItem>
+                      <SelectItem value="3" className="hover:bg-korean-gold/10">{t('shop.characters3')} (19.99€)</SelectItem>
+                      <SelectItem value="4" className="hover:bg-korean-gold/10">{t('shop.characters4')} (22.99€)</SelectItem>
                     </>
                   )}
                 </SelectContent>
@@ -161,18 +161,18 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             {/* Support Type Selector */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
-                Support:
+                {t('shop.supportLabel')}
               </label>
               <Select value={supportType} onValueChange={setSupportType}>
                 <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
-                  <SelectValue placeholder="Choisir le support" />
+                  <SelectValue placeholder={t('shop.chooseSupport')} />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
-                  <SelectItem value="papier-sans-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 sans cadre (+0.00€)</SelectItem>
-                  <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 avec cadre (+3.00€)</SelectItem>
-                  <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">Tote Bag (+6.00€)</SelectItem>
-                  <SelectItem value="backpack" className="hover:bg-korean-gold/10">Backpack (+6.00€)</SelectItem>
-                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">T-shirt (+15.00€)</SelectItem>
+                  <SelectItem value="papier-sans-cadre" className="hover:bg-korean-gold/10">{t('shop.paperNoFrame')} (+0.00€)</SelectItem>
+                  <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">{t('shop.paperWithFrame')} (+3.00€)</SelectItem>
+                  <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">{t('shop.toteBag')} (+6.00€)</SelectItem>
+                  <SelectItem value="backpack" className="hover:bg-korean-gold/10">{t('shop.backpack')} (+6.00€)</SelectItem>
+                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">{t('shop.tshirt')} (+15.00€)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -181,11 +181,11 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             {supportType === "t-shirt" && (
               <div className="mb-6">
                 <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
-                  Taille du T-shirt:
+                  {t('shop.tshirtSizeLabel')}
                 </label>
                 <Select value={tshirtSize} onValueChange={setTshirtSize}>
                   <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
-                    <SelectValue placeholder="Choisir la taille" />
+                    <SelectValue placeholder={t('shop.chooseSize')} />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
                     <SelectItem value="S" className="hover:bg-korean-gold/10">S</SelectItem>
