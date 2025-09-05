@@ -82,7 +82,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         </p>
         <div className="flex items-center justify-center mb-4">
           <span className="text-3xl font-bold text-korean-gold font-snap">
-            A partir de €{product.price}
+            À partir de €{product.price}
           </span>
         </div>
         
