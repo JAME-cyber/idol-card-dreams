@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Upload } from 'lucide-react';
+import { Upload, Edit3 } from 'lucide-react';
 import CollectionModal from './CollectionModal';
 
 interface Product {
@@ -28,6 +28,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [supportType, setSupportType] = useState("papier-sans-cadre");
   const [tshirtSize, setTshirtSize] = useState("M");
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [characterChoices, setCharacterChoices] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileUpload = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -161,6 +162,30 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             onChange={handleFileUpload}
             className="hidden"
           />
+        </div>
+      )}
+
+      {/* Character Choices Section - Only for Preprinted Chibis */}
+      {product.id === 'preprinted-chibis' && (
+        <div className="mb-4">
+          <div className="bg-korean-gold/10 border-2 border-korean-gold/30 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Edit3 size={20} className="text-korean-gold" />
+              <span className="text-sm font-bold text-stone-black">
+                {t('choices.title')}
+              </span>
+            </div>
+            <input
+              type="text"
+              value={characterChoices}
+              onChange={(e) => setCharacterChoices(e.target.value)}
+              placeholder={t('choices.placeholder')}
+              className="w-full p-2 border-2 border-korean-gold/20 rounded-lg focus:border-korean-gold focus:outline-none bg-white"
+            />
+            <p className="text-xs text-stone-black/60 mt-2 font-snap">
+              {t('choices.example')}
+            </p>
+          </div>
         </div>
       )}
       

@@ -104,6 +104,11 @@ const translations = {
     'upload.error': 'Upload error',
     'upload.invalidFormat': 'Please select an image (JPG, PNG) or PDF file.',
     
+    // Character Choices
+    'choices.title': 'Choose your characters',
+    'choices.placeholder': 'Enter character numbers (e.g., 1, 5, 12)',
+    'choices.example': 'Example: 1, 5, 12 for characters 1, 5 and 12',
+    
     // Shipping Calculator
     'shipping.title': 'Shipping Calculator',
     'shipping.country': 'Destination Country',
@@ -226,6 +231,11 @@ const translations = {
     'upload.error': 'Erreur de téléchargement',
     'upload.invalidFormat': 'Veuillez sélectionner une image (JPG, PNG) ou un fichier PDF.',
     
+    // Character Choices
+    'choices.title': 'Choisis ton/tes personnages',
+    'choices.placeholder': 'Indique les numéros (ex: 1, 5, 12)',
+    'choices.example': 'Exemple: 1, 5, 12 pour les personnages 1, 5 et 12',
+    
     // Shipping Calculator
     'shipping.title': 'Calculateur de Livraison',
     'shipping.country': 'Pays de destination',
@@ -345,6 +355,11 @@ const translations = {
     'upload.uploaded': '성공적으로 업로드되었습니다.',
     'upload.error': '업로드 오류',
     'upload.invalidFormat': '이미지 파일(JPG, PNG) 또는 PDF 파일을 선택해주세요.',
+    
+    // Character Choices
+    'choices.title': '캐릭터 선택하기',
+    'choices.placeholder': '번호를 입력하세요 (예: 1, 5, 12)',
+    'choices.example': '예시: 1, 5, 12는 캐릭터 1, 5, 12번을 의미합니다',
     
     // Shipping Calculator
     'shipping.title': '배송비 계산기',
