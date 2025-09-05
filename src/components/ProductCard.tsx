@@ -59,8 +59,9 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       }
     }
     
-    return basePrice + getSupportPrice();
-  }, [product.id, product.price, characterCount, getSupportPrice]);
+    const supportPrice = getSupportPrice();
+    return basePrice + supportPrice;
+  }, [product.id, product.price, characterCount, supportType]);
 
   const handleAddToCart = React.useCallback(() => {
     const selectedQuantity = parseInt(quantity);
