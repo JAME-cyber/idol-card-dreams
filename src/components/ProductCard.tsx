@@ -142,53 +142,6 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         </div>
       </div>
       
-      {/* Upload File Section - Only for Custom Chibis */}
-      {product.id === 'custom-chibis' && (
-        <div className="mb-4">
-          <button
-            onClick={triggerFileUpload}
-            className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white flex items-center gap-2 mx-auto"
-            title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
-          >
-            <Upload size={20} className={uploadedFile ? "text-white" : "text-stone-black"} />
-            <span className="text-sm font-bold">
-              {t('upload.downloadFile')}
-            </span>
-          </button>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*,.pdf"
-            onChange={handleFileUpload}
-            className="hidden"
-          />
-        </div>
-      )}
-
-      {/* Character Choices Section - Only for Preprinted Chibis */}
-      {product.id === 'preprinted-chibis' && (
-        <div className="mb-4">
-          <div className="bg-korean-gold/10 border-2 border-korean-gold/30 rounded-lg p-4">
-            <div className="flex items-center gap-2 mb-3">
-              <Edit3 size={20} className="text-korean-gold" />
-              <span className="text-sm font-bold text-stone-black">
-                {t('choices.title')}
-              </span>
-            </div>
-            <input
-              type="text"
-              value={characterChoices}
-              onChange={(e) => setCharacterChoices(e.target.value)}
-              placeholder={t('choices.placeholder')}
-              className="w-full p-2 border-2 border-korean-gold/20 rounded-lg focus:border-korean-gold focus:outline-none bg-white"
-            />
-            <p className="text-xs text-stone-black/60 mt-2 font-snap">
-              {t('choices.example')}
-            </p>
-          </div>
-        </div>
-      )}
-      
       <div className="text-center">
         <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
           {product.name}
@@ -274,6 +227,53 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
               </div>
             )}
           </>
+        )}
+        
+        {/* Upload File Section - Only for Custom Chibis */}
+        {product.id === 'custom-chibis' && (
+          <div className="mb-6">
+            <button
+              onClick={triggerFileUpload}
+              className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white flex items-center gap-2 mx-auto"
+              title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
+            >
+              <Upload size={20} className={uploadedFile ? "text-white" : "text-stone-black"} />
+              <span className="text-sm font-bold">
+                {t('upload.downloadFile')}
+              </span>
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*,.pdf"
+              onChange={handleFileUpload}
+              className="hidden"
+            />
+          </div>
+        )}
+
+        {/* Character Choices Section - Only for Preprinted Chibis */}
+        {product.id === 'preprinted-chibis' && (
+          <div className="mb-6">
+            <div className="bg-korean-gold/10 border-2 border-korean-gold/30 rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Edit3 size={20} className="text-korean-gold" />
+                <span className="text-sm font-bold text-stone-black">
+                  {t('choices.title')}
+                </span>
+              </div>
+              <input
+                type="text"
+                value={characterChoices}
+                onChange={(e) => setCharacterChoices(e.target.value)}
+                placeholder={t('choices.placeholder')}
+                className="w-full p-2 border-2 border-korean-gold/20 rounded-lg focus:border-korean-gold focus:outline-none bg-white"
+              />
+              <p className="text-xs text-stone-black/60 mt-2 font-snap">
+                {t('choices.example')}
+              </p>
+            </div>
+          </div>
         )}
         
         {/* Collection Modal for preprinted chibis */}
