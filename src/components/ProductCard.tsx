@@ -139,21 +139,21 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         {/* Two image placeholders side by side */}
         <div className="grid grid-cols-2 gap-2">
           <div className="relative overflow-hidden rounded-lg">
-            <img 
-              src="/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png" 
-              alt={`${product.name} - Image 1`}
-              className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
-              loading="lazy"
-            />
+             <img 
+               src="/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png" 
+               alt={`${product.name} - Image 1`}
+               className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+               loading="lazy"
+             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           <div className="relative overflow-hidden rounded-lg">
-            <img 
-              src="/lovable-uploads/e0b8ae8e-4081-44c3-bc6c-080fe7a78ac5.png" 
-              alt={`${product.name} - Image 2`}
-              className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
-              loading="lazy"
-            />
+             <img 
+               src="/lovable-uploads/e0b8ae8e-4081-44c3-bc6c-080fe7a78ac5.png" 
+               alt={`${product.name} - Image 2`}
+               className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+               loading="lazy"
+             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
