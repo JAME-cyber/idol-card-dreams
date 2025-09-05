@@ -10,7 +10,7 @@ const ShopSection = () => {
       id: 'custom-chibis',
       name: 'Chibibis personnalisés',
       description: 'Choisis ta Safe Place',
-      price: 24.99,
+      price: 19.99,
       image: '/placeholder.svg',
       category: 'custom'
     },
