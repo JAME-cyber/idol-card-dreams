@@ -46,7 +46,7 @@ const HeroSection = () => {
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify">
             Je crée vos personnages préférés en m&apos;inspirant de ce qui compte le plus pour vous: votre Safe Place. Pour ma part, il s&apos;agit de ma famille et en ce moment des Séries coréennes (Kdramas), d&apos;où mes collections un peu orientées.
             <br /><br />
-            Vous, quel est votre refuge? un membre de votre famille, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d&apos;un de vos proche avec mes Chibibis. N&apos;hésitez pas!
+            Vous, quel est votre refuge? un membre de votre famille, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d&apos;un de vos proches avec mes Chibibis. N&apos;hésitez pas!
           </p>
         </div>
       </div>
