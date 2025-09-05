@@ -60,8 +60,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       default: supportPrice = 0.00;
     }
     
-    const totalPrice = basePrice + supportPrice;
-    console.log('Prix de base:', basePrice, 'Prix support:', supportPrice, 'Prix total:', totalPrice);
+    const totalPrice = Math.round((basePrice + supportPrice) * 100) / 100;
     
     return totalPrice;
   }, [product.id, product.price, characterCount, supportType]);
