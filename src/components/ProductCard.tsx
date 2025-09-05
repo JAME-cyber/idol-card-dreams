@@ -26,26 +26,40 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [characterCount, setCharacterCount] = useState("1");
   const [supportType, setSupportType] = useState("papier-sans-cadre");
 
+  const getSupportPrice = React.useCallback(() => {
+    switch (supportType) {
+      case "papier-sans-cadre": return 0.00;
+      case "papier-avec-cadre": return 3.99;
+      case "tote-bag": return 6.99;
+      case "backpack": return 6.99;
+      case "t-shirt": return 12.99;
+      default: return 0.00;
+    }
+  }, [supportType]);
+
   const getPrice = React.useCallback(() => {
+    let basePrice = product.price;
+    
     if (product.id === 'custom-chibis') {
       switch (characterCount) {
-        case "1": return 19.99;
-        case "2": return 24.99;
-        case "3": return 29.99;
-        case "famille": return 34.99;
-        default: return product.price;
+        case "1": basePrice = 19.99; break;
+        case "2": basePrice = 24.99; break;
+        case "3": basePrice = 29.99; break;
+        case "famille": basePrice = 34.99; break;
+        default: basePrice = product.price;
       }
     } else if (product.id === 'preprinted-chibis') {
       switch (characterCount) {
-        case "1": return 9.99;
-        case "2": return 15.99;
-        case "3": return 19.99;
-        case "4": return 22.99;
-        default: return product.price;
+        case "1": basePrice = 9.99; break;
+        case "2": basePrice = 15.99; break;
+        case "3": basePrice = 19.99; break;
+        case "4": basePrice = 22.99; break;
+        default: basePrice = product.price;
       }
     }
-    return product.price;
-  }, [product.id, product.price, characterCount]);
+    
+    return basePrice + getSupportPrice();
+  }, [product.id, product.price, characterCount, getSupportPrice]);
 
   const handleAddToCart = React.useCallback(() => {
     const selectedQuantity = parseInt(quantity);
@@ -150,11 +164,11 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   <SelectValue placeholder="Choisir le support" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
-                  <SelectItem value="papier-sans-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 sans cadre</SelectItem>
-                  <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 avec cadre</SelectItem>
-                  <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">Tote Bag</SelectItem>
-                  <SelectItem value="backpack" className="hover:bg-korean-gold/10">Backpack</SelectItem>
-                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">T-shirt</SelectItem>
+                  <SelectItem value="papier-sans-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 sans cadre (+0.00€)</SelectItem>
+                  <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 avec cadre (+3.99€)</SelectItem>
+                  <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">Tote Bag (+6.99€)</SelectItem>
+                  <SelectItem value="backpack" className="hover:bg-korean-gold/10">Backpack (+6.99€)</SelectItem>
+                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">T-shirt (+12.99€)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
