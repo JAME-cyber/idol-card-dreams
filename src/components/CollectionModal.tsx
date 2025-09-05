@@ -50,14 +50,23 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       ]
     },
     {
-      id: 'objects',
-      name: 'Objets',
-      description: 'Vos objets favoris transformés en art chibi',
+      id: 'animals',
+      name: 'Animaux',
+      description: 'Vos compagnons à quatre pattes en version chibi',
       images: [
         '/lovable-uploads/113e68de-85f6-407a-a5b8-c1ce51c003bb.png',
         '/lovable-uploads/276f8fc0-49f1-4459-821a-6227237aed06.png',
         '/lovable-uploads/485f0eaa-2152-4dc3-bfa7-1157fd649b06.png',
         '/lovable-uploads/4902926d-b6ae-4d9c-9502-65c796083e49.png'
+      ]
+    },
+    {
+      id: 'objects',
+      name: 'Objets',
+      description: 'Vos objets favoris transformés en art chibi',
+      images: [
+        '/lovable-uploads/ea292004-2fb3-4c07-ae33-10245e4ac4aa.png',
+        '/lovable-uploads/fe7b066b-41be-4abc-ab67-6c63d47b5fc6.png'
       ]
     }
   ];
