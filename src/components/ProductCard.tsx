@@ -98,6 +98,16 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     const selectedQuantity = parseInt(quantity);
     const finalPrice = getPrice();
     
+    // Vérifier si un fichier est requis pour les Chibibis personnalisés
+    if (product.id === 'custom-chibis' && !uploadedFile) {
+      toast({
+        title: t('upload.required'),
+        description: t('upload.requiredMessage'),
+        variant: "destructive",
+      });
+      return;
+    }
+    
     for (let i = 0; i < selectedQuantity; i++) {
       addItem({
         id: `${product.id}-${Date.now()}-${i}`,
@@ -111,7 +121,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       title: t('cart.itemAdded'),
       description: `${selectedQuantity} x ${product.name} ${t('cart.addedToCart')}`,
     });
-  }, [product, quantity, addItem, getPrice, supportType, tshirtSize]);
+  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, uploadedFile, t]);
 
   return (
     <div className="korean-card p-8 group hover-glow">

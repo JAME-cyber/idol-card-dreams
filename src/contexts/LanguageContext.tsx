@@ -103,6 +103,8 @@ const translations = {
     'upload.uploaded': 'has been uploaded successfully.',
     'upload.error': 'Upload error',
     'upload.invalidFormat': 'Please select an image (JPG, PNG) or PDF file.',
+    'upload.required': 'File required',
+    'upload.requiredMessage': 'Please upload a photo or PDF file to customize your chibi.',
     
     // Character Choices
     'choices.title': 'Choose your characters',
@@ -230,6 +232,8 @@ const translations = {
     'upload.uploaded': 'a été téléchargé avec succès.',
     'upload.error': 'Erreur de téléchargement',
     'upload.invalidFormat': 'Veuillez sélectionner une image (JPG, PNG) ou un fichier PDF.',
+    'upload.required': 'Fichier requis',
+    'upload.requiredMessage': 'Veuillez télécharger une photo ou un fichier PDF pour personnaliser votre chibi.',
     
     // Character Choices
     'choices.title': 'Choisis ton/tes personnages',
@@ -355,6 +359,8 @@ const translations = {
     'upload.uploaded': '성공적으로 업로드되었습니다.',
     'upload.error': '업로드 오류',
     'upload.invalidFormat': '이미지 파일(JPG, PNG) 또는 PDF 파일을 선택해주세요.',
+    'upload.required': '파일 필수',
+    'upload.requiredMessage': '치비를 맞춤 제작하려면 사진이나 PDF 파일을 업로드해주세요.',
     
     // Character Choices
     'choices.title': '캐릭터 선택하기',
