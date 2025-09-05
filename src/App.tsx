@@ -27,7 +27,7 @@ const PageFallback = () => (
   <div className="min-h-screen bg-gradient-to-br from-stone-powder via-white to-stone-beige/30 flex items-center justify-center">
     <div className="text-center">
       <div className="w-12 h-12 border-4 border-korean-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-stone-black/70 font-korean">Chargement...</p>
+      <p className="text-stone-black/70 font-korean">Chargement de la page...</p>
     </div>
   </div>
 );
