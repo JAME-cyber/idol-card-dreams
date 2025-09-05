@@ -110,6 +110,8 @@ const translations = {
     'choices.title': 'Choose your characters',
     'choices.placeholder': 'Enter character numbers (e.g., 1, 5, 12)',
     'choices.example': 'Example: 1, 5, 12 for characters 1, 5 and 12',
+    'choices.required': 'Character numbers required',
+    'choices.requiredMessage': 'Please indicate the character numbers you want to order.',
     
     // Shipping Calculator
     'shipping.title': 'Shipping Calculator',
@@ -239,6 +241,8 @@ const translations = {
     'choices.title': 'Choisis ton/tes personnages',
     'choices.placeholder': 'Indique les numéros (ex: 1, 5, 12)',
     'choices.example': 'Exemple: 1, 5, 12 pour les personnages 1, 5 et 12',
+    'choices.required': 'Numéros de personnages requis',
+    'choices.requiredMessage': 'Veuillez indiquer les numéros des personnages que vous souhaitez commander.',
     
     // Shipping Calculator
     'shipping.title': 'Calculateur de Livraison',
@@ -366,6 +370,8 @@ const translations = {
     'choices.title': '캐릭터 선택하기',
     'choices.placeholder': '번호를 입력하세요 (예: 1, 5, 12)',
     'choices.example': '예시: 1, 5, 12는 캐릭터 1, 5, 12번을 의미합니다',
+    'choices.required': '캐릭터 번호 필수',
+    'choices.requiredMessage': '주문하려는 캐릭터 번호를 입력해주세요.',
     
     // Shipping Calculator
     'shipping.title': '배송비 계산기',

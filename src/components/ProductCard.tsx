@@ -108,6 +108,16 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       return;
     }
     
+    // Vérifier si les numéros de personnages sont requis pour les Chibibis pré-dessinés
+    if (product.id === 'preprinted-chibis' && !characterChoices.trim()) {
+      toast({
+        title: t('choices.required'),
+        description: t('choices.requiredMessage'),
+        variant: "destructive",
+      });
+      return;
+    }
+    
     for (let i = 0; i < selectedQuantity; i++) {
       addItem({
         id: `${product.id}-${Date.now()}-${i}`,
@@ -121,7 +131,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       title: t('cart.itemAdded'),
       description: `${selectedQuantity} x ${product.name} ${t('cart.addedToCart')}`,
     });
-  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, uploadedFile, t]);
+  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, uploadedFile, characterChoices, t]);
 
   return (
     <div className="korean-card p-8 group hover-glow">
