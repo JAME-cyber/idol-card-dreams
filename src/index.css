@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 245 241 235; /* stone-beige */
+    --background: 253 242 248; /* rose pâle */
     --foreground: 26 26 26; /* stone-black */
 
     --card: 255 255 255;
@@ -45,8 +45,8 @@
   }
 
   body {
-    @apply bg-stone-beige text-stone-black font-korean;
-    background: linear-gradient(135deg, #f5f1eb 0%, #faf8f4 50%, #f5f1eb 100%);
+    @apply bg-background text-stone-black font-korean;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fef7ff 50%, #fdf2f8 100%);
     line-height: 1.6;
   }
 
