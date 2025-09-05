@@ -140,23 +140,25 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
           {t('hero.surprise')}!
         </div>
         
-        {/* Upload File Icon */}
-        <div className="absolute top-4 left-4">
-          <button
-            onClick={triggerFileUpload}
-            className="bg-white/90 hover:bg-white text-stone-black p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
-          >
-            <Upload size={20} className={uploadedFile ? "text-korean-gold" : "text-stone-black"} />
-          </button>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*,.pdf"
-            onChange={handleFileUpload}
-            className="hidden"
-          />
-        </div>
+        {/* Upload File Icon - Only for Custom Chibis */}
+        {product.id === 'custom-chibis' && (
+          <div className="absolute top-4 left-4">
+            <button
+              onClick={triggerFileUpload}
+              className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border-2 border-white"
+              title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
+            >
+              <Upload size={24} className={uploadedFile ? "text-white" : "text-stone-black"} />
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*,.pdf"
+              onChange={handleFileUpload}
+              className="hidden"
+            />
+          </div>
+        )}
       </div>
       
       <div className="text-center">
