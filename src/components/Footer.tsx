@@ -23,7 +23,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-stone-beige/80 font-snap text-sm leading-relaxed">
-              Your premier destination for exclusive K-Drama collectible cards and premium merchandise.
+              {t('footer.description')}
             </p>
           </div>
 

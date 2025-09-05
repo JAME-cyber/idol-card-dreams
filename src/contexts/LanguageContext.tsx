@@ -14,7 +14,7 @@ const translations = {
   en: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': 'K-Drama Collectibles',
+    'header.subtitle': 'Cadeaux Personnalisés Chibibis',
     'nav.home': 'Home',
     'nav.shop': 'Shop',
     'nav.about': 'About',
@@ -106,8 +106,7 @@ const translations = {
     'shipping.emptyCart': 'Add items to cart to calculate shipping',
     'shipping.deliveryTime': 'Estimated Delivery Time',
     
-    // Footer
-    'footer.quickLinks': 'Quick Links',
+    'footer.description': 'Unique custom Chibibi creations inspired by your Safe Place. Personalized gifts that tell your story.',
     'footer.customerService': 'Customer Service',
     'footer.connectWithUs': 'Connect With Us',
     'footer.returnPolicy': 'Return Policy',
@@ -127,7 +126,7 @@ const translations = {
   fr: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': 'Collectibles K-Drama',
+    'header.subtitle': 'Cadeaux Personnalisés Chibibis',
     'nav.home': 'Accueil',
     'nav.shop': 'Boutique',
     'nav.about': 'À propos',
@@ -221,8 +220,7 @@ const translations = {
     'shipping.emptyCart': 'Ajoutez des articles au panier pour calculer les frais de livraison',
     'shipping.deliveryTime': 'Délai de livraison estimé',
     
-    // Footer
-    'footer.quickLinks': 'Liens Rapides',
+    'footer.description': 'Créations uniques de Chibibis personnalisés inspirés de votre Safe Place. Des cadeaux sur mesure qui racontent votre histoire.',
     'footer.customerService': 'Service Client',
     'footer.connectWithUs': 'Restez Connectés',
     'footer.returnPolicy': 'Politique de Retour',
@@ -242,7 +240,7 @@ const translations = {
   ko: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': '케이드라마 수집품',
+    'header.subtitle': '맞춤 치비 선물',
     'nav.home': '홈',
     'nav.shop': '쇼핑',
     'nav.about': '소개',
@@ -334,8 +332,7 @@ const translations = {
     'shipping.emptyCart': '배송비 계산을 위해 장바구니에 상품을 추가해주세요',
     'shipping.deliveryTime': '예상 배송 시간',
     
-    // Footer
-    'footer.quickLinks': '빠른 링크',
+    'footer.description': '당신의 Safe Place에서 영감을 받은 독특한 맞춤 치비 창작. 당신의 이야기를 담은 맞춤형 선물.',
     'footer.customerService': '고객 서비스',
     'footer.connectWithUs': '소셜 미디어',
     'footer.returnPolicy': '반품 정책',
