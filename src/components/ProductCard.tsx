@@ -157,9 +157,6 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
-        <div className="absolute top-4 right-4 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
-          {t('hero.surprise')}!
-        </div>
       </div>
       
       <div className="text-center">
