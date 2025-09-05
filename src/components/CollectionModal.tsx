@@ -18,7 +18,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
   const collections: Collection[] = [
     {
       id: 'series',
-      name: 'Fils/Séries',
+      name: 'Films/Séries',
       description: 'Découvrez nos dessins inspirés de vos séries préférées',
       images: [
         '/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png',
