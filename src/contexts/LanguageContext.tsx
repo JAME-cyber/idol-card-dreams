@@ -20,9 +20,10 @@ const translations = {
     'nav.about': 'About',
     
     // Hero Section
-    'hero.title1': 'Discover the Magic of',
-    'hero.title2': 'K-Drama Cards',
-    'hero.description': 'Collect your favorite K-Drama moments in exclusive surprise packs.\nEach pack contains 3 carefully curated collectible cards.',
+    'hero.title': 'Custom Chibibi Gifts Stone Idol',
+    'hero.subtitle': 'Custom Chibibi "My Safe Place" style gifts',
+    'hero.tagline': 'To be sure to make you happy...',
+    'hero.description': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures you and helps you manage everyday life.',
     'hero.shopButton': 'Shop Surprise Packs',
     'hero.exploreButton': 'Explore Goodies',
     'hero.cardsPerPack': 'Cards per pack',
@@ -104,9 +105,10 @@ const translations = {
     'nav.about': 'À propos',
     
     // Hero Section
-    'hero.title1': 'Découvrez la Magie des',
-    'hero.title2': 'Cartes K-Drama',
-    'hero.description': 'Collectionnez vos moments K-Drama préférés dans des packs surprise exclusifs.\nChaque pack contient 3 cartes de collection soigneusement sélectionnées.',
+    'hero.title': 'Cadeaux Personnalisés Chibibis Stone Idol',
+    'hero.subtitle': 'Cadeaux personnalisés façon Chibibis "My Safe Place"',
+    'hero.tagline': 'Pour être certain de faire plaisir...',
+    'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.shopButton': 'Acheter des Packs Surprise',
     'hero.exploreButton': 'Explorer les Goodies',
     'hero.cardsPerPack': 'Cartes par pack',
@@ -188,9 +190,10 @@ const translations = {
     'nav.about': '소개',
     
     // Hero Section
-    'hero.title1': '케이드라마 카드의',
-    'hero.title2': '마법을 발견하세요',
-    'hero.description': '독점 서프라이즈 팩으로 좋아하는 케이드라마 순간들을 수집하세요.\n각 팩에는 엄선된 3장의 수집용 카드가 들어있습니다.',
+    'hero.title': '맞춤형 치비 선물 Stone Idol',
+    'hero.subtitle': '치비 "My Safe Place" 스타일 맞춤 선물',
+    'hero.tagline': '기쁨을 주는 것이 확실하도록...',
+    'hero.description': '당신에게 가장 소중한 것, 즉 당신의 Safe Place에서 영감을 받아 당신이 좋아하는 캐릭터들을 만듭니다.',
     'hero.shopButton': '서프라이즈 팩 쇼핑',
     'hero.exploreButton': '굿즈 탐색',
     'hero.cardsPerPack': '팩당 카드 수',

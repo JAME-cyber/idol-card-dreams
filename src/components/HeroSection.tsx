@@ -17,14 +17,14 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-stone-black mb-6 font-snap">
-          Cadeaux Personnalisés Chibibis Stone Idol
+          {t('hero.title')}
         </h1>
         
         <p className="text-base md:text-lg text-stone-black/70 mb-4 font-medium">
-          Cadeaux personnalisés façon Chibibis "My Safe Place"
+          {t('hero.subtitle')}
         </p>
         <p className="text-sm md:text-base text-stone-black/60 mb-6 italic">
-          Pour être certain de faire plaisir...
+          {t('hero.tagline')}
         </p>
         
         {/* Photo placeholder */}

@@ -17,7 +17,10 @@ const LanguageSelector = () => {
       <SelectTrigger className="w-[120px] bg-white/80 border-stone-black/20 hover:bg-stone-powder/20 transition-colors">
         <SelectValue />
       </SelectTrigger>
-      <SelectContent className="bg-white border-stone-black/20 shadow-lg">
+      <SelectContent className="bg-white border-stone-black/20 shadow-lg" aria-describedby="language-selector-description">
+        <div id="language-selector-description" className="sr-only">
+          Sélectionnez votre langue préférée
+        </div>
         {languages.map((lang) => (
           <SelectItem 
             key={lang.code} 
