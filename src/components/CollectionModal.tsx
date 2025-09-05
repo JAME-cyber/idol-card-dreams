@@ -63,7 +63,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
   ];
 
   const defaultTrigger = (
-    <Button variant="outline" className="w-full mb-4 border-korean-gold text-korean-gold hover:bg-korean-gold hover:text-white transition-colors">
+    <Button variant="outline" className="w-full mb-4 border-korean-gold-pastel text-korean-gold-pastel hover:bg-korean-gold-pastel hover:text-stone-black transition-colors">
       <Eye className="w-4 h-4 mr-2" />
       Voir les collections
     </Button>

@@ -69,6 +69,7 @@ export default {
 				'stone-blue': '#b3d4f4',
 				'stone-lavender': '#e0c3fc',
 				'korean-gold': '#d4af37',
+				'korean-gold-pastel': '#fef3c7',
 			},
 			fontFamily: {
 				'sans': ['Arial', 'sans-serif'],
