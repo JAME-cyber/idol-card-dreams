@@ -33,7 +33,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       case "papier-avec-cadre": return 3.00;
       case "tote-bag": return 6.00;
       case "backpack": return 6.00;
-      case "t-shirt": return 12.00;
+      case "t-shirt": return 15.00;
       default: return 0.00;
     }
   }, [supportType]);
@@ -169,7 +169,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">Papier 250g A4 avec cadre (+3.00€)</SelectItem>
                   <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">Tote Bag (+6.00€)</SelectItem>
                   <SelectItem value="backpack" className="hover:bg-korean-gold/10">Backpack (+6.00€)</SelectItem>
-                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">T-shirt (+12.00€)</SelectItem>
+                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">T-shirt (+15.00€)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
