@@ -145,10 +145,13 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
           <div className="absolute top-4 left-4">
             <button
               onClick={triggerFileUpload}
-              className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border-2 border-white"
+              className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white flex flex-col items-center gap-1"
               title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
             >
-              <Upload size={24} className={uploadedFile ? "text-white" : "text-stone-black"} />
+              <Upload size={20} className={uploadedFile ? "text-white" : "text-stone-black"} />
+              <span className="text-xs font-bold whitespace-nowrap">
+                {t('upload.downloadFile')}
+              </span>
             </button>
             <input
               ref={fileInputRef}

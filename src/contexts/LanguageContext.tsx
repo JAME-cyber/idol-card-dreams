@@ -98,6 +98,7 @@ const translations = {
     
     // Upload
     'upload.addFile': 'Add photo or PDF',
+    'upload.downloadFile': 'Upload file',
     'upload.success': 'File uploaded!',
     'upload.uploaded': 'has been uploaded successfully.',
     'upload.error': 'Upload error',
@@ -219,6 +220,7 @@ const translations = {
     
     // Upload
     'upload.addFile': 'Ajouter photo ou PDF',
+    'upload.downloadFile': 'Télécharger un fichier',
     'upload.success': 'Fichier téléchargé !',
     'upload.uploaded': 'a été téléchargé avec succès.',
     'upload.error': 'Erreur de téléchargement',
@@ -338,6 +340,7 @@ const translations = {
     
     // Upload
     'upload.addFile': '사진 또는 PDF 추가',
+    'upload.downloadFile': '파일 업로드',
     'upload.success': '파일 업로드 완료!',
     'upload.uploaded': '성공적으로 업로드되었습니다.',
     'upload.error': '업로드 오류',
