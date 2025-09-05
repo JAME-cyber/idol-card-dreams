@@ -139,30 +139,30 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         <div className="absolute top-4 right-4 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
           {t('hero.surprise')}!
         </div>
-        
-        {/* Upload File Icon - Only for Custom Chibis */}
-        {product.id === 'custom-chibis' && (
-          <div className="absolute top-4 left-4">
-            <button
-              onClick={triggerFileUpload}
-              className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white flex flex-col items-center gap-1"
-              title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
-            >
-              <Upload size={20} className={uploadedFile ? "text-white" : "text-stone-black"} />
-              <span className="text-xs font-bold whitespace-nowrap">
-                {t('upload.downloadFile')}
-              </span>
-            </button>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*,.pdf"
-              onChange={handleFileUpload}
-              className="hidden"
-            />
-          </div>
-        )}
       </div>
+      
+      {/* Upload File Section - Only for Custom Chibis */}
+      {product.id === 'custom-chibis' && (
+        <div className="mb-4">
+          <button
+            onClick={triggerFileUpload}
+            className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white flex items-center gap-2 mx-auto"
+            title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
+          >
+            <Upload size={20} className={uploadedFile ? "text-white" : "text-stone-black"} />
+            <span className="text-sm font-bold">
+              {t('upload.downloadFile')}
+            </span>
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*,.pdf"
+            onChange={handleFileUpload}
+            className="hidden"
+          />
+        </div>
+      )}
       
       <div className="text-center">
         <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
