@@ -25,6 +25,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState("1");
   const [characterCount, setCharacterCount] = useState("1");
   const [supportType, setSupportType] = useState("papier-sans-cadre");
+  const [tshirtSize, setTshirtSize] = useState("M");
 
   const getSupportPrice = React.useCallback(() => {
     switch (supportType) {
@@ -68,7 +69,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     for (let i = 0; i < selectedQuantity; i++) {
       addItem({
         id: `${product.id}-${Date.now()}-${i}`,
-        name: product.name,
+        name: supportType === "t-shirt" ? `${product.name} (Taille: ${tshirtSize})` : product.name,
         price: finalPrice,
         image: "/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png"
       });
@@ -78,7 +79,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       title: "Added to cart!",
       description: `${selectedQuantity} x ${product.name} has been added to your cart.`,
     });
-  }, [product, quantity, addItem, getPrice]);
+  }, [product, quantity, addItem, getPrice, supportType, tshirtSize]);
 
   return (
     <div className="korean-card p-8 group hover-glow">
@@ -172,6 +173,27 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                 </SelectContent>
               </Select>
             </div>
+            
+            {/* T-shirt Size Selector - only show when t-shirt is selected */}
+            {supportType === "t-shirt" && (
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
+                  Taille du T-shirt:
+                </label>
+                <Select value={tshirtSize} onValueChange={setTshirtSize}>
+                  <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
+                    <SelectValue placeholder="Choisir la taille" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
+                    <SelectItem value="S" className="hover:bg-korean-gold/10">S</SelectItem>
+                    <SelectItem value="M" className="hover:bg-korean-gold/10">M</SelectItem>
+                    <SelectItem value="L" className="hover:bg-korean-gold/10">L</SelectItem>
+                    <SelectItem value="XL" className="hover:bg-korean-gold/10">XL</SelectItem>
+                    <SelectItem value="XXL" className="hover:bg-korean-gold/10">XXL</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
           </>
         )}
         
