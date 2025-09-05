@@ -48,7 +48,7 @@ const HeroSection = () => {
             <br /><br />
             Pour ma part, il s&apos;agit de ma famille et en ce moment des Séries coréennes (Kdramas), d&apos;où mes collections un peu orientées.
             <br /><br />
-            Vous, quel est votre refuge? un membre de votre famille, un ami, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d&apos;un de vos proches avec mes Chibibis. N&apos;hésitez pas!
+            Vous, quel est votre refuge? un membre de votre famille, un ami, un animal de compagnie, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d&apos;un de vos proches avec mes Chibibis. N&apos;hésitez pas!
           </p>
         </div>
       </div>
