@@ -36,7 +36,7 @@ const HeroSection = () => {
                   <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                 </svg>
               </div>
-              <p className="text-sm font-snap">Photo à venir</p>
+              <p className="text-sm font-snap">{t('hero.photoPlaceholder')}</p>
             </div>
           </div>
         </div>
@@ -44,15 +44,15 @@ const HeroSection = () => {
         {/* Description text */}
         <div className="max-w-3xl mx-auto mb-8">
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify">
-            Je crée vos personnages préférés en m&apos;inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.
+            {t('hero.mainDescription')}
             <br /><br />
-            Pour ma part, il s&apos;agit de ma famille, mon chat, et, en ce moment, des Séries coréennes (Kdramas), d&apos;où mes collections un peu orientées :)
+            {t('hero.personalDescription')}
             <br /><br />
-            Vous, quel est votre refuge? un membre de votre famille, un ami, un animal de compagnie, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d&apos;un de vos proches avec mes Chibibis. N&apos;hésitez pas!
+            {t('hero.questionDescription')}
             <br /><br />
-            Et, pour les fêtes ou les anniversaires, un cadeau pour lequel vous avez pris le temps de penser au destinataire a beaucoup plus de valeur.
+            {t('hero.giftDescription')}
             <br /><br />
-            <span className="text-xs italic text-stone-black/60">NB: je n&apos;utilise pas d&apos;IA pour créer mes Chibibis.</span>
+            <span className="text-xs italic text-stone-black/60">{t('hero.noteDescription')}</span>
           </p>
         </div>
       </div>
