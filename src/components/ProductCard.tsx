@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import CollectionModal from './CollectionModal';
 
 interface Product {
   id: string;
@@ -124,6 +125,13 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
               </Select>
             </div>
           </>
+        )}
+        
+        {/* Collection Modal for preprinted chibis */}
+        {product.id === 'preprinted-chibis' && (
+          <div className="mb-4">
+            <CollectionModal />
+          </div>
         )}
         
         <button onClick={handleAddToCart} className="korean-button w-full hover-glow">
