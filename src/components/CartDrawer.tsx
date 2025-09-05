@@ -1,17 +1,9 @@
 
 import React, { useState } from 'react';
-import { X, Minus, Plus, Trash2, Calculator, MapPin, Package } from 'lucide-react';
+import { X, Minus, Plus, Trash2 } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CheckoutButton from './CheckoutButton';
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -19,64 +11,12 @@ interface CartDrawerProps {
 }
 
 const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
-  const { items, total, removeItem, updateQuantity, itemCount } = useCart();
-  const { language, t } = useLanguage();
-  const [selectedCountry, setSelectedCountry] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [shippingCost, setShippingCost] = useState<number | null>(null);
-
-  const countries = [
-    { code: 'FR', name: 'France', zone: 'domestic' },
-    { code: 'DE', name: 'Germany', zone: 'europe' },
-    { code: 'IT', name: 'Italy', zone: 'europe' },
-    { code: 'ES', name: 'Spain', zone: 'europe' },
-    { code: 'NL', name: 'Netherlands', zone: 'europe' },
-    { code: 'BE', name: 'Belgium', zone: 'europe' },
-    { code: 'GB', name: 'United Kingdom', zone: 'europe' },
-    { code: 'KR', name: 'South Korea', zone: 'asia' },
-    { code: 'US', name: 'United States', zone: 'international' },
-    { code: 'CA', name: 'Canada', zone: 'international' },
-    { code: 'AU', name: 'Australia', zone: 'international' },
-    { code: 'JP', name: 'Japan', zone: 'international' },
-  ];
-
-  const calculateShipping = () => {
-    if (!selectedCountry || itemCount === 0) return;
-
-    const country = countries.find(c => c.code === selectedCountry);
-    if (!country) return;
-
-    let baseCost = 0;
-    let weightMultiplier = Math.max(1, Math.ceil(itemCount / 2));
-
-    switch (country.zone) {
-      case 'domestic':
-        baseCost = 4.90;
-        break;
-      case 'europe':
-        baseCost = 8.90;
-        break;
-      case 'asia':
-        baseCost = 12.90;
-        break;
-      case 'international':
-        baseCost = 15.90;
-        break;
-    }
-
-    const weightCost = (weightMultiplier - 1) * 3.00;
-    let finalCost = baseCost + weightCost;
-
-    if (total >= 100) {
-      finalCost = 0;
-    }
-
-    setShippingCost(finalCost);
-  };
+  const { items, total, removeItem, updateQuantity, itemCount, shippingCost } = useCart();
+  const { t } = useLanguage();
 
   if (!isOpen) return null;
 
-  const finalTotal = total + (shippingCost || 0);
+  const finalTotal = total + (items.length > 0 ? shippingCost : 0);
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
@@ -142,62 +82,6 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                     </div>
                   </div>
                 ))}
-
-                {/* Shipping Calculator */}
-                {items.length > 0 && (
-                  <div className="korean-card p-4 mt-6">
-                    <div className="flex items-center gap-2 mb-4">
-                      <Calculator className="w-5 h-5 text-korean-gold" />
-                      <h3 className="font-bold text-stone-black font-poppins">
-                        {t('cart.shipping')}
-                      </h3>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div>
-                        <label className="block text-sm font-medium text-stone-black mb-1 font-korean">
-                          {t('cart.country')}
-                        </label>
-                        <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-                          <SelectTrigger className="w-full">
-                            <SelectValue placeholder={language === 'fr' ? 'Sélectionnez' : language === 'ko' ? '선택하세요' : 'Select country'} />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {countries.map((country) => (
-                              <SelectItem key={country.code} value={country.code}>
-                                <div className="flex items-center gap-2">
-                                  <MapPin className="w-4 h-4" />
-                                  {country.name}
-                                </div>
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <button
-                        onClick={calculateShipping}
-                        disabled={!selectedCountry}
-                        className="korean-button w-full hover-glow disabled:opacity-50 disabled:cursor-not-allowed text-sm py-2"
-                      >
-                        {t('cart.calculate')}
-                      </button>
-
-                      {shippingCost !== null && selectedCountry && (
-                        <div className="bg-stone-beige/30 rounded-lg p-3 border border-korean-gold/20">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-stone-black font-korean">
-                              {t('cart.shipping')}:
-                            </span>
-                            <span className="font-bold text-korean-gold">
-                              {shippingCost === 0 ? t('cart.freeShipping') : `€${shippingCost.toFixed(2)}`}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
             )}
           </div>
@@ -210,12 +94,10 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                   <span className="font-medium font-korean">{t('cart.subtotal')}:</span>
                   <span className="font-bold text-stone-black">€{total.toFixed(2)}</span>
                 </div>
-                {shippingCost !== null && (
+                {items.length > 0 && (
                   <div className="flex justify-between items-center">
                     <span className="font-medium font-korean">{t('cart.shipping')}:</span>
-                    <span className="font-bold text-korean-gold">
-                      {shippingCost === 0 ? t('cart.freeShipping') : `€${shippingCost.toFixed(2)}`}
-                    </span>
+                    <span className="font-bold text-korean-gold">€{shippingCost.toFixed(2)}</span>
                   </div>
                 )}
                 <hr className="border-stone-beige" />

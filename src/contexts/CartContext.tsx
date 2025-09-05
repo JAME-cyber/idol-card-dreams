@@ -17,6 +17,7 @@ interface CartState {
   items: CartItem[];
   total: number;
   itemCount: number;
+  shippingCost: number;
 }
 
 type CartAction =
@@ -29,6 +30,7 @@ const initialState: CartState = {
   items: [],
   total: 0,
   itemCount: 0,
+  shippingCost: 3.50,
 };
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
@@ -50,7 +52,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
       
-      return { items: newItems, total, itemCount };
+      return { items: newItems, total, itemCount, shippingCost: 3.50 };
     }
     
     case 'REMOVE_ITEM': {
@@ -58,7 +60,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
       
-      return { items: newItems, total, itemCount };
+      return { items: newItems, total, itemCount, shippingCost: 3.50 };
     }
     
     case 'UPDATE_QUANTITY': {
@@ -71,7 +73,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
       
-      return { items: newItems, total, itemCount };
+      return { items: newItems, total, itemCount, shippingCost: 3.50 };
     }
     
     case 'CLEAR_CART':
