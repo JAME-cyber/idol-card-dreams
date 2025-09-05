@@ -35,6 +35,14 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         case "famille": return 34.99;
         default: return product.price;
       }
+    } else if (product.id === 'preprinted-chibis') {
+      switch (characterCount) {
+        case "1": return 9.99;
+        case "2": return 15.99;
+        case "3": return 19.99;
+        case "4": return 22.99;
+        default: return product.price;
+      }
     }
     return product.price;
   }, [product.id, product.price, characterCount]);
@@ -96,7 +104,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         </p>
         <div className="flex items-center justify-center mb-4">
           <span className="text-3xl font-bold text-korean-gold font-snap">
-            {product.id === 'custom-chibis' ? `€${getPrice()}` : `À partir de €${product.price}`}
+            {(product.id === 'custom-chibis' || product.id === 'preprinted-chibis') ? `€${getPrice()}` : `À partir de €${product.price}`}
           </span>
         </div>
         
@@ -122,9 +130,10 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                     </>
                   ) : (
                     <>
-                      <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage</SelectItem>
-                      <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages</SelectItem>
-                      <SelectItem value="famille" className="hover:bg-korean-gold/10">Famille</SelectItem>
+                      <SelectItem value="1" className="hover:bg-korean-gold/10">1 personnage (9.99€)</SelectItem>
+                      <SelectItem value="2" className="hover:bg-korean-gold/10">2 personnages (15.99€)</SelectItem>
+                      <SelectItem value="3" className="hover:bg-korean-gold/10">3 personnages (19.99€)</SelectItem>
+                      <SelectItem value="4" className="hover:bg-korean-gold/10">4 personnages (22.99€)</SelectItem>
                     </>
                   )}
                 </SelectContent>

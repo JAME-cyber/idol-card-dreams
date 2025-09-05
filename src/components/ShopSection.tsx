@@ -18,7 +18,7 @@ const ShopSection = () => {
       id: 'preprinted-chibis',
       name: 'Chibibis pré-dessinés',
       description: 'Découvre nos collections',
-      price: 8.99,
+      price: 9.99,
       image: '/placeholder.svg',
       category: 'preprinted'
     }
