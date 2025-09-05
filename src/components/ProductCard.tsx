@@ -60,7 +60,10 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       default: supportPrice = 0.00;
     }
     
-    return basePrice + supportPrice;
+    const totalPrice = basePrice + supportPrice;
+    console.log('Prix de base:', basePrice, 'Prix support:', supportPrice, 'Prix total:', totalPrice);
+    
+    return totalPrice;
   }, [product.id, product.price, characterCount, supportType]);
 
   const handleAddToCart = React.useCallback(() => {
