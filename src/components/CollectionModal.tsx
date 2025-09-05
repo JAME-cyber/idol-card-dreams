@@ -109,15 +109,21 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
                     const imageNumber = startNumber + index;
                     return (
                       <div key={index} className="flex flex-col items-center">
-                        <div className="relative overflow-hidden rounded-lg group w-full">
+                         <div className="relative overflow-hidden rounded-lg group w-full">
                            <img
                              src={image}
                              alt={`${collection.name} - ${imageNumber}`}
                              className="w-full h-32 object-contain group-hover:scale-110 transition-transform duration-300 bg-white rounded"
                              loading="lazy"
                            />
-                          <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
+                           {/* Filigrane specimen */}
+                           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <span className="text-stone-black/20 text-xs font-bold transform rotate-45 select-none">
+                               SPECIMEN
+                             </span>
+                           </div>
+                           <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                         </div>
                         <div className="mt-2 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
                           #{imageNumber}
                         </div>
