@@ -140,7 +140,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         <div className="grid grid-cols-2 gap-2">
           <div className="relative overflow-hidden rounded-lg">
               <img 
-                src="/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png" 
+                src="/lovable-uploads/c7f3db67-bfe7-43fa-af6f-d63cd254b7d1.png" 
                 alt={`${product.name} - Image 1`}
                 className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                 loading="lazy"
