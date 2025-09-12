@@ -85,7 +85,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       case "papier-avec-cadre": supportPrice = 3.00; break;
       case "tote-bag": supportPrice = 6.00; break;
       case "backpack": supportPrice = 6.00; break;
-      case "t-shirt": supportPrice = 15.00; break;
+      case "t-shirt": supportPrice = 12.00; break;
       default: supportPrice = 0.00;
     }
     
@@ -218,7 +218,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">{t('shop.paperWithFrame')} (+3.00€)</SelectItem>
                   <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">{t('shop.toteBag')} (+6.00€)</SelectItem>
                   <SelectItem value="backpack" className="hover:bg-korean-gold/10">{t('shop.backpack')} (+6.00€)</SelectItem>
-                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">{t('shop.tshirt')} (+15.00€)</SelectItem>
+                  <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">{t('shop.tshirt')} (+12.00€)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
