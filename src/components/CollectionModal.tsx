@@ -28,6 +28,17 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       ]
     },
     {
+      id: 'music',
+      name: 'Musique',
+      description: 'Vos artistes et groupes préférés en version chibi',
+      images: [
+        '/lovable-uploads/e213511c-bef3-415a-94bc-dc46dcf2a171.png',
+        '/lovable-uploads/3609f103-adb0-4361-94b2-4820c33e7acd.png',
+        '/lovable-uploads/f34ed131-a6b0-4be7-8028-7e53cc3a1898.png',
+        '/lovable-uploads/c8270c71-24ae-4551-a109-d1b9d549684a.png'
+      ]
+    },
+    {
       id: 'holidays',
       name: 'Fêtes',
       description: 'Célébrez les moments spéciaux avec style',
