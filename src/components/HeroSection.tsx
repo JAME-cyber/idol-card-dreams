@@ -16,20 +16,6 @@ const HeroSection = () => {
       <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-stone-lavender/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-        {/* Video Section */}
-        <div className="mb-8 flex justify-center">
-          <div className="w-80 h-48 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
-            <div className="text-center text-stone-black/50">
-              <div className="w-16 h-16 mx-auto mb-2 opacity-30">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <p className="text-sm font-snap">Vidéo à venir</p>
-            </div>
-          </div>
-        </div>
-        
         <h1 className="text-3xl md:text-5xl font-bold text-stone-black mb-6 font-snap">
           {t('hero.title')}
         </h1>
@@ -66,6 +52,20 @@ const HeroSection = () => {
             <br /><br />
             <span className="text-xs italic text-stone-black/60">{t('hero.noteDescription')}</span>
           </p>
+          
+          {/* Video Section */}
+          <div className="mt-8 flex justify-center">
+            <div className="w-80 h-48 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
+              <div className="text-center text-stone-black/50">
+                <div className="w-16 h-16 mx-auto mb-2 opacity-30">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <p className="text-sm font-snap">Vidéo à venir</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
