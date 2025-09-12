@@ -27,20 +27,29 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [characterCount, setCharacterCount] = useState("1");
   const [supportType, setSupportType] = useState("papier-sans-cadre");
   const [tshirtSize, setTshirtSize] = useState("M");
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [characterChoices, setCharacterChoices] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileUpload = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      // Vérifier si c'est une image ou un PDF
-      const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
-      if (validTypes.includes(file.type)) {
-        setUploadedFile(file);
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      const newFiles: File[] = [];
+      
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        // Vérifier si c'est une image ou un PDF
+        const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+        if (validTypes.includes(file.type)) {
+          newFiles.push(file);
+        }
+      }
+      
+      if (newFiles.length > 0) {
+        setUploadedFiles(prev => [...prev, ...newFiles]);
         toast({
           title: t('upload.success'),
-          description: `${file.name} ${t('upload.uploaded')}`,
+          description: `${newFiles.length} ${t('upload.uploaded')}`,
         });
       } else {
         toast({
@@ -99,7 +108,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     const finalPrice = getPrice();
     
     // Vérifier si un fichier est requis pour les Chibibis personnalisés
-    if (product.id === 'custom-chibis' && !uploadedFile) {
+    if (product.id === 'custom-chibis' && uploadedFiles.length === 0) {
       toast({
         title: t('upload.required'),
         description: t('upload.requiredMessage'),
@@ -131,7 +140,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       title: t('cart.itemAdded'),
       description: `${selectedQuantity} x ${product.name} ${t('cart.addedToCart')}`,
     });
-  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, uploadedFile, characterChoices, t]);
+  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, uploadedFiles, characterChoices, t]);
 
   return (
     <div className="korean-card p-8 group hover-glow">
@@ -252,17 +261,42 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             <button
               onClick={triggerFileUpload}
               className="bg-korean-gold hover:bg-korean-gold/90 text-stone-black p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white flex items-center gap-2 mx-auto"
-              title={uploadedFile ? uploadedFile.name : t('upload.addFile')}
+              title={uploadedFiles.length > 0 ? `${uploadedFiles.length} fichier(s) uploadé(s)` : t('upload.addFile')}
             >
-              <Upload size={20} className={uploadedFile ? "text-white" : "text-stone-black"} />
+              <Upload size={20} className={uploadedFiles.length > 0 ? "text-white" : "text-stone-black"} />
               <span className="text-sm font-bold">
-                {t('upload.downloadFile')}
+                {uploadedFiles.length > 0 ? `${uploadedFiles.length} fichier(s)` : t('upload.downloadFile')}
               </span>
             </button>
+            
+            {/* Display uploaded files */}
+            {uploadedFiles.length > 0 && (
+              <div className="mt-3 max-w-xs mx-auto">
+                <div className="bg-korean-gold/10 border border-korean-gold/30 rounded-lg p-3">
+                  <p className="text-xs font-bold text-stone-black mb-2">Fichiers uploadés:</p>
+                  <div className="space-y-1">
+                    {uploadedFiles.map((file, index) => (
+                      <div key={index} className="flex items-center justify-between text-xs">
+                        <span className="text-stone-black/70 truncate flex-1">{file.name}</span>
+                        <button
+                          onClick={() => setUploadedFiles(prev => prev.filter((_, i) => i !== index))}
+                          className="ml-2 text-red-500 hover:text-red-700"
+                          title="Supprimer"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <input
               ref={fileInputRef}
               type="file"
               accept="image/*,.pdf"
+              multiple
               onChange={handleFileUpload}
               className="hidden"
             />
