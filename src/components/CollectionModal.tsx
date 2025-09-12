@@ -28,17 +28,6 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       ]
     },
     {
-      id: 'family',
-      name: 'Famille',
-      description: 'Des moments précieux en famille capturés en chibi',
-      images: [
-        '/lovable-uploads/e213511c-bef3-415a-94bc-dc46dcf2a171.png',
-        '/lovable-uploads/3609f103-adb0-4361-94b2-4820c33e7acd.png',
-        '/lovable-uploads/7c02c0ae-eeb5-4faa-b02a-06fbaf2a7532.png',
-        '/lovable-uploads/9179dd04-6fb7-46b6-a661-a6f0fed3db28.png'
-      ]
-    },
-    {
       id: 'holidays',
       name: 'Fêtes',
       description: 'Célébrez les moments spéciaux avec style',
@@ -47,17 +36,6 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
         '/lovable-uploads/3609f103-adb0-4361-94b2-4820c33e7acd.png',
         '/lovable-uploads/cb7a13f6-c443-42bd-aac9-1cb9b52f2e67.png',
         '/lovable-uploads/df261ee6-26f7-43c6-b60b-ecb31aa6f1d8.png'
-      ]
-    },
-    {
-      id: 'animals',
-      name: 'Animaux',
-      description: 'Vos compagnons à quatre pattes en version chibi',
-      images: [
-        '/lovable-uploads/e213511c-bef3-415a-94bc-dc46dcf2a171.png',
-        '/lovable-uploads/3609f103-adb0-4361-94b2-4820c33e7acd.png',
-        '/lovable-uploads/485f0eaa-2152-4dc3-bfa7-1157fd649b06.png',
-        '/lovable-uploads/4902926d-b6ae-4d9c-9502-65c796083e49.png'
       ]
     },
     {
