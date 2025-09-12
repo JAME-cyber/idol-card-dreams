@@ -51,7 +51,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
     },
     {
       id: 'objects',
-      name: 'Objets',
+      name: 'Autres',
       description: 'Vos objets favoris transformés en art chibi',
       images: [
         '/lovable-uploads/e213511c-bef3-415a-94bc-dc46dcf2a171.png',
