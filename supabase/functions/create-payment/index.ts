@@ -61,9 +61,17 @@ serve(async (req) => {
     console.log("Authenticated user:", user.id);
 
     const { items } = await req.json();
-    
+
     // Validate input data
     validateCheckoutRequest({ items });
+
+    // Determine site origin for URLs and absolute image paths
+    const referer = req.headers.get("referer") || '';
+    let origin = req.headers.get("origin") || '';
+    if (!origin && referer) {
+      try { origin = new URL(referer).origin; } catch (_) { /* ignore */ }
+    }
+    console.log("Resolved origin for checkout:", origin, "referer:", referer);
 
     // Initialize Stripe
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", {
@@ -79,18 +87,29 @@ serve(async (req) => {
       }
     }
 
-    // Create line items for Stripe with proper sanitization
-    const lineItems = items.map((item: any) => ({
-      price_data: {
-        currency: "eur",
-        product_data: {
-          name: String(item.name).substring(0, 100), // Limit name length
-          images: item.image ? [String(item.image)] : [],
+    // Create line items for Stripe with proper sanitization and absolute image URLs
+    const toAbsoluteUrl = (img?: string) => {
+      if (!img) return undefined;
+      const s = String(img);
+      if (/^https?:\/\//i.test(s)) return s;
+      if (!origin) return undefined;
+      return s.startsWith('/') ? `${origin}${s}` : `${origin}/${s}`;
+    };
+
+    const lineItems = items.map((item: any) => {
+      const absImg = toAbsoluteUrl(item.image);
+      return {
+        price_data: {
+          currency: "eur",
+          product_data: {
+            name: String(item.name).substring(0, 100),
+            images: absImg ? [absImg] : [],
+          },
+          unit_amount: Math.round(Number(item.price) * 100),
         },
-        unit_amount: Math.round(Number(item.price) * 100), // Convert to cents
-      },
-      quantity: Math.min(Math.max(1, Math.floor(Number(item.quantity))), 99), // Sanitize quantity
-    }));
+        quantity: Math.min(Math.max(1, Math.floor(Number(item.quantity))), 99),
+      };
+    });
 
     console.log("Creating checkout session with items:", lineItems);
 
@@ -100,15 +119,13 @@ serve(async (req) => {
       customer_email: customerId ? undefined : user.email,
       line_items: lineItems,
       mode: "payment",
-      success_url: `${req.headers.get("origin")}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.get("origin")}/checkout/cancel`,
+      success_url: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/checkout/cancel`,
       shipping_address_collection: {
         allowed_countries: ['FR', 'DE', 'IT', 'ES', 'NL', 'BE', 'US', 'CA', 'GB'],
       },
       billing_address_collection: 'required',
-      metadata: {
-        user_id: user.id, // Track which user created this session
-      },
+      metadata: { user_id: user.id },
     });
 
     console.log("Checkout session created:", session.id, "for user:", user.id);
