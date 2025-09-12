@@ -41,9 +41,15 @@ serve(async (req) => {
     }
 
     // Initialize Supabase client
+    const supabaseUrl = Deno.env.get('SUPABASE_URL') ?? '';
+    const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY') ?? '';
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Supabase configuration missing: ensure SUPABASE_URL and SUPABASE_ANON_KEY are set as secrets');
+    }
+
     const supabase = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_PUBLISHABLE_KEY') ?? '',
+      supabaseUrl,
+      supabaseKey,
       {
         global: {
           headers: { Authorization: authHeader },
