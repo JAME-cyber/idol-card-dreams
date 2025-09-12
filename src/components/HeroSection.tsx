@@ -31,7 +31,7 @@ const HeroSection = () => {
         <div className="mb-6 flex justify-center">
           <div className="w-64 h-48 rounded-xl overflow-hidden shadow-lg">
             <img 
-              src="/lovable-uploads/92550196-85e7-45fb-b312-fb49afd26c3c.png" 
+              src="/lovable-uploads/bc321f60-3074-46a7-b36f-b6c48eb154be.png" 
               alt="Exemple de chibi personnalisé"
               className="w-full h-full object-contain bg-white"
               loading="lazy"
