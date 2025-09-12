@@ -33,7 +33,7 @@ const translations = {
     'hero.shopButton': 'Shop Surprise Packs',
     'hero.exploreButton': 'Explore Goodies',
     'hero.cardsPerPack': 'Cards per pack',
-    'hero.series': 'K-Drama series',
+    'hero.series': 'Cadeaux personnalisés',
     'hero.surprise': 'Surprise',
     
     // Shop Section
@@ -60,9 +60,9 @@ const translations = {
     'shop.toteBag': 'Tote Bag',
     'shop.backpack': 'Backpack',
     'shop.tshirt': 'T-shirt',
-    'shop.description': 'Discover exclusive K-Drama collectibles and premium merchandise inspired by your favorite series.',
+    'shop.description': 'Découvrez des cadeaux personnalisés chibis exclusifs et des créations premium inspirées de votre Safe Place.',
     'shop.surprisePacks': 'Surprise Card Packs',
-    'shop.goodies': 'Goodies',
+    'shop.goodies': 'Cadeaux Chibis',
     'shop.surprisePackName': 'Stone Idol Surprise Pack',
     'shop.surprisePackDesc': 'Mystery pack containing 3 exclusive Stone Idol collectible cards',
     'shop.addToCart': 'Add to Cart',
@@ -70,8 +70,8 @@ const translations = {
     'shop.selectSize': 'Select Size',
     'shop.cardsCollectionTitle': 'Stone Idol Collection cards',
     'shop.cardsCollectionSubtitle': 'They all became part of our lives at some point',
-    'shop.goodiesTitle': 'Stone Idol Goodies',
-    'shop.goodiesSubtitle': 'Choose your favorite drama among the most popular ones!',
+    'shop.goodiesTitle': 'Cadeaux Personnalisés Chibis',
+    'shop.goodiesSubtitle': 'Choisissez votre création personnalisée parmi nos designs uniques !',
     
     // Products
     'product.toteBag': 'Stone Idol Tote Bag',
@@ -162,7 +162,7 @@ const translations = {
     'hero.shopButton': 'Acheter des Packs Surprise',
     'hero.exploreButton': 'Explorer les Goodies',
     'hero.cardsPerPack': 'Cartes par pack',
-    'hero.series': 'Séries K-Drama',
+    'hero.series': 'Cadeaux personnalisés',
     'hero.surprise': 'Surprise',
     
     // Shop Section
@@ -189,9 +189,9 @@ const translations = {
     'shop.toteBag': 'Tote Bag',
     'shop.backpack': 'Backpack',
     'shop.tshirt': 'T-shirt',
-    'shop.description': 'Découvrez des objets de collection K-Drama exclusifs et des produits premium inspirés de vos séries préférées.',
+    'shop.description': 'Découvrez des cadeaux personnalisés chibis exclusifs et des créations premium inspirées de votre Safe Place.',
     'shop.surprisePacks': 'Packs de Cartes Surprise',
-    'shop.goodies': 'Goodies',
+    'shop.goodies': 'Cadeaux Chibis',
     'shop.surprisePackName': 'Pack Surprise Stone Idol',
     'shop.surprisePackDesc': 'Pack mystère contenant 3 cartes de collection Stone Idol exclusives',
     'shop.addToCart': 'Ajouter au Panier',
@@ -199,8 +199,8 @@ const translations = {
     'shop.selectSize': 'Sélectionner la Taille',
     'shop.cardsCollectionTitle': 'Cartes de Collection Stone Idol',
     'shop.cardsCollectionSubtitle': 'Ils ont tous fait partie de nos vies à un moment donné',
-    'shop.goodiesTitle': 'Goodies Stone Idol',
-    'shop.goodiesSubtitle': 'Choisis ton drama préféré parmi les plus populaires !',
+    'shop.goodiesTitle': 'Cadeaux Personnalisés Chibis',
+    'shop.goodiesSubtitle': 'Choisis ta création personnalisée parmi nos designs uniques !',
     
     // Products
     'product.toteBag': 'Sac Tote Stone Idol',

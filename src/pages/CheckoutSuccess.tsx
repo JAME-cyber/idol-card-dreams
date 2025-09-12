@@ -33,7 +33,7 @@ const CheckoutSuccess = () => {
                 Payment Successful!
               </h1>
               <p className="text-lg text-stone-black/70 font-korean">
-                Thank you for your order. Your K-Drama collectibles are on their way!
+                Thank you for your order. Your personalized chibis are on their way!
               </p>
             </div>
 
