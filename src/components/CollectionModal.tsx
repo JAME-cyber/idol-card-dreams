@@ -21,7 +21,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       name: 'Cinéma',
       description: 'Découvrez nos dessins inspirés de vos séries préférées',
       images: [
-        '/lovable-uploads/e213511c-bef3-415a-94bc-dc46dcf2a171.png',
+        '/lovable-uploads/ahn-soheo-chibi.jpg',
         '/lovable-uploads/yeon-sieun-chibi.jpg',
         '/lovable-uploads/ri-jeong-hyeok-chibi.jpg',
         '/lovable-uploads/yoon-se-ri-chibi.jpg',
