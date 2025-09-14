@@ -149,7 +149,7 @@ const translations = {
     'nav.about': 'À propos',
     
     // Hero Section
-    'hero.title': 'Cadeaux Personnalisés Chibis Stone Idol',
+    'hero.title': 'Cadeaux Personnalisés Chibis\nStone Idol',
     'hero.subtitle': 'Cadeaux personnalisés façon Chibis "My Safe Place"',
     'hero.tagline': 'Pour être certain de faire plaisir...',
     'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
