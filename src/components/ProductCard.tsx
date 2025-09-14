@@ -149,7 +149,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         <div className="grid grid-cols-2 gap-2">
           <div className="relative overflow-hidden rounded-lg">
               <img 
-                src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/05697494-8bde-425d-b107-d61f7a90f5bd.png" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
+                src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
                 alt={`${product.name} - Image 1`}
                 className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                 loading="lazy"
