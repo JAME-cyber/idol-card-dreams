@@ -28,7 +28,12 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
         '/lovable-uploads/kang-gumshik-chibi.jpg',
         '/lovable-uploads/oh-aeson-chibi.jpg',
         '/lovable-uploads/kim-geormoo-chibi.jpg',
-        '/lovable-uploads/yoo-sijin-chibi.jpg'
+        '/lovable-uploads/yoo-sijin-chibi.jpg',
+        '/lovable-uploads/moon-dongeun-chibi.jpg',
+        '/lovable-uploads/lee-hm-chibi.jpg',
+        '/lovable-uploads/lee-keong-chibi.jpg',
+        '/lovable-uploads/ko-moonyeong-chibi.jpg',
+        '/lovable-uploads/han-seojin-chibi.jpg'
       ]
     },
     {
