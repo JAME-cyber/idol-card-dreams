@@ -107,7 +107,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     const selectedQuantity = parseInt(quantity);
     const finalPrice = getPrice();
     
-    // Vérifier si un fichier est requis pour les Chibibis personnalisés
+    // Vérifier si un fichier est requis pour les Chibis personnalisés
     if (product.id === 'custom-chibis' && uploadedFiles.length === 0) {
       toast({
         title: t('upload.required'),
@@ -117,7 +117,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       return;
     }
     
-    // Vérifier si les numéros de personnages sont requis pour les Chibibis pré-dessinés
+    // Vérifier si les numéros de personnages sont requis pour les Chibis pré-dessinés
     if (product.id === 'preprinted-chibis' && !characterChoices.trim()) {
       toast({
         title: t('choices.required'),
@@ -181,7 +181,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
           </span>
         </div>
         
-        {/* Custom options for Chibibis personnalisés and préimprimés */}
+        {/* Custom options for Chibis personnalisés and préimprimés */}
         {(product.id === 'custom-chibis' || product.id === 'preprinted-chibis') && (
           <>
             {/* Character Count Selector */}

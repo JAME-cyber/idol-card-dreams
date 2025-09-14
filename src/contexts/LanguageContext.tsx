@@ -14,7 +14,7 @@ const translations = {
   en: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': 'Cadeaux Personnalisés Chibibis',
+    'header.subtitle': 'Cadeaux Personnalisés Chibis',
     'nav.home': 'Home',
     'nav.shop': 'Shop',
     'nav.about': 'About',
@@ -26,9 +26,9 @@ const translations = {
     'hero.description': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures you and helps you manage everyday life.',
     'hero.mainDescription': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures and helps you manage everyday life.',
     'hero.personalDescription': 'For me, it\'s my family, my cat, and, right now, Korean series (Kdramas), hence my somewhat oriented collections :)',
-    'hero.questionDescription': 'What is your refuge? A family member, a friend, a pet, a book, a movie, an object... I would be delighted to represent your Safe Place or that of your loved ones with my Chibibis. Don\'t hesitate!',
+    'hero.questionDescription': 'What is your refuge? A family member, a friend, a pet, a book, a movie, an object... I would be delighted to represent your Safe Place or that of your loved ones with my Chibis. Don\'t hesitate!',
     'hero.giftDescription': 'And, for holidays or birthdays, a gift for which you took the time to think about the recipient has much more value.',
-    'hero.noteDescription': 'Note: I don\'t use AI to create my Chibibis.',
+    'hero.noteDescription': 'Note: I don\'t use AI to create my Chibis.',
     'hero.photoPlaceholder': 'Photo coming soon',
     'hero.shopButton': 'Shop Surprise Packs',
     'hero.exploreButton': 'Explore Goodies',
@@ -37,11 +37,11 @@ const translations = {
     'hero.surprise': 'Surprise',
     
     // Shop Section
-    'shop.title': 'Stone Idol Chibibis',
+    'shop.title': 'Stone Idol Chibis',
     'shop.subtitle': 'What do you prefer?',
-    'shop.customChibis': 'Custom Chibibis',
+    'shop.customChibis': 'Custom Chibis',
     'shop.customChibisDesc': 'Choose your Safe Place',
-    'shop.preprinted': 'Pre-drawn Chibibis',
+    'shop.preprinted': 'Pre-drawn Chibis',
     'shop.preprintedDesc': 'Discover our collections',
     'shop.charactersLabel': 'Number of characters:',
     'shop.supportLabel': 'Support:',
@@ -143,21 +143,21 @@ const translations = {
   fr: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': 'Cadeaux Personnalisés Chibibis',
+    'header.subtitle': 'Cadeaux Personnalisés Chibis',
     'nav.home': 'Accueil',
     'nav.shop': 'Boutique',
     'nav.about': 'À propos',
     
     // Hero Section
-    'hero.title': 'Cadeaux Personnalisés Chibibis Stone Idol',
-    'hero.subtitle': 'Cadeaux personnalisés façon Chibibis "My Safe Place"',
+    'hero.title': 'Cadeaux Personnalisés Chibis Stone Idol',
+    'hero.subtitle': 'Cadeaux personnalisés façon Chibis "My Safe Place"',
     'hero.tagline': 'Pour être certain de faire plaisir...',
     'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.mainDescription': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.personalDescription': 'Pour ma part, il s\'agit de ma famille, mon chat, et, en ce moment, des Séries coréennes (Kdramas), d\'où mes collections un peu orientées :)',
-    'hero.questionDescription': 'Vous, quel est votre refuge? un membre de votre famille, un ami, un animal de compagnie, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d\'un de vos proches avec mes Chibibis. N\'hésitez pas!',
+    'hero.questionDescription': 'Vous, quel est votre refuge? un membre de votre famille, un ami, un animal de compagnie, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d\'un de vos proches avec mes Chibis. N\'hésitez pas!',
     'hero.giftDescription': 'Et, pour les fêtes ou les anniversaires, un cadeau pour lequel vous avez pris le temps de penser au destinataire a beaucoup plus de valeur.',
-    'hero.noteDescription': 'NB: je n\'utilise pas d\'IA pour créer mes Chibibis.',
+    'hero.noteDescription': 'NB: je n\'utilise pas d\'IA pour créer mes Chibis.',
     'hero.photoPlaceholder': 'Photo à venir',
     'hero.shopButton': 'Acheter des Packs Surprise',
     'hero.exploreButton': 'Explorer les Goodies',
@@ -166,11 +166,11 @@ const translations = {
     'hero.surprise': 'Surprise',
     
     // Shop Section
-    'shop.title': 'Stone Idol Chibibis',
+    'shop.title': 'Stone Idol Chibis',
     'shop.subtitle': 'Que préfères-tu?',
-    'shop.customChibis': 'Chibibis personnalisés',
+    'shop.customChibis': 'Chibis personnalisés',
     'shop.customChibisDesc': 'Choisis ta Safe Place',
-    'shop.preprinted': 'Chibibis pré-dessinés',
+    'shop.preprinted': 'Chibis pré-dessinés',
     'shop.preprintedDesc': 'Découvre nos collections',
     'shop.charactersLabel': 'Nombre de personnages:',
     'shop.supportLabel': 'Support:',
@@ -254,7 +254,7 @@ const translations = {
     'shipping.emptyCart': 'Ajoutez des articles au panier pour calculer les frais de livraison',
     'shipping.deliveryTime': 'Délai de livraison estimé',
     
-    'footer.description': 'Créations uniques de Chibibis personnalisés inspirés de votre Safe Place. Des cadeaux sur mesure qui racontent votre histoire.',
+    'footer.description': 'Créations uniques de Chibis personnalisés inspirés de votre Safe Place. Des cadeaux sur mesure qui racontent votre histoire.',
     'footer.customerService': 'Service Client',
     'footer.connectWithUs': 'Restez Connectés',
     'footer.returnPolicy': 'Politique de Retour',

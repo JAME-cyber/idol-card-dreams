@@ -61,7 +61,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center text-stone-black font-snap">
-            Nos Collections Chibibis
+            Nos Collections Chibis
           </DialogTitle>
         </DialogHeader>
         
