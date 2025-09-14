@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Upload, Edit3 } from 'lucide-react';
 import CollectionModal from './CollectionModal';
 
@@ -150,21 +151,47 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         {/* Two image placeholders side by side */}
         <div className="grid grid-cols-2 gap-2">
           <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
-                alt={`${product.name} - Image 1`}
-                className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
-                loading="lazy"
-              />
+            <Dialog>
+              <DialogTrigger asChild>
+                <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                  <img 
+                    src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
+                    alt={`${product.name} - Image 1`}
+                    className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                    loading="lazy"
+                  />
+                </div>
+              </DialogTrigger>
+              <DialogContent className="max-w-3xl">
+                <img 
+                  src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
+                  alt={`${product.name} - Image 1 (agrandie)`}
+                  className="w-full h-auto object-contain max-h-[80vh]"
+                />
+              </DialogContent>
+            </Dialog>
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
-                alt={`${product.name} - Image 2`}
-                className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
-                loading="lazy"
-              />
+            <Dialog>
+              <DialogTrigger asChild>
+                <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                  <img 
+                    src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
+                    alt={`${product.name} - Image 2`}
+                    className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                    loading="lazy"
+                  />
+                </div>
+              </DialogTrigger>
+              <DialogContent className="max-w-3xl">
+                <img 
+                  src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
+                  alt={`${product.name} - Image 2 (agrandie)`}
+                  className="w-full h-auto object-contain max-h-[80vh]"
+                />
+              </DialogContent>
+            </Dialog>
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
