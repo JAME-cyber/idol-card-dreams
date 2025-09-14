@@ -83,6 +83,8 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
         case "2": basePrice = 15.99; break;
         case "3": basePrice = 19.99; break;
         case "4": basePrice = 22.99; break;
+        case "5": basePrice = 24.99; break;
+        case "6": basePrice = 24.99; break;
         default: basePrice = product.price;
       }
     }
@@ -207,6 +209,8 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                       <SelectItem value="2" className="hover:bg-korean-gold/10">{t('shop.characters2')} (15.99€)</SelectItem>
                       <SelectItem value="3" className="hover:bg-korean-gold/10">{t('shop.characters3')} (19.99€)</SelectItem>
                       <SelectItem value="4" className="hover:bg-korean-gold/10">{t('shop.characters4')} (22.99€)</SelectItem>
+                      <SelectItem value="5" className="hover:bg-korean-gold/10">5 personnages (24.99€)</SelectItem>
+                      <SelectItem value="6" className="hover:bg-korean-gold/10">6 personnages (24.99€)</SelectItem>
                     </>
                   )}
                 </SelectContent>
