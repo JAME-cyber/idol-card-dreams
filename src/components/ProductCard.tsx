@@ -273,6 +273,18 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
               </span>
             </button>
             
+            {/* Instructions pour le client */}
+            <div className="mt-3 bg-korean-gold/10 border border-korean-gold/30 rounded-lg p-3 text-center">
+              <p className="text-xs font-medium text-stone-black mb-1">
+                📸 Instructions pour vos photos :
+              </p>
+              <p className="text-xs text-stone-black/70">
+                • Ajoutez des images de personnes <strong>de face</strong><br/>
+                • Photos <strong>en pied</strong> (corps entier visible)<br/>
+                • Qualité correcte et bonne luminosité
+              </p>
+            </div>
+            
             {/* Display uploaded files */}
             {uploadedFiles.length > 0 && (
               <div className="mt-3 max-w-xs mx-auto">
