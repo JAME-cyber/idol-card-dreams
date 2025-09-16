@@ -17,7 +17,12 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-stone-black mb-6 font-snap">
-          {t('hero.title')}
+          {t('hero.title').split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              {index < t('hero.title').split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
         </h1>
         
         <p className="text-base md:text-lg text-stone-black/70 mb-4 font-medium">
