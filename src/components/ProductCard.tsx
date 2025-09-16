@@ -27,6 +27,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState("1");
   const [characterCount, setCharacterCount] = useState("1");
   const [supportType, setSupportType] = useState("papier-sans-cadre");
+  const [frameColor, setFrameColor] = useState("blanc");
   const [tshirtSize, setTshirtSize] = useState("M");
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [characterChoices, setCharacterChoices] = useState("");
@@ -134,7 +135,9 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     for (let i = 0; i < selectedQuantity; i++) {
       addItem({
         id: `${product.id}-${Date.now()}-${i}`,
-        name: supportType === "t-shirt" ? `${product.name} (Taille: ${tshirtSize})` : product.name,
+        name: supportType === "t-shirt" ? `${product.name} (Taille: ${tshirtSize})` : 
+              supportType === "papier-avec-cadre" ? `${product.name} (Cadre: ${frameColor})` :
+              product.name,
         price: finalPrice,
         image: "/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png"
       });
@@ -264,6 +267,24 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                 </SelectContent>
               </Select>
             </div>
+            
+            {/* Frame Color Selector - only show when papier-avec-cadre is selected */}
+            {supportType === "papier-avec-cadre" && (
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
+                  {t('shop.frameColorLabel')}
+                </label>
+                <Select value={frameColor} onValueChange={setFrameColor}>
+                  <SelectTrigger className="w-full max-w-xs mx-auto bg-white border-2 border-korean-gold/20 focus:border-korean-gold">
+                    <SelectValue placeholder={t('shop.chooseFrameColor')} />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
+                    <SelectItem value="blanc" className="hover:bg-korean-gold/10">{t('shop.whiteFrame')}</SelectItem>
+                    <SelectItem value="noir" className="hover:bg-korean-gold/10">{t('shop.blackFrame')}</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
             
             {/* T-shirt Size Selector - only show when t-shirt is selected */}
             {supportType === "t-shirt" && (
