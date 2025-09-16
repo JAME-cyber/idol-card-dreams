@@ -95,6 +95,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     switch (supportType) {
       case "papier-sans-cadre": supportPrice = 0.00; break;
       case "papier-avec-cadre": supportPrice = 3.00; break;
+      case "petit-tote-bag": supportPrice = 4.00; break;
       case "tote-bag": supportPrice = 6.00; break;
       case "backpack": supportPrice = 6.00; break;
       case "t-shirt": supportPrice = 12.00; break;
@@ -256,6 +257,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                 <SelectContent className="bg-white border-2 border-korean-gold/20 z-50">
                   <SelectItem value="papier-sans-cadre" className="hover:bg-korean-gold/10">{t('shop.paperNoFrame')} (+0.00€)</SelectItem>
                   <SelectItem value="papier-avec-cadre" className="hover:bg-korean-gold/10">{t('shop.paperWithFrame')} (+3.00€)</SelectItem>
+                  <SelectItem value="petit-tote-bag" className="hover:bg-korean-gold/10">{t('shop.petitToteBag')} (+4.00€)</SelectItem>
                   <SelectItem value="tote-bag" className="hover:bg-korean-gold/10">{t('shop.toteBag')} (+6.00€)</SelectItem>
                   <SelectItem value="backpack" className="hover:bg-korean-gold/10">{t('shop.backpack')} (+6.00€)</SelectItem>
                   <SelectItem value="t-shirt" className="hover:bg-korean-gold/10">{t('shop.tshirt')} (+12.00€)</SelectItem>
