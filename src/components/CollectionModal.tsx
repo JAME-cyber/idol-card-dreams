@@ -58,7 +58,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       <DialogTrigger asChild>
         {trigger || defaultTrigger}
       </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white">
+      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white border border-gray-200 shadow-2xl" style={{ zIndex: 9999 }}>
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center text-stone-black font-snap">
             Nos Collections Chibis
