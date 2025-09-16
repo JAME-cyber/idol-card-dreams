@@ -15,6 +15,7 @@ interface CollectionModalProps {
 }
 
 const CollectionModal = ({ trigger }: CollectionModalProps) => {
+  const [open, setOpen] = React.useState(false);
   const collections: Collection[] = [
     {
       id: 'series',
@@ -47,14 +48,14 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
   ];
 
   const defaultTrigger = (
-    <Button variant="outline" className="w-full mb-4 border-korean-gold-pastel bg-korean-gold-pastel text-stone-black hover:bg-korean-gold hover:text-stone-black transition-colors">
+    <Button onClick={() => setOpen(true)} variant="outline" className="w-full mb-4 border-korean-gold-pastel bg-korean-gold-pastel text-stone-black hover:bg-korean-gold hover:text-stone-black transition-colors">
       <Eye className="w-4 h-4 mr-2" />
       Voir les collections
     </Button>
   );
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger || defaultTrigger}
       </DialogTrigger>
