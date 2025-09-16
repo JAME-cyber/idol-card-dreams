@@ -72,10 +72,10 @@ export default {
 				'korean-gold-pastel': '#fef3c7',
 			},
 			fontFamily: {
-				'sans': ['Arial', 'sans-serif'],
-				'korean': ['Noto Sans KR', 'sans-serif'],
-				'poppins': ['Poppins', 'sans-serif'],
-				'snap': ['Snappy Service', 'cursive'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+				'korean': ['Open Sans', 'Inter', 'system-ui', 'sans-serif'],
+				'poppins': ['Inter', 'system-ui', 'sans-serif'],
+				'snap': ['Inter', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
