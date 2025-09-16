@@ -18,8 +18,8 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
   const collections: Collection[] = [
     {
       id: 'series',
-      name: 'Cinéma',
-      description: 'Découvrez nos dessins inspirés de vos séries préférées',
+      name: 'Kdramas (séries coréennes)',
+      description: 'Découvrez nos dessins inspirés de vos séries coréennes préférées',
       images: [
         '/lovable-uploads/ahn-soheo-chibi.jpg',
         '/lovable-uploads/yeon-sieun-chibi.jpg',
