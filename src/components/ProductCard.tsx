@@ -152,8 +152,8 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   return (
     <div className="korean-card p-8 group hover-glow">
       <div className="relative mb-6 overflow-hidden rounded-xl">
-        {/* Two image placeholders side by side */}
-        <div className="grid grid-cols-2 gap-2">
+        {/* Three image placeholders for custom chibis, two for others */}
+        <div className={`grid gap-2 ${product.id === 'custom-chibis' ? 'grid-cols-3' : 'grid-cols-2'}`}>
           <div className="relative overflow-hidden rounded-lg">
             <Dialog>
               <DialogTrigger asChild>
@@ -198,6 +198,31 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             </Dialog>
             <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
+          {/* Third image - only for custom chibis */}
+          {product.id === 'custom-chibis' && (
+            <div className="relative overflow-hidden rounded-lg">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src="/lovable-uploads/custom-chibi-example-3.jpg" 
+                      alt={`${product.name} - Image 3`}
+                      className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                      loading="lazy"
+                    />
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl">
+                  <img 
+                    src="/lovable-uploads/custom-chibi-example-3.jpg" 
+                    alt={`${product.name} - Image 3 (agrandie)`}
+                    className="w-full h-auto object-contain max-h-[80vh]"
+                  />
+                </DialogContent>
+              </Dialog>
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          )}
         </div>
       </div>
       
