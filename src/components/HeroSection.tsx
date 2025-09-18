@@ -61,27 +61,27 @@ const HeroSection = () => {
           {/* Photo Gallery */}
           <div className="mt-8">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
-              <div className="relative overflow-hidden rounded-xl shadow-lg group bg-white">
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
                   src="/lovable-uploads/IMG_0254.JPG" 
                   alt="Exemple de produit chibi - Cadre personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group bg-white">
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
                   src="/lovable-uploads/IMG_0355.JPG" 
                   alt="Exemple de produit chibi - T-shirt personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group bg-white">
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
                   src="/lovable-uploads/IMG_0378.JPG" 
                   alt="Exemple de produit chibi - Sac personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
