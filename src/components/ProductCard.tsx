@@ -214,7 +214,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                         alt={`${product.name} - Image 3`}
                         className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                         loading="lazy"
-                        style={{ transform: 'rotate(90deg)' }}
+                        style={{ transform: 'rotate(-90deg)' }}
                       />
                     </div>
                   </DialogTrigger>
@@ -223,7 +223,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                       src="/lovable-uploads/custom-chibi-example-3.jpg" 
                       alt={`${product.name} - Image 3 (agrandie)`}
                       className="w-full h-auto object-contain max-h-[80vh]"
-                      style={{ transform: 'rotate(90deg)' }}
+                      style={{ transform: 'rotate(-90deg)' }}
                     />
                   </DialogContent>
                 </Dialog>
