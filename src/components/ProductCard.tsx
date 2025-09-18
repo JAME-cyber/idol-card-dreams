@@ -152,61 +152,17 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
   return (
     <div className="korean-card p-8 group hover-glow">
       <div className="relative mb-6 overflow-hidden rounded-xl">
-        {/* Three image placeholders for custom chibis, two for others */}
-        <div className={`grid gap-2 ${product.id === 'custom-chibis' ? 'grid-cols-3' : 'grid-cols-2'}`}>
-          <div className="relative overflow-hidden rounded-lg">
-            <Dialog>
-              <DialogTrigger asChild>
-                <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                  <img 
-                    src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
-                    alt={`${product.name} - Image 1`}
-                    className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
-                    loading="lazy"
-                  />
-                </div>
-              </DialogTrigger>
-              <DialogContent className="max-w-3xl">
-                <img 
-                  src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
-                  alt={`${product.name} - Image 1 (agrandie)`}
-                  className="w-full h-auto object-contain max-h-[80vh]"
-                />
-              </DialogContent>
-            </Dialog>
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
-          <div className="relative overflow-hidden rounded-lg">
-            <Dialog>
-              <DialogTrigger asChild>
-                <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                  <img 
-                    src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
-                    alt={`${product.name} - Image 2`}
-                    className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
-                    loading="lazy"
-                  />
-                </div>
-              </DialogTrigger>
-              <DialogContent className="max-w-3xl">
-                <img 
-                  src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
-                  alt={`${product.name} - Image 2 (agrandie)`}
-                  className="w-full h-auto object-contain max-h-[80vh]"
-                />
-              </DialogContent>
-            </Dialog>
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
-          {/* Third image - only for custom chibis */}
-          {product.id === 'custom-chibis' && (
+        {/* Images layout */}
+        <div className="space-y-2">
+          {/* Top row - two images side by side */}
+          <div className="grid grid-cols-2 gap-2">
             <div className="relative overflow-hidden rounded-lg">
               <Dialog>
                 <DialogTrigger asChild>
                   <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
                     <img 
-                      src="/lovable-uploads/custom-chibi-example-3.jpg" 
-                      alt={`${product.name} - Image 3`}
+                      src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
+                      alt={`${product.name} - Image 1`}
                       className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                       loading="lazy"
                     />
@@ -214,13 +170,65 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                 </DialogTrigger>
                 <DialogContent className="max-w-3xl">
                   <img 
-                    src="/lovable-uploads/custom-chibi-example-3.jpg" 
-                    alt={`${product.name} - Image 3 (agrandie)`}
+                    src={product.id === 'custom-chibis' ? "/lovable-uploads/0a84e310-1195-4ef0-9993-35c4074ecb5e.png" : (product.id === 'preprinted-chibis' ? "/lovable-uploads/mj-2.jpg" : "/lovable-uploads/10c2c313-97a5-431e-92ca-2edaf1062e7d.png")} 
+                    alt={`${product.name} - Image 1 (agrandie)`}
                     className="w-full h-auto object-contain max-h-[80vh]"
                   />
                 </DialogContent>
               </Dialog>
               <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div className="relative overflow-hidden rounded-lg">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
+                      alt={`${product.name} - Image 2`}
+                      className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                      loading="lazy"
+                    />
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl">
+                  <img 
+                    src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
+                    alt={`${product.name} - Image 2 (agrandie)`}
+                    className="w-full h-auto object-contain max-h-[80vh]"
+                  />
+                </DialogContent>
+              </Dialog>
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          </div>
+          
+          {/* Bottom row - third image for custom chibis only */}
+          {product.id === 'custom-chibis' && (
+            <div className="flex justify-center">
+              <div className="relative overflow-hidden rounded-lg w-1/2">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src="/lovable-uploads/custom-chibi-example-3.jpg" 
+                        alt={`${product.name} - Image 3`}
+                        className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                        loading="lazy"
+                        style={{ transform: 'rotate(0deg)' }}
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
+                    <img 
+                      src="/lovable-uploads/custom-chibi-example-3.jpg" 
+                      alt={`${product.name} - Image 3 (agrandie)`}
+                      className="w-full h-auto object-contain max-h-[80vh]"
+                      style={{ transform: 'rotate(0deg)' }}
+                    />
+                  </DialogContent>
+                </Dialog>
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
             </div>
           )}
         </div>
