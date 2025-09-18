@@ -89,7 +89,7 @@ const HeroSection = () => {
                 <img 
                   src="/lovable-uploads/IMG_0378.JPG" 
                   alt="Exemple de produit chibi - Sac personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300 [image-orientation:from-image]"
+                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300 [image-orientation:from-image] rotate-180 md:rotate-0"
                   loading="lazy"
                   style={{ imageOrientation: 'from-image' }}
                 />
