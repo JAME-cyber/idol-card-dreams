@@ -160,7 +160,7 @@ const translations = {
     'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.mainDescription': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.personalDescription': 'Pour ma part, il s\'agit de ma famille, mon chat, et, en ce moment, des Séries coréennes (Kdramas), d\'où mes collections un peu orientées :)',
-    'hero.questionDescription': 'Vous, quel est votre refuge? un membre de votre famille, un ami, un animal de compagnie, un livre, un film, un objet... Je serai ravi de représenter votre Safe Place ou celle d\'un de vos proches avec mes Chibis. N\'hésitez pas!',
+    'hero.questionDescription': 'Vous, quel est votre refuge? un membre de votre famille, un ami, un animal de compagnie, un livre, un film, un lieu... Je serai ravi de représenter votre Safe Place ou celle d\'un de vos proches avec mes Chibis. N\'hésitez pas!',
     'hero.giftDescription': 'Et, pour les fêtes ou les anniversaires, un cadeau pour lequel vous avez pris le temps de penser au destinataire a beaucoup plus de valeur.',
     'hero.noteDescription': 'NB: je n\'utilise pas d\'IA pour créer mes Chibis.',
     'hero.photoPlaceholder': 'Photo à venir',
