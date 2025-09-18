@@ -58,16 +58,43 @@ const HeroSection = () => {
             <span className="text-xs italic text-stone-black/60">{t('hero.noteDescription')}</span>
           </p>
           
-          {/* Video Section */}
-          <div className="mt-8 flex justify-center">
-            <div className="w-80 h-48 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
-              <div className="text-center text-stone-black/50">
-                <div className="w-16 h-16 mx-auto mb-2 opacity-30">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
+          {/* Photo Gallery */}
+          <div className="mt-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                <img 
+                  src="/lovable-uploads/IMG_0254.JPG" 
+                  alt="Exemple de produit chibi - Cadre personnalisé"
+                  className="w-full h-32 md:h-40 object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                <img 
+                  src="/lovable-uploads/IMG_0355.JPG" 
+                  alt="Exemple de produit chibi - T-shirt personnalisé"
+                  className="w-full h-32 md:h-40 object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                <img 
+                  src="/lovable-uploads/IMG_0378.JPG" 
+                  alt="Exemple de produit chibi - Sac personnalisé"
+                  className="w-full h-32 md:h-40 object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              {/* Placeholders pour les 2 photos restantes */}
+              <div className="w-full h-32 md:h-40 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
+                <div className="text-center text-stone-black/50">
+                  <p className="text-xs font-snap">Photo 4</p>
                 </div>
-                <p className="text-sm font-snap">Vidéo à venir</p>
+              </div>
+              <div className="w-full h-32 md:h-40 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
+                <div className="text-center text-stone-black/50">
+                  <p className="text-xs font-snap">Photo 5</p>
+                </div>
               </div>
             </div>
           </div>
