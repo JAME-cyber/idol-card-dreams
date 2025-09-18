@@ -212,12 +212,9 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                       <img 
                         src="/lovable-uploads/custom-chibi-example-3.jpg" 
                         alt={`${product.name} - Image 3`}
-                        className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                        className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                         loading="lazy"
-                        style={{ 
-                          imageOrientation: 'from-image',
-                          transform: 'none'
-                        }}
+                        style={{ transform: 'rotate(90deg)' }}
                       />
                     </div>
                   </DialogTrigger>
@@ -226,10 +223,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                       src="/lovable-uploads/custom-chibi-example-3.jpg" 
                       alt={`${product.name} - Image 3 (agrandie)`}
                       className="w-full h-auto object-contain max-h-[80vh]"
-                      style={{ 
-                        imageOrientation: 'from-image',
-                        transform: 'none'
-                      }}
+                      style={{ transform: 'rotate(90deg)' }}
                     />
                   </DialogContent>
                 </Dialog>
