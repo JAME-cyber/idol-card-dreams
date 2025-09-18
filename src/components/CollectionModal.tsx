@@ -41,7 +41,10 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
         '/lovable-uploads/2521.jpg',
         '/lovable-uploads/2523.jpg',
         '/lovable-uploads/md2.jpg',
-        '/lovable-uploads/mj9.jpg'
+        '/lovable-uploads/mj9.jpg',
+        '/lovable-uploads/tb1.jpg',
+        '/lovable-uploads/tb2.jpg',
+        '/lovable-uploads/tb3.jpg'
       ]
     },
     {
