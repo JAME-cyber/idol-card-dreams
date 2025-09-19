@@ -19,7 +19,7 @@ const ShopSection = () => {
       name: t('shop.preprinted'),
       description: t('shop.preprintedDesc'),
       price: 9.99,
-      image: '/placeholder.svg',
+      image: '/lovable-uploads/jennie.jpg',
       category: 'preprinted'
     }
   ];
