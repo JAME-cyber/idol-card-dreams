@@ -94,16 +94,21 @@ const HeroSection = () => {
                   style={{ imageOrientation: 'from-image' }}
                 />
               </div>
-              {/* Placeholders pour les 2 photos restantes */}
-              <div className="w-full h-32 md:h-40 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
-                <div className="text-center text-stone-black/50">
-                  <p className="text-xs font-snap">Photo 4</p>
-                </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                <img 
+                  src="/lovable-uploads/IMG_0510.JPG" 
+                  alt="Exemple de produit chibi - Sac tote bag personnalisé"
+                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
               </div>
-              <div className="w-full h-32 md:h-40 bg-stone-beige/50 border-2 border-dashed border-korean-gold/30 rounded-xl flex items-center justify-center">
-                <div className="text-center text-stone-black/50">
-                  <p className="text-xs font-snap">Photo 5</p>
-                </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                <img 
+                  src="/lovable-uploads/IMG_0514.JPG" 
+                  alt="Exemple de produit chibi - Carnet et sac personnalisés"
+                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
