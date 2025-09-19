@@ -260,7 +260,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   <DialogTrigger asChild>
                     <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
                       <img 
-                        src="/lovable-uploads/md.jpg" 
+                        src="/lovable-uploads/cloy.jpg" 
                         alt={`${product.name} - Exemple 3`}
                         className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                         loading="lazy"
@@ -269,7 +269,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
                     <img 
-                      src="/lovable-uploads/md.jpg" 
+                      src="/lovable-uploads/cloy.jpg" 
                       alt={`${product.name} - Exemple 3 (agrandie)`}
                       className="w-full h-auto object-contain max-h-[80vh]"
                     />
