@@ -183,7 +183,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                 <DialogTrigger asChild>
                   <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
                     <img 
-                      src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"}
+                      src={product.id === 'preprinted-chibis' ? "/lovable-uploads/cloy.jpg" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"}
                       alt={`${product.name} - Image 2`}
                       className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                       loading="lazy"
@@ -192,7 +192,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                 </DialogTrigger>
                 <DialogContent className="max-w-3xl">
                   <img 
-                    src={product.id === 'preprinted-chibis' ? "/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
+                    src={product.id === 'preprinted-chibis' ? "/lovable-uploads/cloy.jpg" : "/lovable-uploads/d2de6ccb-7f9f-48ee-98e2-e27d6ac9e635.png"} 
                     alt={`${product.name} - Image 2 (agrandie)`}
                     className="w-full h-auto object-contain max-h-[80vh]"
                   />
@@ -260,7 +260,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   <DialogTrigger asChild>
                     <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
                       <img 
-                        src="/lovable-uploads/cloy.jpg" 
+                        src="/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" 
                         alt={`${product.name} - Exemple 3`}
                         className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
                         loading="lazy"
@@ -269,7 +269,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
                     <img 
-                      src="/lovable-uploads/cloy.jpg" 
+                      src="/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" 
                       alt={`${product.name} - Exemple 3 (agrandie)`}
                       className="w-full h-auto object-contain max-h-[80vh]"
                     />
