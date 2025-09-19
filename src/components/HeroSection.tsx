@@ -96,8 +96,8 @@ const HeroSection = () => {
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
-                  src="/lovable-uploads/jennie-2.jpg" 
-                  alt="Exemple de produit chibi - Dessin chibi personnalisé"
+                  src="/lovable-uploads/IMG_0510.JPG" 
+                  alt="Exemple de produit chibi - Sac tote bag personnalisé"
                   className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
