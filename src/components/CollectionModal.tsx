@@ -53,7 +53,8 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       description: 'Vos artistes et groupes préférés en version chibi',
       images: [
         '/lovable-uploads/michael-jackson-chibi.jpg',
-        '/lovable-uploads/jennie.jpg'
+        '/lovable-uploads/jennie.jpg',
+        '/lovable-uploads/f.jpg'
       ]
     }
   ];
