@@ -54,9 +54,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
       images: [
         '/lovable-uploads/f6-2.jpg',
         '/lovable-uploads/michael-jackson-chibi.jpg',
-        '/lovable-uploads/jennie.jpg',
-        '/lovable-uploads/IMG_0510.JPG',
-        '/lovable-uploads/IMG_0514.JPG'
+        '/lovable-uploads/jennie.jpg'
       ]
     }
   ];
