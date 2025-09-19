@@ -202,35 +202,6 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
             </div>
           </div>
           
-          {/* Bottom row - third image for custom chibis only */}
-          {product.id === 'custom-chibis' && (
-            <div className="flex justify-center">
-              <div className="relative overflow-hidden rounded-lg w-1/2">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                      <img 
-                        src="/lovable-uploads/custom-chibi-example-3.jpg" 
-                        alt={`${product.name} - Image 3`}
-                        className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
-                        loading="lazy"
-                        style={{ transform: 'rotate(-90deg)' }}
-                      />
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-3xl">
-                    <img 
-                      src="/lovable-uploads/custom-chibi-example-3.jpg" 
-                      alt={`${product.name} - Image 3 (agrandie)`}
-                      className="w-full h-auto object-contain max-h-[80vh]"
-                      style={{ transform: 'rotate(-90deg)' }}
-                    />
-                  </DialogContent>
-                </Dialog>
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
       
