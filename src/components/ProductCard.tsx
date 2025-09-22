@@ -263,6 +263,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                         src="/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" 
                         alt={`${product.name} - Exemple 3`}
                         className="w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500 bg-white rounded"
+                        style={{ imageOrientation: 'from-image' }}
                         loading="lazy"
                       />
                     </div>
@@ -272,6 +273,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
                       src="/lovable-uploads/b81cb9cd-8916-4102-a845-e85bc77faeb8.png" 
                       alt={`${product.name} - Exemple 3 (agrandie)`}
                       className="w-full h-auto object-contain max-h-[80vh]"
+                      style={{ imageOrientation: 'from-image' }}
                     />
                   </DialogContent>
                 </Dialog>
