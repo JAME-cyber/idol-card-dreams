@@ -146,15 +146,15 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
 
       {/* Modal pour afficher l'image en grand */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] bg-white border border-gray-200 shadow-2xl" style={{ zIndex: 10000 }}>
+        <DialogContent className="max-w-md max-h-[70vh] bg-white border border-gray-200 shadow-2xl" style={{ zIndex: 10000 }}>
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold text-center text-stone-black font-snap">
+            <DialogTitle className="text-lg font-bold text-center text-stone-black font-snap">
               {selectedImage?.alt}
             </DialogTitle>
           </DialogHeader>
           {selectedImage && (
-            <div className="flex flex-col items-center p-4">
-              <div className="relative w-full max-w-lg">
+            <div className="flex flex-col items-center p-2">
+              <div className="relative w-full max-w-xs">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.alt}
@@ -163,15 +163,15 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
                 />
                 {/* Filigrane specimen */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="text-stone-black/20 text-2xl font-bold transform rotate-45 select-none">
+                  <span className="text-stone-black/20 text-lg font-bold transform rotate-45 select-none">
                     SPECIMEN
                   </span>
                 </div>
               </div>
-              <div className="mt-4 bg-korean-gold text-stone-black px-4 py-2 rounded-full text-lg font-bold">
+              <div className="mt-3 bg-korean-gold text-stone-black px-3 py-1 rounded-full text-sm font-bold">
                 #{selectedImage.number}
               </div>
-              <p className="mt-2 text-stone-black/70 text-sm font-snap text-center">
+              <p className="mt-2 text-stone-black/70 text-xs font-snap text-center">
                 Ce design est disponible pour tous nos supports
               </p>
             </div>
