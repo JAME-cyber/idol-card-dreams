@@ -63,6 +63,14 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
         '/lovable-uploads/kat6.jpg',
         '/lovable-uploads/kat7.jpg'
       ]
+    },
+    {
+      id: 'cinema',
+      name: 'Cinéma',
+      description: 'Personnages de films cultes en version chibi',
+      images: [
+        '/lovable-uploads/neytiri.jpg'
+      ]
     }
   ];
 
