@@ -119,7 +119,7 @@ serve(async (req) => {
 
     console.log("Creating checkout session with items:", lineItems);
 
-    // Create checkout session
+    // Create checkout session with detailed order metadata
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
@@ -131,7 +131,17 @@ serve(async (req) => {
         allowed_countries: ['FR', 'DE', 'IT', 'ES', 'NL', 'BE', 'US', 'CA', 'GB'],
       },
       billing_address_collection: 'required',
-      metadata: { user_id: user.id },
+      metadata: { 
+        user_id: user.id,
+        order_details: JSON.stringify(items.map((item: any) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          image: item.image,
+          selectedOptions: item.selectedOptions || {}
+        })))
+      },
     });
 
     console.log("Checkout session created:", session.id, "for user:", user.id);
