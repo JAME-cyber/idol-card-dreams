@@ -14,10 +14,10 @@ const ReturnPolicy = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-stone-black mb-4 font-poppins">
-              🔁 Return & Refund Policy
+              🔁 {t('return.title')}
             </h1>
             <p className="text-xl text-stone-black/70 font-korean">
-              We want you to be fully happy with your order! If there's a problem, we're here to help.
+              {t('return.subtitle')}
             </p>
           </div>
 
@@ -26,15 +26,15 @@ const ReturnPolicy = () => {
             <div className="korean-card p-8">
               <h2 className="text-2xl font-bold text-stone-black mb-4 font-poppins flex items-center">
                 <span className="mr-3">✅</span>
-                What can be returned?
+                {t('return.canReturnTitle')}
               </h2>
               <div className="space-y-3 font-korean text-stone-black/80">
-                <p>You can return:</p>
+                <p>{t('return.canReturnIntro')}</p>
                 <ul className="list-disc list-inside ml-4 space-y-2">
-                  <li><strong>T-shirts and bags:</strong> must be unused, unwashed, and in original condition</li>
-                  <li><strong>Cards (greeting/postcards):</strong> must be unused, undamaged, and in original packaging</li>
+                  <li><strong>{t('return.tshirtsBags')}</strong> {t('return.tshirtsBagsDesc')}</li>
+                  <li><strong>{t('return.cards')}</strong> {t('return.cardsDesc')}</li>
                 </ul>
-                <p className="mt-4 font-semibold">⏳ You have 14 days from the delivery date to request a return.</p>
+                <p className="mt-4 font-semibold">⏳ {t('return.timeLimit')}</p>
               </div>
             </div>
 
@@ -42,13 +42,13 @@ const ReturnPolicy = () => {
             <div className="korean-card p-8">
               <h2 className="text-2xl font-bold text-stone-black mb-4 font-poppins flex items-center">
                 <span className="mr-3">❌</span>
-                What can't be returned?
+                {t('return.cannotReturnTitle')}
               </h2>
               <ul className="list-disc list-inside ml-4 space-y-2 font-korean text-stone-black/80">
-                <li>Items that have been worn, washed, or used</li>
-                <li>Custom or personalized products</li>
-                <li>Items on sale or promotion</li>
-                <li>Damaged items caused by misuse</li>
+                <li>{t('return.cannotReturnWorn')}</li>
+                <li>{t('return.cannotReturnCustom')}</li>
+                <li>{t('return.cannotReturnSale')}</li>
+                <li>{t('return.cannotReturnDamaged')}</li>
               </ul>
             </div>
 
@@ -56,20 +56,20 @@ const ReturnPolicy = () => {
             <div className="korean-card p-8">
               <h2 className="text-2xl font-bold text-stone-black mb-4 font-poppins flex items-center">
                 <span className="mr-3">📦</span>
-                How to return?
+                {t('return.howToReturnTitle')}
               </h2>
               <div className="space-y-3 font-korean text-stone-black/80">
-                <p>Email us at <a href="mailto:stone.idol@yahoo.com" className="text-korean-gold hover:underline font-semibold">stone.idol@yahoo.com</a> with:</p>
+                <p>{t('return.howToReturnIntro')} <a href="mailto:stone.idol@yahoo.com" className="text-korean-gold hover:underline font-semibold">stone.idol@yahoo.com</a> {t('return.howToReturnWith')}</p>
                 <ul className="list-disc list-inside ml-4 space-y-2">
-                  <li>Your order number</li>
-                  <li>The reason for return</li>
+                  <li>{t('return.orderNumber')}</li>
+                  <li>{t('return.returnReason')}</li>
                 </ul>
                 <div className="mt-4 space-y-2">
-                  <p>We'll send you the return instructions and address</p>
-                  <p>Ship the item back within 7 days of approval</p>
+                  <p>{t('return.instructionsSent')}</p>
+                  <p>{t('return.shipWithin')}</p>
                 </div>
                 <p className="mt-4 bg-stone-powder/20 p-3 rounded-lg">
-                  <strong>📌 Note:</strong> Return shipping costs are your responsibility, unless the product is defective or we made a mistake.
+                  <strong>📌 Note:</strong> {t('return.shippingNote')}
                 </p>
               </div>
             </div>
@@ -78,19 +78,19 @@ const ReturnPolicy = () => {
             <div className="korean-card p-8">
               <h2 className="text-2xl font-bold text-stone-black mb-4 font-poppins flex items-center">
                 <span className="mr-3">💸</span>
-                Refund process
+                {t('return.refundTitle')}
               </h2>
               <ul className="list-disc list-inside ml-4 space-y-2 font-korean text-stone-black/80">
-                <li>Once we receive and inspect your item, we'll confirm by email</li>
-                <li>If approved, you'll get your refund within 5–10 business days</li>
-                <li>Refunds go back to your original payment method</li>
+                <li>{t('return.refundReceived')}</li>
+                <li>{t('return.refundTiming')}</li>
+                <li>{t('return.refundMethod')}</li>
               </ul>
             </div>
 
             {/* Contact */}
             <div className="text-center bg-gradient-to-r from-korean-gold/10 to-stone-powder/20 p-8 rounded-xl">
               <p className="text-lg font-korean text-stone-black">
-                Need help or have a question? Contact us anytime at{' '}
+                {t('return.contactTitle')}{' '}
                 <a href="mailto:stone.idol@yahoo.com" className="text-korean-gold hover:underline font-semibold">
                   stone.idol@yahoo.com
                 </a>
