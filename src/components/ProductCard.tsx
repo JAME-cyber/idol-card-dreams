@@ -108,7 +108,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
     return totalPrice;
   }, [product.id, product.price, characterCount, supportType]);
 
-  const handleAddToCart = React.useCallback(() => {
+  const handleAddToCart = React.useCallback(async () => {
     const selectedQuantity = parseInt(quantity);
     const finalPrice = getPrice();
     
@@ -131,6 +131,24 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       });
       return;
     }
+
+    // Convertir les fichiers en base64 pour les stocker dans le panier
+    const filesData = await Promise.all(
+      uploadedFiles.map(async (file) => {
+        return new Promise<{ name: string; size: number; type: string; dataUrl: string }>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            resolve({
+              name: file.name,
+              size: file.size,
+              type: file.type,
+              dataUrl: reader.result as string
+            });
+          };
+          reader.readAsDataURL(file);
+        });
+      })
+    );
     
     for (let i = 0; i < selectedQuantity; i++) {
       addItem({
@@ -139,7 +157,15 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
               supportType === "papier-avec-cadre" ? `${product.name} (Cadre: ${frameColor})` :
               product.name,
         price: finalPrice,
-        image: "/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png"
+        image: "/lovable-uploads/8902c19e-8aaa-4667-97bb-2084dfd0a6ed.png",
+        selectedOptions: {
+          supportType,
+          frameColor,
+          tshirtSize,
+          characterCount,
+          characterChoices: product.id === 'preprinted-chibis' ? characterChoices : undefined,
+          uploadedFiles: product.id === 'custom-chibis' ? filesData : undefined
+        }
       });
     }
     
@@ -147,7 +173,7 @@ const ProductCard = React.memo(({ product }: ProductCardProps) => {
       title: t('cart.itemAdded'),
       description: `${selectedQuantity} x ${product.name} ${t('cart.addedToCart')}`,
     });
-  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, uploadedFiles, characterChoices, t]);
+  }, [product, quantity, addItem, getPrice, supportType, tshirtSize, frameColor, characterCount, uploadedFiles, characterChoices, t]);
 
   return (
     <div className="korean-card p-8 group hover-glow">

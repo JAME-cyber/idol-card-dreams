@@ -10,6 +10,17 @@ export interface CartItem {
   selectedOptions?: {
     design?: string;
     size?: string;
+    supportType?: string;
+    frameColor?: string;
+    tshirtSize?: string;
+    characterCount?: string;
+    characterChoices?: string;
+    uploadedFiles?: {
+      name: string;
+      size: number;
+      type: string;
+      dataUrl: string;
+    }[];
   };
 }
 
