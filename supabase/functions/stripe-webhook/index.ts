@@ -104,11 +104,15 @@ const handler = async (req: Request): Promise<Response> => {
         sessionId: session.id,
         customerEmail: order.customer_email,
         customerName: order.customer_name,
+        customerPhone: session.customer_details?.phone || session.shipping_details?.phone || 'Non fourni',
         totalAmount: order.total_amount,
         currency: order.currency,
         items: itemsData,
         shippingCost: shippingCost,
         shippingAddress: session.shipping_details?.address,
+        billingAddress: session.customer_details?.address,
+        orderStatus: order.status,
+        userId: metadata.userId || 'Invité',
       };
 
       const { error: emailError } = await supabase.functions.invoke('send-order-notification', {

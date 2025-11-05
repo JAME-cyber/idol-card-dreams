@@ -14,6 +14,7 @@ interface OrderNotificationRequest {
   sessionId: string;
   customerEmail: string;
   customerName: string;
+  customerPhone?: string;
   totalAmount: number;
   currency: string;
   items: Array<{
@@ -21,9 +22,13 @@ interface OrderNotificationRequest {
     price: number;
     quantity: number;
     image?: string;
+    selectedOptions?: any;
   }>;
   shippingCost: number;
   shippingAddress?: any;
+  billingAddress?: any;
+  orderStatus?: string;
+  userId?: string;
 }
 
 const formatAddress = (address: any) => {
@@ -38,17 +43,30 @@ const formatAddress = (address: any) => {
 };
 
 const getEmailTemplate = (data: OrderNotificationRequest) => {
-  const itemsHtml = data.items.map(item => `
-    <tr>
-      <td style="padding: 10px; border-bottom: 1px solid #eee;">
-        ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px;">` : ''}
-        ${item.name}
-      </td>
-      <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: center;">${item.quantity}</td>
-      <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${item.price.toFixed(2)} ${data.currency}</td>
-      <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; font-weight: bold;">${(item.price * item.quantity).toFixed(2)} ${data.currency}</td>
-    </tr>
-  `).join('');
+  const itemsHtml = data.items.map(item => {
+    const optionsHtml = item.selectedOptions && Object.keys(item.selectedOptions).length > 0
+      ? `<div style="font-size: 12px; color: #666; margin-top: 4px;">
+          ${Object.entries(item.selectedOptions).map(([key, value]) => 
+            `<div>• ${key}: ${value}</div>`
+          ).join('')}
+        </div>`
+      : '';
+    
+    return `
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #eee;">
+          ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px; vertical-align: top; display: inline-block;">` : ''}
+          <div style="display: inline-block; vertical-align: top;">
+            <strong>${item.name}</strong>
+            ${optionsHtml}
+          </div>
+        </td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: center;">${item.quantity}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${item.price.toFixed(2)} ${data.currency}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; font-weight: bold;">${(item.price * item.quantity).toFixed(2)} ${data.currency}</td>
+      </tr>
+    `;
+  }).join('');
 
   const subtotal = data.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const total = subtotal + data.shippingCost;
@@ -86,6 +104,14 @@ const getEmailTemplate = (data: OrderNotificationRequest) => {
               <td style="padding: 5px 0; color: #666;">Email:</td>
               <td style="padding: 5px 0; text-align: right;">${data.customerEmail}</td>
             </tr>
+            <tr>
+              <td style="padding: 5px 0; color: #666;">Téléphone:</td>
+              <td style="padding: 5px 0; text-align: right; font-weight: bold;">${data.customerPhone || 'Non fourni'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 5px 0; color: #666;">Type:</td>
+              <td style="padding: 5px 0; text-align: right;">${data.userId && data.userId !== 'Invité' ? 'Compte client' : 'Invité'}</td>
+            </tr>
           </table>
         </div>
 
@@ -95,6 +121,15 @@ const getEmailTemplate = (data: OrderNotificationRequest) => {
             ${formatAddress(data.shippingAddress)}
           </div>
         </div>
+
+        ${data.billingAddress && JSON.stringify(data.billingAddress) !== JSON.stringify(data.shippingAddress) ? `
+        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+          <h2 style="color: #333; margin: 0 0 15px 0; font-size: 20px;">💳 Adresse de Facturation</h2>
+          <div style="color: #666; font-size: 14px; line-height: 1.6;">
+            ${formatAddress(data.billingAddress)}
+          </div>
+        </div>
+        ` : ''}
 
         <div style="margin-bottom: 25px;">
           <h2 style="color: #333; margin: 0 0 15px 0; font-size: 20px;">🛍️ Articles Commandés</h2>
