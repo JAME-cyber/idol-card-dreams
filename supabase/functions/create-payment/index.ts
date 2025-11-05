@@ -71,6 +71,10 @@ serve(async (req) => {
     // Validate input data
     validateCheckoutRequest({ items });
 
+    // Normalize shipping cost
+    const shipping = Number(shippingCost ?? 0);
+    console.log("Received shippingCost:", shippingCost, "| normalized:", shipping);
+
     // Determine site origin for URLs and absolute image paths
     const referer = req.headers.get("referer") || '';
     let origin = req.headers.get("origin") || '';
@@ -118,17 +122,20 @@ serve(async (req) => {
     });
 
     // Add shipping as a line item if there's a cost
-    if (shippingCost && Number(shippingCost) > 0) {
+    if (shipping > 0) {
       lineItems.push({
         price_data: {
           currency: "eur",
           product_data: {
             name: "Frais de port",
           },
-          unit_amount: Math.round(Number(shippingCost) * 100),
+          unit_amount: Math.round(shipping * 100),
         },
         quantity: 1,
       });
+      console.log("Added shipping line item:", shipping);
+    } else {
+      console.log("No shipping cost applied");
     }
 
     console.log("Creating checkout session with items:", lineItems);
@@ -147,7 +154,7 @@ serve(async (req) => {
       billing_address_collection: 'required',
       metadata: { 
         userId: user.id,
-        shippingCost: String(shippingCost || 0),
+        shippingCost: String(shipping),
         items: JSON.stringify(items.map((item: any) => ({
           id: item.id,
           name: item.name,
