@@ -71,8 +71,9 @@ serve(async (req) => {
     // Validate input data
     validateCheckoutRequest({ items });
 
-    // Normalize shipping cost
-    const shipping = Number(shippingCost ?? 0);
+    // Normalize shipping cost with safe fallback (3.50€)
+    let shipping = Number(shippingCost);
+    if (!Number.isFinite(shipping) || shipping < 0) shipping = 3.5;
     console.log("Received shippingCost:", shippingCost, "| normalized:", shipping);
 
     // Determine site origin for URLs and absolute image paths
