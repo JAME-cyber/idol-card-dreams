@@ -92,18 +92,17 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="font-medium font-korean">{t('cart.subtotal')}:</span>
-                  <span className="font-bold text-stone-black">€{total.toFixed(2)}</span>
+                  <span className="font-bold text-stone-black">€{finalTotal.toFixed(2)}</span>
                 </div>
-                {items.length > 0 && (
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium font-korean">{t('cart.shipping')}:</span>
-                    <span className="font-bold text-korean-gold">€{shippingCost.toFixed(2)}</span>
+                <div className="text-xs text-stone-black/60 font-korean">
+                  <div className="flex justify-between">
+                    <span>{t('cart.itemsTotal')}:</span>
+                    <span>€{total.toFixed(2)}</span>
                   </div>
-                )}
-                <hr className="border-stone-beige" />
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold font-poppins">{t('cart.total')}:</span>
-                  <span className="text-xl font-bold text-korean-gold">€{finalTotal.toFixed(2)}</span>
+                  <div className="flex justify-between">
+                    <span>{t('cart.shipping')}:</span>
+                    <span>€{shippingCost.toFixed(2)}</span>
+                  </div>
                 </div>
               </div>
               <CheckoutButton className="korean-button w-full hover-glow" shippingCost={shippingCost}>
