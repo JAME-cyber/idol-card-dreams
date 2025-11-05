@@ -187,7 +187,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log('Sending order notification email to:', data.to);
 
     const emailResponse = await resend.emails.send({
-      from: "Stone Idol <onboarding@resend.dev>",
+      from: "Stone Idol <commande@stoneidol.com>",
       to: [data.to],
       subject: `Nouvelle commande #${data.orderId.slice(-8).toUpperCase()} - ${data.totalAmount.toFixed(2)} ${data.currency}`,
       html: getEmailTemplate(data),
