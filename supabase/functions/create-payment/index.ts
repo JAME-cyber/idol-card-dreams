@@ -66,7 +66,7 @@ serve(async (req) => {
 
     console.log("Authenticated user:", user.id);
 
-    const { items } = await req.json();
+    const { items, shippingCost } = await req.json();
 
     // Validate input data
     validateCheckoutRequest({ items });
@@ -117,6 +117,20 @@ serve(async (req) => {
       };
     });
 
+    // Add shipping as a line item if there's a cost
+    if (shippingCost && Number(shippingCost) > 0) {
+      lineItems.push({
+        price_data: {
+          currency: "eur",
+          product_data: {
+            name: "Frais de port",
+          },
+          unit_amount: Math.round(Number(shippingCost) * 100),
+        },
+        quantity: 1,
+      });
+    }
+
     console.log("Creating checkout session with items:", lineItems);
 
     // Create checkout session with detailed order metadata
@@ -132,8 +146,9 @@ serve(async (req) => {
       },
       billing_address_collection: 'required',
       metadata: { 
-        user_id: user.id,
-        order_details: JSON.stringify(items.map((item: any) => ({
+        userId: user.id,
+        shippingCost: String(shippingCost || 0),
+        items: JSON.stringify(items.map((item: any) => ({
           id: item.id,
           name: item.name,
           price: item.price,
