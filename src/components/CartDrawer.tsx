@@ -106,7 +106,7 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                   <span className="text-xl font-bold text-korean-gold">€{finalTotal.toFixed(2)}</span>
                 </div>
               </div>
-              <CheckoutButton className="korean-button w-full hover-glow">
+              <CheckoutButton className="korean-button w-full hover-glow" shippingCost={shippingCost}>
                 {t('cart.checkout')}
               </CheckoutButton>
             </div>
