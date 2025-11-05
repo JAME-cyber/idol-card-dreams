@@ -173,6 +173,20 @@ const translations = {
     'return.refundTiming': 'If approved, you\'ll get your refund within 5–10 business days',
     'return.refundMethod': 'Refunds go back to your original payment method',
     'return.contactTitle': 'Need help or have a question? Contact us anytime at',
+    
+    // Size Guide
+    'size.title': 'Size Guide',
+    'size.subtitle': 'Find your perfect fit with our international sizing chart',
+    'size.chartTitle': 'International Size Chart',
+    'size.international': 'International',
+    'size.france': 'France (FR)',
+    'size.korea': 'Korea (KR)',
+    'size.uk': 'UK',
+    'size.us': 'US',
+    'size.notesTitle': 'Sizing Notes',
+    'size.note1': 'All measurements are approximate and may vary slightly depending on the specific item.',
+    'size.note2': 'If you\'re between sizes, we recommend choosing the larger size for a more comfortable fit.',
+    'size.note3': 'For any sizing questions, please contact us at stone.idol@yahoo.com',
   },
   fr: {
     // Header
@@ -338,6 +352,20 @@ const translations = {
     'return.refundTiming': 'Si approuvé, vous recevrez votre remboursement sous 5 à 10 jours ouvrables',
     'return.refundMethod': 'Les remboursements sont effectués sur votre mode de paiement d\'origine',
     'return.contactTitle': 'Besoin d\'aide ou vous avez une question ? Contactez-nous à tout moment à',
+    
+    // Size Guide
+    'size.title': 'Guide des Tailles',
+    'size.subtitle': 'Trouvez votre taille parfaite avec notre tableau de correspondance international',
+    'size.chartTitle': 'Tableau International des Tailles',
+    'size.international': 'International',
+    'size.france': 'France (FR)',
+    'size.korea': 'Corée (KR)',
+    'size.uk': 'UK',
+    'size.us': 'US',
+    'size.notesTitle': 'Notes sur les Tailles',
+    'size.note1': 'Toutes les mesures sont approximatives et peuvent varier légèrement selon l\'article spécifique.',
+    'size.note2': 'Si vous hésitez entre deux tailles, nous recommandons de choisir la plus grande pour un ajustement plus confortable.',
+    'size.note3': 'Pour toute question concernant les tailles, veuillez nous contacter à stone.idol@yahoo.com',
   },
   ko: {
     // Header
@@ -501,6 +529,20 @@ const translations = {
     'return.refundTiming': '승인되면 5-10 영업일 이내에 환불받으실 수 있습니다',
     'return.refundMethod': '환불은 원래 결제 수단으로 진행됩니다',
     'return.contactTitle': '도움이 필요하거나 질문이 있으신가요? 언제든지 문의하세요',
+    
+    // Size Guide
+    'size.title': '사이즈 가이드',
+    'size.subtitle': '국제 사이즈 차트로 완벽한 핏을 찾으세요',
+    'size.chartTitle': '국제 사이즈 차트',
+    'size.international': '국제',
+    'size.france': '프랑스 (FR)',
+    'size.korea': '한국 (KR)',
+    'size.uk': 'UK',
+    'size.us': 'US',
+    'size.notesTitle': '사이즈 참고사항',
+    'size.note1': '모든 치수는 대략적이며 특정 제품에 따라 약간 다를 수 있습니다.',
+    'size.note2': '사이즈 사이에서 고민이시라면, 더 편안한 착용감을 위해 큰 사이즈를 선택하시는 것을 권장합니다.',
+    'size.note3': '사이즈에 관한 질문은 stone.idol@yahoo.com으로 문의해주세요',
   }
 
 };

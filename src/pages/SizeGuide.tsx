@@ -24,28 +24,28 @@ const SizeGuide = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-stone-black mb-4 font-poppins">
-              Size Guide
+              {t('size.title')}
             </h1>
             <p className="text-lg text-stone-black/70 font-korean">
-              Find your perfect fit with our international sizing chart
+              {t('size.subtitle')}
             </p>
           </div>
 
           {/* Size Chart */}
           <div className="korean-card p-8 mb-8">
             <h2 className="text-2xl font-bold text-stone-black mb-6 font-poppins text-center">
-              International Size Chart
+              {t('size.chartTitle')}
             </h2>
             
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="font-bold text-stone-black">International</TableHead>
-                    <TableHead className="font-bold text-stone-black">France (FR)</TableHead>
-                    <TableHead className="font-bold text-stone-black">Korea (KR)</TableHead>
-                    <TableHead className="font-bold text-stone-black">UK</TableHead>
-                    <TableHead className="font-bold text-stone-black">US</TableHead>
+                    <TableHead className="font-bold text-stone-black">{t('size.international')}</TableHead>
+                    <TableHead className="font-bold text-stone-black">{t('size.france')}</TableHead>
+                    <TableHead className="font-bold text-stone-black">{t('size.korea')}</TableHead>
+                    <TableHead className="font-bold text-stone-black">{t('size.uk')}</TableHead>
+                    <TableHead className="font-bold text-stone-black">{t('size.us')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -99,12 +99,12 @@ const SizeGuide = () => {
           {/* Additional Information */}
           <div className="korean-card p-8">
             <h3 className="text-xl font-bold text-stone-black mb-4 font-poppins">
-              Sizing Notes
+              {t('size.notesTitle')}
             </h3>
             <div className="space-y-3 text-stone-black/80 font-korean">
-              <p>• All measurements are approximate and may vary slightly depending on the specific item.</p>
-              <p>• If you're between sizes, we recommend choosing the larger size for a more comfortable fit.</p>
-              <p>• For any sizing questions, please contact us at stone.idol@yahoo.com</p>
+              <p>• {t('size.note1')}</p>
+              <p>• {t('size.note2')}</p>
+              <p>• {t('size.note3')}</p>
             </div>
           </div>
         </div>
