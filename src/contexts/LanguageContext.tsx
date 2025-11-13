@@ -111,6 +111,13 @@ const translations = {
     'upload.invalidFormat': 'Please select an image (JPG, PNG) or PDF file.',
     'upload.required': 'File required',
     'upload.requiredMessage': 'Please upload a photo or PDF file to customize your chibi.',
+    'upload.instructions': 'Instructions for your photos:',
+    'upload.frontFace': 'Add images of people from the front',
+    'upload.fullBody': 'Full body photos (entire body visible)',
+    'upload.quality': 'Good quality and lighting',
+    
+    // Collections
+    'collections.viewButton': 'View collections',
     
     // Character Choices
     'choices.title': 'Choose your characters',
@@ -291,6 +298,13 @@ const translations = {
     'upload.invalidFormat': 'Veuillez sélectionner une image (JPG, PNG) ou un fichier PDF.',
     'upload.required': 'Fichier requis',
     'upload.requiredMessage': 'Veuillez télécharger une photo ou un fichier PDF pour personnaliser votre chibi.',
+    'upload.instructions': 'Instructions pour vos photos :',
+    'upload.frontFace': 'Ajoutez des images de personnes de face',
+    'upload.fullBody': 'Photos en pied (corps entier visible)',
+    'upload.quality': 'Qualité correcte et bonne luminosité',
+    
+    // Collections
+    'collections.viewButton': 'Voir les collections',
     
     // Character Choices
     'choices.title': 'Choisis ton/tes personnages',
@@ -469,6 +483,13 @@ const translations = {
     'upload.invalidFormat': '이미지 파일(JPG, PNG) 또는 PDF 파일을 선택해주세요.',
     'upload.required': '파일 필수',
     'upload.requiredMessage': '치비를 맞춤 제작하려면 사진이나 PDF 파일을 업로드해주세요.',
+    'upload.instructions': '사진 안내:',
+    'upload.frontFace': '정면 사진을 추가해주세요',
+    'upload.fullBody': '전신 사진 (전체 몸이 보이는)',
+    'upload.quality': '좋은 화질과 조명',
+    
+    // Collections
+    'collections.viewButton': '컬렉션 보기',
     
     // Character Choices
     'choices.title': '캐릭터 선택하기',
