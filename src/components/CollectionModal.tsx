@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
@@ -17,6 +18,7 @@ interface CollectionModalProps {
 const CollectionModal = ({ trigger }: CollectionModalProps) => {
   const [open, setOpen] = React.useState(false);
   const [selectedImage, setSelectedImage] = React.useState<{ src: string; alt: string; number: number } | null>(null);
+  const { t } = useLanguage();
   const collections: Collection[] = [
     {
       id: 'series',
@@ -77,7 +79,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
   const defaultTrigger = (
     <Button onClick={() => setOpen(true)} variant="outline" className="w-full mb-4 border-korean-gold-pastel bg-korean-gold-pastel text-stone-black hover:bg-korean-gold hover:text-stone-black transition-colors">
       <Eye className="w-4 h-4 mr-2" />
-      Voir les collections
+      {t('collections.viewButton')}
     </Button>
   );
 
