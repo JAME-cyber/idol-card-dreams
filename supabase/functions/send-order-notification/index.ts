@@ -43,12 +43,35 @@ const formatAddress = (address: any) => {
 };
 
 const getEmailTemplate = (data: OrderNotificationRequest) => {
+  const formatOptionKey = (key: string) => {
+    const translations: { [key: string]: string } = {
+      'supportType': 'Type de support',
+      'frameColor': 'Couleur du cadre',
+      'tshirtSize': 'Taille du T-shirt',
+      'characterCount': 'Nombre de personnages',
+      'characterChoices': 'Personnages choisis',
+      'uploadedFiles': 'Fichiers uploadés'
+    };
+    return translations[key] || key;
+  };
+
   const itemsHtml = data.items.map(item => {
+    // Determine product type
+    let productType = '';
+    if (item.name.toLowerCase().includes('personnalisé')) {
+      productType = '<div style="color: #D4AF37; font-weight: bold; font-size: 13px; margin-top: 4px;">🎨 Chibis personnalisés</div>';
+    } else if (item.name.toLowerCase().includes('pré-imprimé') || item.name.toLowerCase().includes('preprinted')) {
+      productType = '<div style="color: #D4AF37; font-weight: bold; font-size: 13px; margin-top: 4px;">✨ Chibis pré-dessinés</div>';
+    }
+
     const optionsHtml = item.selectedOptions && Object.keys(item.selectedOptions).length > 0
-      ? `<div style="font-size: 12px; color: #666; margin-top: 4px;">
-          ${Object.entries(item.selectedOptions).map(([key, value]) => 
-            `<div>• ${key}: ${value}</div>`
-          ).join('')}
+      ? `<div style="font-size: 12px; color: #666; margin-top: 8px;">
+          ${Object.entries(item.selectedOptions)
+            .filter(([key, value]) => key !== 'uploadedFiles' && value !== undefined && value !== null && value !== '')
+            .map(([key, value]) => 
+              `<div style="margin: 3px 0;"><strong>${formatOptionKey(key)}:</strong> ${value}</div>`
+            ).join('')}
+          ${item.selectedOptions.uploadedFiles ? `<div style="margin: 3px 0;"><strong>Fichiers uploadés:</strong> ${item.selectedOptions.uploadedFiles.length} fichier(s)</div>` : ''}
         </div>`
       : '';
     
@@ -58,6 +81,7 @@ const getEmailTemplate = (data: OrderNotificationRequest) => {
           ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px; vertical-align: top; display: inline-block;">` : ''}
           <div style="display: inline-block; vertical-align: top;">
             <strong>${item.name}</strong>
+            ${productType}
             ${optionsHtml}
           </div>
         </td>
