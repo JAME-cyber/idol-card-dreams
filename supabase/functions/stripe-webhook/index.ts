@@ -82,16 +82,7 @@ const handler = async (req: Request): Promise<Response> => {
           price: item.price,
           quantity: item.quantity,
           image: item.image,
-          selected_options: {
-            ...item.selectedOptions,
-            // Inclure les fichiers uploadés s'ils existent
-            uploadedFiles: item.selectedOptions?.uploadedFiles || null,
-            supportType: item.selectedOptions?.supportType || null,
-            frameColor: item.selectedOptions?.frameColor || null,
-            tshirtSize: item.selectedOptions?.tshirtSize || null,
-            characterCount: item.selectedOptions?.characterCount || null,
-            characterChoices: item.selectedOptions?.characterChoices || null,
-          },
+          selected_options: item.selectedOptions || {},
         }));
 
         const { error: itemsError } = await supabase
