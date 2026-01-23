@@ -21,7 +21,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Mini Kdrama Mochis Collection',
-    'hero.subtitle': 'Custom Chibibi "My Safe Place" style gifts',
+    'hero.subtitle': 'Create your Mochis box with your favorite Kdramas!',
     'hero.tagline': 'To be sure to make you happy...',
     'hero.description': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures you and helps you manage everyday life.',
     'hero.mainDescription': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures and helps you manage everyday life.',
@@ -206,7 +206,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Mini Kdrama Mochis Collection',
-    'hero.subtitle': 'Cadeaux personnalisés façon Chibis "My Safe Place"',
+    'hero.subtitle': 'Crée ta boite de Mochis avec tes Kdramas préférés!',
     'hero.tagline': 'Pour être certain de faire plaisir...',
     'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.mainDescription': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
@@ -393,7 +393,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Mini Kdrama Mochis Collection',
-    'hero.subtitle': '치비 "My Safe Place" 스타일 맞춤 선물',
+    'hero.subtitle': '좋아하는 K드라마로 나만의 모찌 박스를 만들어보세요!',
     'hero.tagline': '기쁨을 주는 것이 확실하도록...',
     'hero.description': '당신에게 가장 소중한 것, 즉 당신의 Safe Place에서 영감을 받아 당신이 좋아하는 캐릭터들을 만듭니다.',
     'hero.mainDescription': '당신에게 가장 소중한 것에서 영감을 받아 좋아하는 캐릭터를 만듭니다: 당신의 Safe Place, 당신을 안심시키고 일상을 관리하는 데 도움이 되는 것.',
