@@ -42,11 +42,11 @@ const HeroSection = () => {
               loading="lazy"
             />
           </div>
-          <div className="w-56 h-56 rounded-xl overflow-hidden shadow-lg">
+          <div className="w-56 h-56 rounded-xl overflow-hidden shadow-lg bg-black flex items-center justify-center">
             <img 
               src="/lovable-uploads/enveloppe_juin.jpg" 
               alt="Stone Idol My Drama"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               loading="lazy"
             />
           </div>
