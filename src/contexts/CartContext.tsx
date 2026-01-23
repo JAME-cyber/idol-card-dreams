@@ -17,6 +17,7 @@ export interface CartItem {
     characterChoices?: string;
     kdramaChoices?: string;
     recipientName?: string;
+    includesPhysicalCard?: boolean;
     uploadedFiles?: {
       name: string;
       size: number;
