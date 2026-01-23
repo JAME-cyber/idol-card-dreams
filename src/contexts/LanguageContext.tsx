@@ -22,7 +22,7 @@ const translations = {
     // Hero Section
     'hero.title': 'Mini Kdrama Mochis Collection',
     'hero.subtitle': 'Create your Mochis box with your favorite Kdramas!',
-    'hero.tagline': 'To be sure to make you happy...',
+    'hero.tagline': 'Your box will be unique!',
     'hero.description': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures you and helps you manage everyday life.',
     'hero.mainDescription': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures and helps you manage everyday life.',
     'hero.personalDescription': 'For me, it\'s my family, my cat, and, right now, Korean series (Kdramas), hence my somewhat oriented collections :)',
@@ -207,7 +207,7 @@ const translations = {
     // Hero Section
     'hero.title': 'Mini Kdrama Mochis Collection',
     'hero.subtitle': 'Crée ta boite de Mochis avec tes Kdramas préférés!',
-    'hero.tagline': 'Pour être certain de faire plaisir...',
+    'hero.tagline': 'Ta boite sera unique!',
     'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.mainDescription': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
     'hero.personalDescription': 'Pour ma part, il s\'agit de ma famille, mon chat, et, en ce moment, des Séries coréennes (Kdramas), d\'où mes collections un peu orientées :)',
@@ -394,7 +394,7 @@ const translations = {
     // Hero Section
     'hero.title': 'Mini Kdrama Mochis Collection',
     'hero.subtitle': '좋아하는 K드라마로 나만의 모찌 박스를 만들어보세요!',
-    'hero.tagline': '기쁨을 주는 것이 확실하도록...',
+    'hero.tagline': '너만의 박스가 될 거야!',
     'hero.description': '당신에게 가장 소중한 것, 즉 당신의 Safe Place에서 영감을 받아 당신이 좋아하는 캐릭터들을 만듭니다.',
     'hero.mainDescription': '당신에게 가장 소중한 것에서 영감을 받아 좋아하는 캐릭터를 만듭니다: 당신의 Safe Place, 당신을 안심시키고 일상을 관리하는 데 도움이 되는 것.',
     'hero.personalDescription': '저에게는 가족, 고양이, 그리고 지금은 한국 드라마(K드라마)가 있어서 제 컬렉션이 조금 편향되어 있습니다 :)',
