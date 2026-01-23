@@ -5,7 +5,8 @@ import { toast } from '@/hooks/use-toast';
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Gift } from 'lucide-react';
+import { Checkbox } from "@/components/ui/checkbox";
+import { Gift, Mail } from 'lucide-react';
 
 const ShopSection = () => {
   const { t } = useLanguage();
@@ -18,6 +19,8 @@ const ShopSection = () => {
   // Gift card state
   const [giftQuantity, setGiftQuantity] = useState(1);
   const [recipientName, setRecipientName] = useState("");
+  const [addPhysicalCard, setAddPhysicalCard] = useState(false);
+  const physicalCardPrice = 3;
 
   const mochisProduct = {
     id: 'mochis-box',
@@ -67,14 +70,19 @@ const ShopSection = () => {
   };
 
   const handleAddGiftCardToCart = () => {
+    const totalGiftPrice = giftCardProduct.price + (addPhysicalCard ? physicalCardPrice : 0);
+    
     for (let i = 0; i < giftQuantity; i++) {
       addItem({
         id: `${giftCardProduct.id}-${Date.now()}-${i}`,
-        name: giftCardProduct.name,
-        price: giftCardProduct.price,
+        name: addPhysicalCard 
+          ? `${giftCardProduct.name} + ${t('shop.physicalCardName')}`
+          : giftCardProduct.name,
+        price: totalGiftPrice,
         image: giftCardProduct.image,
         selectedOptions: {
-          recipientName: recipientName.trim() || undefined
+          recipientName: recipientName.trim() || undefined,
+          includesPhysicalCard: addPhysicalCard
         }
       });
     }
@@ -86,6 +94,11 @@ const ShopSection = () => {
 
     setRecipientName("");
     setGiftQuantity(1);
+    setAddPhysicalCard(false);
+  };
+
+  const getGiftCardTotal = () => {
+    return (giftCardProduct.price + (addPhysicalCard ? physicalCardPrice : 0)) * giftQuantity;
   };
 
   return (
@@ -246,6 +259,28 @@ const ShopSection = () => {
                 />
               </div>
 
+              {/* Physical Card Option */}
+              <div className="mb-4 p-4 bg-stone-lavender/10 rounded-xl">
+                <div className="flex items-center space-x-3">
+                  <Checkbox 
+                    id="physical-card" 
+                    checked={addPhysicalCard}
+                    onCheckedChange={(checked) => setAddPhysicalCard(checked === true)}
+                    className="border-korean-gold data-[state=checked]:bg-korean-gold"
+                  />
+                  <label 
+                    htmlFor="physical-card" 
+                    className="text-sm font-medium text-stone-black cursor-pointer flex items-center gap-2"
+                  >
+                    <Mail className="w-4 h-4 text-korean-gold" />
+                    {t('shop.addPhysicalCard')} (+€{physicalCardPrice})
+                  </label>
+                </div>
+                <p className="text-xs text-stone-black/60 mt-2 ml-6">
+                  {t('shop.physicalCardDesc')}
+                </p>
+              </div>
+
               {/* Quantity Selector */}
               <div className="mb-4 flex items-center justify-center gap-4">
                 <label className="text-sm font-medium text-stone-black font-snap">
@@ -273,7 +308,7 @@ const ShopSection = () => {
                 onClick={handleAddGiftCardToCart}
                 className="korean-button w-full py-3"
               >
-                {t('shop.addToCart')} - €{giftCardProduct.price * giftQuantity}
+                {t('shop.addToCart')} - €{getGiftCardTotal()}
               </button>
             </div>
           </div>
