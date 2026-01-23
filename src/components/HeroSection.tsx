@@ -101,6 +101,13 @@ const HeroSection = () => {
             <p className="mt-4 text-xs italic text-stone-black/60 text-center">
               {t('hero.warningNotEdible')}
             </p>
+            
+            {/* Video placeholder */}
+            <div className="mt-6 flex justify-center">
+              <div className="w-full max-w-lg aspect-video bg-stone-lavender/20 rounded-xl border-2 border-dashed border-stone-black/20 flex items-center justify-center">
+                <span className="text-stone-black/40 text-sm font-snap">Vidéo à venir</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
