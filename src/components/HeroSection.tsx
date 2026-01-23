@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Ban } from 'lucide-react';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -80,6 +81,11 @@ const HeroSection = () => {
                   className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
+                {/* Badge "Non comestible" */}
+                <div className="absolute top-2 left-2 bg-destructive/90 text-destructive-foreground px-2 py-1 rounded-lg flex items-center gap-1 text-xs font-medium shadow-md">
+                  <Ban className="w-3 h-3" />
+                  <span>Déco</span>
+                </div>
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
