@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 253 242 248; /* rose pâle */
-    --foreground: 26 26 26; /* stone-black */
+    --background: 330 60% 97%; /* rose pâle */
+    --foreground: 0 0% 10%; /* stone-black */
 
-    --card: 255 255 255;
-    --card-foreground: 26 26 26;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 255 255 255;
-    --popover-foreground: 26 26 26;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 26 26 26; /* stone-black */
-    --primary-foreground: 245 241 235;
+    --primary: 0 0% 10%; /* stone-black */
+    --primary-foreground: 30 23% 94%;
 
-    --secondary: 244 194 194; /* stone-powder */
-    --secondary-foreground: 26 26 26;
+    --secondary: 0 59% 86%; /* stone-powder */
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 245 241 235;
-    --muted-foreground: 115 115 115;
+    --muted: 30 23% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 224 195 252; /* stone-lavender */
-    --accent-foreground: 26 26 26;
+    --accent: 276 80% 88%; /* stone-lavender */
+    --accent-foreground: 0 0% 10%;
 
-    --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 229 229 229;
-    --input: 229 229 229;
-    --ring: 26 26 26;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 10%;
 
     --radius: 0.875rem;
   }
