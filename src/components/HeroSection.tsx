@@ -61,7 +61,7 @@ const HeroSection = () => {
           </p>
           
           <div className="mt-8">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
                   src="/lovable-uploads/IMG_1180-2.JPG" 
@@ -82,22 +82,6 @@ const HeroSection = () => {
                 <img 
                   src="/lovable-uploads/IMG_1227.JPG" 
                   alt="Collection Mini Mochis avec carte"
-                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_1178.JPG" 
-                  alt="Boite de Mini Kdrama Mochis"
-                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_1185.JPG" 
-                  alt="Mini Mochis packaging"
                   className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
