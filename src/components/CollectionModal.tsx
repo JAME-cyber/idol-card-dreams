@@ -77,7 +77,7 @@ const CollectionModal = ({ trigger }: CollectionModalProps) => {
   ];
 
   const defaultTrigger = (
-    <Button onClick={() => setOpen(true)} variant="outline" className="w-full mb-4 border-korean-gold-pastel bg-korean-gold-pastel text-stone-black hover:bg-korean-gold hover:text-stone-black transition-colors">
+    <Button onClick={() => setOpen(true)} variant="outline" className="w-full mb-4 border-pink-200 bg-pink-100 text-stone-black hover:bg-korean-gold hover:text-stone-black transition-colors">
       <Eye className="w-4 h-4 mr-2" />
       {t('collections.viewButton')}
     </Button>
