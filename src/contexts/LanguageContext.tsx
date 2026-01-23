@@ -14,7 +14,7 @@ const translations = {
   en: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': 'Cadeaux Personnalisés Chibis',
+    'header.subtitle': 'Mini Kdrama Mochis',
     'nav.home': 'Home',
     'nav.shop': 'Shop',
     'nav.about': 'About',
@@ -80,9 +80,9 @@ const translations = {
     'shop.toteBag': 'Large Tote Bag (38cm x 41cm, cotton)',
     'shop.backpack': 'Backpack (35cm x 40cm, cotton)',
     'shop.tshirt': 'T-shirt',
-    'shop.description': 'Découvrez des cadeaux personnalisés chibis exclusifs et des créations premium inspirées de votre Safe Place.',
+    'shop.description': 'Découvrez nos Mini Kdrama Mochis personnalisés inspirés de vos séries coréennes préférées.',
     'shop.surprisePacks': 'Surprise Card Packs',
-    'shop.goodies': 'Cadeaux Chibis',
+    'shop.goodies': 'Goodies Kdrama',
     'shop.surprisePackName': 'Stone Idol Surprise Pack',
     'shop.surprisePackDesc': 'Mystery pack containing 3 exclusive Stone Idol collectible cards',
     'shop.oldAddToCart': 'Add to Cart',
@@ -90,7 +90,7 @@ const translations = {
     'shop.selectSize': 'Select Size',
     'shop.cardsCollectionTitle': 'Stone Idol Collection cards',
     'shop.cardsCollectionSubtitle': 'They all became part of our lives at some point',
-    'shop.goodiesTitle': 'Cadeaux Personnalisés Chibis',
+    'shop.goodiesTitle': 'Goodies Kdrama',
     'shop.goodiesSubtitle': 'Choisissez votre création personnalisée parmi nos designs uniques !',
     
     // Products
@@ -125,7 +125,7 @@ const translations = {
     'upload.error': 'Upload error',
     'upload.invalidFormat': 'Please select an image (JPG, PNG) or PDF file.',
     'upload.required': 'File required',
-    'upload.requiredMessage': 'Please upload a photo or PDF file to customize your chibi.',
+    'upload.requiredMessage': 'Please upload a photo or PDF file to customize your mochi.',
     'upload.instructions': 'Instructions for your photos:',
     'upload.frontFace': 'Add images of people from the front',
     'upload.fullBody': 'Full body photos (entire body visible)',
@@ -151,7 +151,7 @@ const translations = {
     'shipping.emptyCart': 'Add items to cart to calculate shipping',
     'shipping.deliveryTime': 'Estimated Delivery Time',
     
-    'footer.description': 'Unique custom Chibibi creations inspired by your Safe Place. Personalized gifts that tell your story.',
+    'footer.description': 'Mini Kdrama Mochis personnalisés inspirés de vos séries coréennes préférées. Des cadeaux uniques fait main.',
     'footer.customerService': 'Customer Service',
     'footer.connectWithUs': 'Connect With Us',
     'footer.returnPolicy': 'Return Policy',
@@ -214,7 +214,7 @@ const translations = {
   fr: {
     // Header
     'header.title': 'STONE IDOL',
-    'header.subtitle': 'Cadeaux Personnalisés Chibis',
+    'header.subtitle': 'Mini Kdrama Mochis',
     'nav.home': 'Accueil',
     'nav.shop': 'Boutique',
     'nav.about': 'À propos',
@@ -280,9 +280,9 @@ const translations = {
     'shop.toteBag': 'Grand Tote Bag (38cm x 41cm, coton)',
     'shop.backpack': 'Backpack (35cm x 40cm, coton)',
     'shop.tshirt': 'T-shirt',
-    'shop.description': 'Découvrez des cadeaux personnalisés chibis exclusifs et des créations premium inspirées de votre Safe Place.',
+    'shop.description': 'Découvrez nos Mini Kdrama Mochis personnalisés inspirés de vos séries coréennes préférées.',
     'shop.surprisePacks': 'Packs de Cartes Surprise',
-    'shop.goodies': 'Cadeaux Chibis',
+    'shop.goodies': 'Goodies Kdrama',
     'shop.surprisePackName': 'Pack Surprise Stone Idol',
     'shop.surprisePackDesc': 'Pack mystère contenant 3 cartes de collection Stone Idol exclusives',
     'shop.oldAddToCart': 'Ajouter au Panier',
@@ -290,7 +290,7 @@ const translations = {
     'shop.selectSize': 'Sélectionner la Taille',
     'shop.cardsCollectionTitle': 'Cartes de Collection Stone Idol',
     'shop.cardsCollectionSubtitle': 'Ils ont tous fait partie de nos vies à un moment donné',
-    'shop.goodiesTitle': 'Cadeaux Personnalisés Chibis',
+    'shop.goodiesTitle': 'Goodies Kdrama',
     'shop.goodiesSubtitle': 'Choisis ta création personnalisée parmi nos designs uniques !',
     
     // Products
@@ -327,7 +327,7 @@ const translations = {
     'upload.error': 'Erreur de téléchargement',
     'upload.invalidFormat': 'Veuillez sélectionner une image (JPG, PNG) ou un fichier PDF.',
     'upload.required': 'Fichier requis',
-    'upload.requiredMessage': 'Veuillez télécharger une photo ou un fichier PDF pour personnaliser votre chibi.',
+    'upload.requiredMessage': 'Veuillez télécharger une photo ou un fichier PDF pour personnaliser votre mochi.',
     'upload.instructions': 'Instructions pour vos photos :',
     'upload.frontFace': 'Ajoutez des images de personnes de face',
     'upload.fullBody': 'Photos en pied (corps entier visible)',
@@ -353,7 +353,7 @@ const translations = {
     'shipping.emptyCart': 'Ajoutez des articles au panier pour calculer les frais de livraison',
     'shipping.deliveryTime': 'Délai de livraison estimé',
     
-    'footer.description': 'Créations uniques de Chibis personnalisés inspirés de votre Safe Place. Des cadeaux sur mesure qui racontent votre histoire.',
+    'footer.description': 'Mini Kdrama Mochis personnalisés inspirés de vos séries coréennes préférées. Des cadeaux uniques fait main.',
     'footer.customerService': 'Service Client',
     'footer.connectWithUs': 'Restez Connectés',
     'footer.returnPolicy': 'Politique de Retour',
