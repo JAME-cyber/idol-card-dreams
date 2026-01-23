@@ -36,7 +36,7 @@ const HeroSection = () => {
         <div className="mb-6 flex justify-center">
           <div className="w-80 h-56 rounded-xl overflow-hidden shadow-lg">
             <img 
-              src="/lovable-uploads/IMG_1188.JPG" 
+              src="/lovable-uploads/IMG_1213.JPG" 
               alt="Mini Kdrama Mochis Collection"
               className="w-full h-full object-cover"
               loading="lazy"
