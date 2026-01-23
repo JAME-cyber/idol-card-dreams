@@ -84,7 +84,7 @@ const HeroSection = () => {
                 {/* Badge "Non comestible" */}
                 <div className="absolute top-2 left-2 bg-destructive/90 text-destructive-foreground px-2 py-1 rounded-lg flex items-center gap-1 text-xs font-medium shadow-md">
                   <Ban className="w-3 h-3" />
-                  <span>Déco</span>
+                  <span>Non comestible</span>
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
