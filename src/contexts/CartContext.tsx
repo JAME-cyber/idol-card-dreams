@@ -15,6 +15,7 @@ export interface CartItem {
     tshirtSize?: string;
     characterCount?: string;
     characterChoices?: string;
+    kdramaChoices?: string;
     uploadedFiles?: {
       name: string;
       size: number;
