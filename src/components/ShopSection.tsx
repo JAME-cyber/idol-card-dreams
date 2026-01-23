@@ -4,14 +4,22 @@ import { useCart } from '@/contexts/CartContext';
 import { toast } from '@/hooks/use-toast';
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Gift } from 'lucide-react';
 
 const ShopSection = () => {
   const { t } = useLanguage();
   const { addItem } = useCart();
+  
+  // Mochis box state
   const [quantity, setQuantity] = useState(1);
   const [kdramaChoices, setKdramaChoices] = useState("");
+  
+  // Gift card state
+  const [giftQuantity, setGiftQuantity] = useState(1);
+  const [recipientName, setRecipientName] = useState("");
 
-  const product = {
+  const mochisProduct = {
     id: 'mochis-box',
     name: t('shop.mochisBoxName'),
     description: t('shop.mochisBoxDesc'),
@@ -19,7 +27,15 @@ const ShopSection = () => {
     image: '/lovable-uploads/IMG_1188.JPG'
   };
 
-  const handleAddToCart = () => {
+  const giftCardProduct = {
+    id: 'gift-card',
+    name: t('shop.giftCardName'),
+    description: t('shop.giftCardDesc'),
+    price: 27,
+    image: '/lovable-uploads/fond43.jpg'
+  };
+
+  const handleAddMochisToCart = () => {
     if (!kdramaChoices.trim()) {
       toast({
         title: t('shop.kdramaRequired'),
@@ -31,10 +47,10 @@ const ShopSection = () => {
 
     for (let i = 0; i < quantity; i++) {
       addItem({
-        id: `${product.id}-${Date.now()}-${i}`,
-        name: product.name,
-        price: product.price,
-        image: product.image,
+        id: `${mochisProduct.id}-${Date.now()}-${i}`,
+        name: mochisProduct.name,
+        price: mochisProduct.price,
+        image: mochisProduct.image,
         selectedOptions: {
           kdramaChoices: kdramaChoices
         }
@@ -43,16 +59,38 @@ const ShopSection = () => {
 
     toast({
       title: t('cart.itemAdded'),
-      description: `${quantity} x ${product.name} ${t('cart.addedToCart')}`,
+      description: `${quantity} x ${mochisProduct.name} ${t('cart.addedToCart')}`,
     });
 
     setKdramaChoices("");
     setQuantity(1);
   };
 
+  const handleAddGiftCardToCart = () => {
+    for (let i = 0; i < giftQuantity; i++) {
+      addItem({
+        id: `${giftCardProduct.id}-${Date.now()}-${i}`,
+        name: giftCardProduct.name,
+        price: giftCardProduct.price,
+        image: giftCardProduct.image,
+        selectedOptions: {
+          recipientName: recipientName.trim() || undefined
+        }
+      });
+    }
+
+    toast({
+      title: t('cart.itemAdded'),
+      description: `${giftQuantity} x ${giftCardProduct.name} ${t('cart.addedToCart')}`,
+    });
+
+    setRecipientName("");
+    setGiftQuantity(1);
+  };
+
   return (
     <section id="shop" className="section-spacing bg-gradient-to-b from-stone-beige via-white to-stone-beige/50">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="content-spacing">
           <div className="text-center mb-12">
             <h3 className="section-title font-snap">
@@ -64,110 +102,180 @@ const ShopSection = () => {
             </p>
           </div>
           
-          {/* Single Product Card */}
-          <div className="korean-card p-8 max-w-2xl mx-auto hover-glow">
-            {/* Product Images */}
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div className="cursor-pointer overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Mochis Box Card */}
+            <div className="korean-card p-8 hover-glow">
+              {/* Product Images */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src="/lovable-uploads/IMG_1188.JPG" 
+                        alt="Ma boite de Mochis"
+                        className="w-full h-40 object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
                     <img 
                       src="/lovable-uploads/IMG_1188.JPG" 
-                      alt="Ma boite de Mochis"
-                      className="w-full h-48 object-cover"
-                      loading="lazy"
+                      alt="Ma boite de Mochis (agrandie)"
+                      className="w-full h-auto object-contain max-h-[80vh]"
                     />
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-3xl">
-                  <img 
-                    src="/lovable-uploads/IMG_1188.JPG" 
-                    alt="Ma boite de Mochis (agrandie)"
-                    className="w-full h-auto object-contain max-h-[80vh]"
-                  />
-                </DialogContent>
-              </Dialog>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <div className="cursor-pointer overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                  </DialogContent>
+                </Dialog>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src="/lovable-uploads/IMG_1178.JPG" 
+                        alt="Mochis dans la boite"
+                        className="w-full h-40 object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
                     <img 
                       src="/lovable-uploads/IMG_1178.JPG" 
-                      alt="Mochis dans la boite"
-                      className="w-full h-48 object-cover"
-                      loading="lazy"
+                      alt="Mochis dans la boite (agrandie)"
+                      className="w-full h-auto object-contain max-h-[80vh]"
                     />
-                  </div>
-                </DialogTrigger>
-                <DialogContent className="max-w-3xl">
-                  <img 
-                    src="/lovable-uploads/IMG_1178.JPG" 
-                    alt="Mochis dans la boite (agrandie)"
-                    className="w-full h-auto object-contain max-h-[80vh]"
-                  />
-                </DialogContent>
-              </Dialog>
-            </div>
-
-            {/* Product Info */}
-            <div className="text-center mb-6">
-              <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
-                {product.name}
-              </h4>
-              <p className="text-stone-black/70 mb-4 font-snap">
-                {product.description}
-              </p>
-              <div className="flex items-center justify-center mb-6">
-                <span className="text-4xl font-bold text-korean-gold font-snap">
-                  €{product.price}
-                </span>
+                  </DialogContent>
+                </Dialog>
               </div>
-            </div>
 
-            {/* Kdrama Choices Input */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
-                {t('shop.kdramaChoicesLabel')}
-              </label>
-              <Textarea
-                value={kdramaChoices}
-                onChange={(e) => setKdramaChoices(e.target.value)}
-                placeholder={t('shop.kdramaChoicesPlaceholder')}
-                className="w-full border-2 border-korean-gold/20 focus:border-korean-gold rounded-xl p-4 min-h-[120px]"
-              />
-              <p className="text-xs text-stone-black/60 mt-2 italic">
-                {t('shop.kdramaChoicesHint')}
-              </p>
-            </div>
-
-            {/* Quantity Selector */}
-            <div className="mb-6 flex items-center justify-center gap-4">
-              <label className="text-sm font-medium text-stone-black font-snap">
-                {t('shop.quantity')}:
-              </label>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 rounded-full bg-stone-black/10 hover:bg-korean-gold/20 flex items-center justify-center font-bold transition-colors"
-                >
-                  -
-                </button>
-                <span className="w-10 text-center font-bold text-lg">{quantity}</span>
-                <button
-                  onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 rounded-full bg-stone-black/10 hover:bg-korean-gold/20 flex items-center justify-center font-bold transition-colors"
-                >
-                  +
-                </button>
+              {/* Product Info */}
+              <div className="text-center mb-6">
+                <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
+                  {mochisProduct.name}
+                </h4>
+                <p className="text-stone-black/70 mb-4 font-snap text-sm">
+                  {mochisProduct.description}
+                </p>
+                <div className="flex items-center justify-center mb-4">
+                  <span className="text-3xl font-bold text-korean-gold font-snap">
+                    €{mochisProduct.price}
+                  </span>
+                </div>
               </div>
+
+              {/* Kdrama Choices Input */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
+                  {t('shop.kdramaChoicesLabel')}
+                </label>
+                <Textarea
+                  value={kdramaChoices}
+                  onChange={(e) => setKdramaChoices(e.target.value)}
+                  placeholder={t('shop.kdramaChoicesPlaceholder')}
+                  className="w-full border-2 border-korean-gold/20 focus:border-korean-gold rounded-xl p-3 min-h-[100px] text-sm"
+                />
+                <p className="text-xs text-stone-black/60 mt-1 italic">
+                  {t('shop.kdramaChoicesHint')}
+                </p>
+              </div>
+
+              {/* Quantity Selector */}
+              <div className="mb-4 flex items-center justify-center gap-4">
+                <label className="text-sm font-medium text-stone-black font-snap">
+                  {t('shop.quantity')}:
+                </label>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="w-8 h-8 rounded-full bg-stone-black/10 hover:bg-korean-gold/20 flex items-center justify-center font-bold transition-colors"
+                  >
+                    -
+                  </button>
+                  <span className="w-8 text-center font-bold">{quantity}</span>
+                  <button
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="w-8 h-8 rounded-full bg-stone-black/10 hover:bg-korean-gold/20 flex items-center justify-center font-bold transition-colors"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {/* Add to Cart Button */}
+              <button
+                onClick={handleAddMochisToCart}
+                className="korean-button w-full py-3"
+              >
+                {t('shop.addToCart')} - €{mochisProduct.price * quantity}
+              </button>
             </div>
 
-            {/* Add to Cart Button */}
-            <button
-              onClick={handleAddToCart}
-              className="korean-button w-full text-lg py-4"
-            >
-              {t('shop.addToCart')} - €{product.price * quantity}
-            </button>
+            {/* Gift Card */}
+            <div className="korean-card p-8 hover-glow">
+              {/* Gift Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="w-40 h-40 rounded-full bg-gradient-to-br from-korean-gold/20 to-stone-lavender/30 flex items-center justify-center">
+                  <Gift className="w-20 h-20 text-korean-gold" />
+                </div>
+              </div>
+
+              {/* Product Info */}
+              <div className="text-center mb-6">
+                <h4 className="text-2xl font-bold text-stone-black mb-2 font-snap">
+                  {giftCardProduct.name}
+                </h4>
+                <p className="text-stone-black/70 mb-4 font-snap text-sm">
+                  {giftCardProduct.description}
+                </p>
+                <div className="flex items-center justify-center mb-4">
+                  <span className="text-3xl font-bold text-korean-gold font-snap">
+                    €{giftCardProduct.price}
+                  </span>
+                </div>
+              </div>
+
+              {/* Recipient Name Input (optional) */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-stone-black mb-2 font-snap">
+                  {t('shop.recipientNameLabel')}
+                </label>
+                <Input
+                  value={recipientName}
+                  onChange={(e) => setRecipientName(e.target.value)}
+                  placeholder={t('shop.recipientNamePlaceholder')}
+                  className="w-full border-2 border-korean-gold/20 focus:border-korean-gold rounded-xl p-3"
+                />
+              </div>
+
+              {/* Quantity Selector */}
+              <div className="mb-4 flex items-center justify-center gap-4">
+                <label className="text-sm font-medium text-stone-black font-snap">
+                  {t('shop.quantity')}:
+                </label>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setGiftQuantity(Math.max(1, giftQuantity - 1))}
+                    className="w-8 h-8 rounded-full bg-stone-black/10 hover:bg-korean-gold/20 flex items-center justify-center font-bold transition-colors"
+                  >
+                    -
+                  </button>
+                  <span className="w-8 text-center font-bold">{giftQuantity}</span>
+                  <button
+                    onClick={() => setGiftQuantity(giftQuantity + 1)}
+                    className="w-8 h-8 rounded-full bg-stone-black/10 hover:bg-korean-gold/20 flex items-center justify-center font-bold transition-colors"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {/* Add to Cart Button */}
+              <button
+                onClick={handleAddGiftCardToCart}
+                className="korean-button w-full py-3"
+              >
+                {t('shop.addToCart')} - €{giftCardProduct.price * giftQuantity}
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ export interface CartItem {
     characterCount?: string;
     characterChoices?: string;
     kdramaChoices?: string;
+    recipientName?: string;
     uploadedFiles?: {
       name: string;
       size: number;
