@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-stone-lavender/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-stone-black mb-6 font-snap">
+        <h1 className="text-3xl md:text-5xl font-bold text-stone-black mb-2 font-snap">
           {t('hero.title').split('\n').map((line, index) => (
             <React.Fragment key={index}>
               {line}
@@ -24,6 +24,9 @@ const HeroSection = () => {
             </React.Fragment>
           ))}
         </h1>
+        <p className="text-2xl md:text-3xl font-bold text-stone-black/80 mb-6 font-snap">
+          Collection
+        </p>
         
         <p className="text-base md:text-lg text-stone-black/70 mb-4 font-medium">
           {t('hero.subtitle')}
