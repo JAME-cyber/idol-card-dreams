@@ -143,7 +143,7 @@ const ShopSection = () => {
                   <DialogTrigger asChild>
                     <div className="cursor-pointer overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
                       <img 
-                        src="/lovable-uploads/IMG_1226.JPG"
+                        src="/lovable-uploads/IMG_1225-3.JPG"
                         alt="Mochis dans la boite"
                         className="w-full h-40 object-cover"
                         loading="lazy"
@@ -152,7 +152,7 @@ const ShopSection = () => {
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
                     <img 
-                      src="/lovable-uploads/IMG_1226.JPG" 
+                      src="/lovable-uploads/IMG_1225-3.JPG" 
                       alt="Mochis dans la boite (agrandie)"
                       className="w-full h-auto object-contain max-h-[80vh]"
                     />
