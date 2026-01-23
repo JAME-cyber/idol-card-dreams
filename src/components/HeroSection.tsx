@@ -55,7 +55,7 @@ const HeroSection = () => {
             <br /><br />
             {t('hero.giftDescription')}
             <br /><br />
-            {t('hero.callToAction')}
+            {t('hero.boxDescription')}
             <br /><br />
             {t('hero.callToAction')}
           </p>
