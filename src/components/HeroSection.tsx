@@ -11,9 +11,9 @@ const HeroSection = () => {
       <div className="absolute inset-0 korean-accent opacity-20"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-beige/50 to-stone-beige"></div>
       
-      {/* Floating Elements */}
-      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-stone-powder/30 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-stone-lavender/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Floating Elements - hidden on mobile to reduce motion */}
+      <div className="hidden md:block absolute top-1/4 left-1/4 w-32 h-32 bg-stone-powder/30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="hidden md:block absolute bottom-1/3 right-1/4 w-40 h-40 bg-stone-lavender/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <h1 className="text-3xl md:text-5xl font-bold text-stone-black mb-2 font-snap">
@@ -36,8 +36,8 @@ const HeroSection = () => {
         </p>
         
         {/* Photos */}
-        <div className="mb-6 flex justify-center gap-4">
-          <div className="w-56 h-56 rounded-xl overflow-hidden shadow-lg">
+        <div className="mb-6 flex flex-col md:flex-row justify-center gap-4 items-center">
+          <div className="w-40 h-40 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-lg">
             <img 
               src="/lovable-uploads/IMG_1213.JPG" 
               alt="Mini Kdrama Mochis Collection"
@@ -45,7 +45,7 @@ const HeroSection = () => {
               loading="lazy"
             />
           </div>
-          <div className="w-56 h-56 rounded-xl overflow-hidden shadow-lg bg-black flex items-center justify-center">
+          <div className="w-40 h-40 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-lg bg-black flex items-center justify-center">
             <img 
               src="/lovable-uploads/enveloppe_juin.jpg" 
               alt="Stone Idol My Drama"
