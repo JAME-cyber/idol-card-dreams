@@ -55,13 +55,7 @@ const HeroSection = () => {
             <br /><br />
             {t('hero.giftDescription')}
             <br /><br />
-            N'hésitez pas à me contacter par mail pour toutes questions ou demandes particulières :{' '}
-            <a 
-              href="mailto:stone.idol@yahoo.com" 
-              className="text-korean-gold hover:text-korean-gold-dark underline font-semibold transition-colors"
-            >
-              stone.idol@yahoo.com
-            </a>
+            {t('hero.callToAction')}
             <br /><br />
             <span className="text-xs italic text-stone-black/60">{t('hero.noteDescription')}</span>
           </p>
