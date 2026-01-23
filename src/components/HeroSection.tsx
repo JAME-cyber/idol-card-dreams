@@ -64,7 +64,7 @@ const HeroSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
-                  src="/lovable-uploads/IMG_1225.JPG" 
+                  src="/lovable-uploads/IMG_1225-2.JPG" 
                   alt="Boite de 9 Mini Kdrama Mochis"
                   className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
