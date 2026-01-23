@@ -14,11 +14,11 @@ const Index = React.memo(() => {
     <div className="min-h-screen">
       <Header />
       {/* Banner Image avec lazy loading et gestion d'erreur */}
-      <div className="w-full">
+      <div className="w-full bg-gradient-to-b from-stone-lavender/20 to-stone-powder/20 flex justify-center py-4">
         <img 
           src="/lovable-uploads/fond43.jpg" 
           alt="Stone Idol Banner - Mini Kdrama Mochi"
-          className="w-full h-auto max-h-[400px] object-cover"
+          className="w-full max-w-4xl h-auto object-contain"
           loading="lazy"
           decoding="async"
           onError={(e) => {
