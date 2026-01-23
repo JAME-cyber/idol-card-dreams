@@ -34,11 +34,11 @@ const HeroSection = () => {
         
         {/* Photo */}
         <div className="mb-6 flex justify-center">
-          <div className="w-64 h-48 rounded-xl overflow-hidden shadow-lg">
+          <div className="w-80 h-56 rounded-xl overflow-hidden shadow-lg">
             <img 
-              src="/lovable-uploads/bc321f60-3074-46a7-b36f-b6c48eb154be.png" 
-              alt="Exemple de chibi personnalisé"
-              className="w-full h-full object-contain bg-white"
+              src="/lovable-uploads/IMG_1188.JPG" 
+              alt="Mini Kdrama Mochis Collection"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
