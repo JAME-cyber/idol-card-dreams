@@ -32,12 +32,20 @@ const HeroSection = () => {
           {t('hero.tagline')}
         </p>
         
-        {/* Photo */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-80 h-56 rounded-xl overflow-hidden shadow-lg">
+        {/* Photos */}
+        <div className="mb-6 flex justify-center gap-4">
+          <div className="w-56 h-56 rounded-xl overflow-hidden shadow-lg">
             <img 
               src="/lovable-uploads/IMG_1213.JPG" 
               alt="Mini Kdrama Mochis Collection"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="w-56 h-56 rounded-xl overflow-hidden shadow-lg">
+            <img 
+              src="/lovable-uploads/enveloppe_juin.jpg" 
+              alt="Stone Idol My Drama"
               className="w-full h-full object-cover"
               loading="lazy"
             />
