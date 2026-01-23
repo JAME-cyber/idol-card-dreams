@@ -87,6 +87,9 @@ const HeroSection = () => {
                 />
               </div>
             </div>
+            <p className="mt-4 text-xs italic text-stone-black/60 text-center">
+              {t('hero.warningNotEdible')}
+            </p>
           </div>
         </div>
       </div>
