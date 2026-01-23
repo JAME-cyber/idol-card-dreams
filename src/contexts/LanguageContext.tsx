@@ -20,7 +20,7 @@ const translations = {
     'nav.about': 'About',
     
     // Hero Section
-    'hero.title': 'Mini Kdrama Mochis Collection',
+    'hero.title': 'Mini Kdrama Mochis',
     'hero.subtitle': 'Create your Mochis box with your favorite Kdramas!',
     'hero.tagline': 'Your box will be unique!',
     'hero.description': 'I create your favorite characters inspired by what matters most to you: your Safe Place, what reassures you and helps you manage everyday life.',
@@ -220,7 +220,7 @@ const translations = {
     'nav.about': 'À propos',
     
     // Hero Section
-    'hero.title': 'Mini Kdrama Mochis Collection',
+    'hero.title': 'Mini Kdrama Mochis',
     'hero.subtitle': 'Crée ta boite de Mochis avec tes Kdramas préférés!',
     'hero.tagline': 'Ta boite sera unique!',
     'hero.description': 'Je crée vos personnages préférés en m\'inspirant de ce qui compte le plus pour vous: votre Safe Place, ce qui vous rassure et vous permet de gérer le quotidien.',
@@ -422,7 +422,7 @@ const translations = {
     'nav.about': '소개',
     
     // Hero Section
-    'hero.title': 'Mini Kdrama Mochis Collection',
+    'hero.title': 'Mini Kdrama Mochis',
     'hero.subtitle': '좋아하는 K드라마로 나만의 모찌 박스를 만들어보세요!',
     'hero.tagline': '너만의 박스가 될 거야!',
     'hero.description': '당신에게 가장 소중한 것, 즉 당신의 Safe Place에서 영감을 받아 당신이 좋아하는 캐릭터들을 만듭니다.',
