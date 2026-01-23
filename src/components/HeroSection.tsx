@@ -60,47 +60,29 @@ const HeroSection = () => {
             {t('hero.callToAction')}
           </p>
           
-          {/* Photo Gallery */}
           <div className="mt-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
-                  src="/lovable-uploads/IMG_0254.JPG" 
-                  alt="Exemple de produit chibi - Cadre personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
+                  src="/lovable-uploads/IMG_1178.JPG" 
+                  alt="Boite de Mini Kdrama Mochis"
+                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
-                  src="/lovable-uploads/IMG_0355.JPG" 
-                  alt="Exemple de produit chibi - T-shirt personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
+                  src="/lovable-uploads/IMG_1180.JPG" 
+                  alt="Mini Mochi K-drama"
+                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
                 <img 
-                  src="/lovable-uploads/IMG_0378.JPG" 
-                  alt="Exemple de produit chibi - Sac personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  style={{ imageOrientation: 'from-image' }}
-                />
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_0510.JPG" 
-                  alt="Exemple de produit chibi - Sac tote bag personnalisé"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_0514.JPG" 
-                  alt="Exemple de produit chibi - Carnet et sac personnalisés"
-                  className="w-full h-32 md:h-40 object-contain group-hover:scale-105 transition-transform duration-300"
+                  src="/lovable-uploads/IMG_1185.JPG" 
+                  alt="Collection Mini Mochis avec carte"
+                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
