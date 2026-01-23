@@ -57,7 +57,7 @@ const HeroSection = () => {
             <br /><br />
             {t('hero.callToAction')}
             <br /><br />
-            <span className="text-xs italic text-stone-black/60">{t('hero.noteDescription')}</span>
+            {t('hero.callToAction')}
           </p>
           
           {/* Photo Gallery */}
