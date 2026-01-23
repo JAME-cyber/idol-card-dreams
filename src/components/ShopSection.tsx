@@ -184,7 +184,7 @@ const ShopSection = () => {
                   value={kdramaChoices}
                   onChange={(e) => setKdramaChoices(e.target.value)}
                   placeholder={t('shop.kdramaChoicesPlaceholder')}
-                  className="w-full border-2 border-korean-gold/20 focus:border-korean-gold rounded-xl p-3 min-h-[100px] text-sm"
+                  className="w-full border-2 border-pink-200 focus:border-pink-400 rounded-xl p-3 min-h-[100px] text-sm"
                 />
                 <p className="text-xs text-stone-black/60 mt-1 italic">
                   {t('shop.kdramaChoicesHint')}
@@ -255,7 +255,7 @@ const ShopSection = () => {
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
                   placeholder={t('shop.recipientNamePlaceholder')}
-                  className="w-full border-2 border-korean-gold/20 focus:border-korean-gold rounded-xl p-3"
+                  className="w-full border-2 border-pink-200 focus:border-pink-400 rounded-xl p-3"
                 />
               </div>
 
