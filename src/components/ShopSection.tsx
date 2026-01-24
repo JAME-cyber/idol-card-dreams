@@ -251,10 +251,14 @@ const ShopSection = () => {
                 <p className="text-stone-black/70 mb-4 font-snap text-sm">
                   {giftCardProduct.description}
                 </p>
-                <div className="flex items-center justify-center mb-4">
+              <div className="flex items-center justify-center mb-2">
                   <span className="text-3xl font-bold text-korean-gold font-snap">
                     €{giftCardProduct.price}
                   </span>
+                </div>
+                <div className="bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5">
+                  <span>✓</span>
+                  <span>{t('shop.shippingIncluded')}</span>
                 </div>
               </div>
 
