@@ -69,10 +69,21 @@ const ShopSection = () => {
     setQuantity(1);
   };
 
+  // Generate a unique gift card code
+  const generateGiftCardCode = () => {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Excluding similar chars like 0/O, 1/I
+    let code = 'STONE-';
+    for (let i = 0; i < 8; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return code;
+  };
+
   const handleAddGiftCardToCart = () => {
     const totalGiftPrice = giftCardProduct.price + (addPhysicalCard ? physicalCardPrice : 0);
     
     for (let i = 0; i < giftQuantity; i++) {
+      const giftCardCode = generateGiftCardCode();
       addItem({
         id: `${giftCardProduct.id}-${Date.now()}-${i}`,
         name: addPhysicalCard 
@@ -82,7 +93,8 @@ const ShopSection = () => {
         image: giftCardProduct.image,
         selectedOptions: {
           recipientName: recipientName.trim() || undefined,
-          includesPhysicalCard: addPhysicalCard
+          includesPhysicalCard: addPhysicalCard,
+          giftCardCode: giftCardCode
         }
       });
     }
