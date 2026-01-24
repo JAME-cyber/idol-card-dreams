@@ -51,7 +51,7 @@ const initialState: CartState = {
   items: [],
   total: 0,
   itemCount: 0,
-  shippingCost: 3.50,
+  shippingCost: 5.50,
   appliedGiftCard: null,
 };
 
