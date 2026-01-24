@@ -104,7 +104,7 @@ const handler = async (req: Request): Promise<Response> => {
               .from('gift_cards')
               .insert({
                 code: item.selectedOptions.giftCardCode,
-                value: 27, // Gift card value
+                value: 32.90, // Gift card value covers product (27€) + shipping (5.90€)
                 recipient_name: item.selectedOptions.recipientName || null,
                 order_id: order.id,
                 is_redeemed: false,
