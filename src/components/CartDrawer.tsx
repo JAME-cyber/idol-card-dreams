@@ -52,9 +52,17 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                     <div className="flex-1">
                       <h4 className="font-medium font-poppins text-sm">{item.name}</h4>
                       {item.selectedOptions && (
-                        <div className="text-xs text-stone-black/60 font-korean">
-                          {item.selectedOptions.design && <span>Design: {item.selectedOptions.design}</span>}
-                          {item.selectedOptions.size && <span className="ml-2">Size: {item.selectedOptions.size}</span>}
+                        <div className="text-xs text-stone-black/60 font-korean space-y-0.5">
+                          {item.selectedOptions.design && <div>Design: {item.selectedOptions.design}</div>}
+                          {item.selectedOptions.size && <div>Size: {item.selectedOptions.size}</div>}
+                          {item.selectedOptions.giftCardCode && (
+                            <div className="font-mono text-korean-gold font-bold">
+                              Code: {item.selectedOptions.giftCardCode}
+                            </div>
+                          )}
+                          {item.selectedOptions.recipientName && (
+                            <div>{t('shop.recipientNameLabel')}: {item.selectedOptions.recipientName}</div>
+                          )}
                         </div>
                       )}
                       <p className="text-korean-gold font-bold">€{item.price}</p>

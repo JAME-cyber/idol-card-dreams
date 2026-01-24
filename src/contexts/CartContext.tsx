@@ -18,6 +18,7 @@ export interface CartItem {
     kdramaChoices?: string;
     recipientName?: string;
     includesPhysicalCard?: boolean;
+    giftCardCode?: string;
     uploadedFiles?: {
       name: string;
       size: number;
