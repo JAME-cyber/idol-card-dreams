@@ -44,6 +44,57 @@ export type Database = {
         }
         Relationships: []
       }
+      gift_cards: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          is_redeemed: boolean
+          order_id: string | null
+          recipient_name: string | null
+          redeemed_at: string | null
+          redeemed_by_order_id: string | null
+          value: number
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          is_redeemed?: boolean
+          order_id?: string | null
+          recipient_name?: string | null
+          redeemed_at?: string | null
+          redeemed_by_order_id?: string | null
+          value?: number
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          is_redeemed?: boolean
+          order_id?: string | null
+          recipient_name?: string | null
+          redeemed_at?: string | null
+          redeemed_by_order_id?: string | null
+          value?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gift_cards_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "gift_cards_redeemed_by_order_id_fkey"
+            columns: ["redeemed_by_order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       order_items: {
         Row: {
           created_at: string | null

@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.resend-order-email]
 verify_jwt = false
+
+[functions.validate-gift-card]
+verify_jwt = false

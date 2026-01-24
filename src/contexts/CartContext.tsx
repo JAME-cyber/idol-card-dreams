@@ -33,19 +33,26 @@ interface CartState {
   total: number;
   itemCount: number;
   shippingCost: number;
+  appliedGiftCard: {
+    code: string;
+    value: number;
+  } | null;
 }
 
 type CartAction =
   | { type: 'ADD_ITEM'; payload: Omit<CartItem, 'quantity'> }
   | { type: 'REMOVE_ITEM'; payload: string }
   | { type: 'UPDATE_QUANTITY'; payload: { id: string; quantity: number } }
-  | { type: 'CLEAR_CART' };
+  | { type: 'CLEAR_CART' }
+  | { type: 'APPLY_GIFT_CARD'; payload: { code: string; value: number } }
+  | { type: 'REMOVE_GIFT_CARD' };
 
 const initialState: CartState = {
   items: [],
   total: 0,
   itemCount: 0,
   shippingCost: 3.50,
+  appliedGiftCard: null,
 };
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
@@ -67,7 +74,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
       
-      return { items: newItems, total, itemCount, shippingCost: 3.50 };
+      return { ...state, items: newItems, total, itemCount };
     }
     
     case 'REMOVE_ITEM': {
@@ -75,7 +82,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
       
-      return { items: newItems, total, itemCount, shippingCost: 3.50 };
+      return { ...state, items: newItems, total, itemCount };
     }
     
     case 'UPDATE_QUANTITY': {
@@ -88,7 +95,15 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       const total = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const itemCount = newItems.reduce((sum, item) => sum + item.quantity, 0);
       
-      return { items: newItems, total, itemCount, shippingCost: 3.50 };
+      return { ...state, items: newItems, total, itemCount };
+    }
+
+    case 'APPLY_GIFT_CARD': {
+      return { ...state, appliedGiftCard: action.payload };
+    }
+
+    case 'REMOVE_GIFT_CARD': {
+      return { ...state, appliedGiftCard: null };
     }
     
     case 'CLEAR_CART':
@@ -104,6 +119,8 @@ interface CartContextType extends CartState {
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+  applyGiftCard: (code: string, value: number) => void;
+  removeGiftCard: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -127,6 +144,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
+  const applyGiftCard = (code: string, value: number) => {
+    dispatch({ type: 'APPLY_GIFT_CARD', payload: { code, value } });
+  };
+
+  const removeGiftCard = () => {
+    dispatch({ type: 'REMOVE_GIFT_CARD' });
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -135,6 +160,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         removeItem,
         updateQuantity,
         clearCart,
+        applyGiftCard,
+        removeGiftCard,
       }}
     >
       {children}

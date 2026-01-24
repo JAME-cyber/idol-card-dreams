@@ -117,6 +117,20 @@ const translations = {
     'cart.freeShipping': 'Free Shipping!',
     'cart.checkout': 'Proceed to Checkout',
     
+    // Gift Card
+    'giftCard.haveCode': 'Have a gift card code?',
+    'giftCard.apply': 'Apply',
+    'giftCard.codeApplied': 'Code applied',
+    'giftCard.remove': 'Remove',
+    'giftCard.errorTitle': 'Error',
+    'giftCard.successTitle': 'Gift Card Applied!',
+    'giftCard.applied': 'Discount applied:',
+    'giftCard.invalidCode': 'Invalid gift card code',
+    'giftCard.validationError': 'Error validating code',
+    'giftCard.enterCode': 'Please enter a gift card code',
+    'giftCard.discount': 'Gift card discount',
+    'giftCard.freeOrder': 'Your order is free!',
+    
     // Upload
     'upload.addFile': 'Add photo or PDF',
     'upload.downloadFile': 'Upload file',
@@ -319,6 +333,20 @@ const translations = {
     'cart.freeShipping': 'Livraison gratuite !',
     'cart.checkout': 'Passer la commande',
     
+    // Gift Card
+    'giftCard.haveCode': 'Vous avez un code de bon cadeau ?',
+    'giftCard.apply': 'Appliquer',
+    'giftCard.codeApplied': 'Code appliqué',
+    'giftCard.remove': 'Retirer',
+    'giftCard.errorTitle': 'Erreur',
+    'giftCard.successTitle': 'Bon cadeau appliqué !',
+    'giftCard.applied': 'Réduction appliquée :',
+    'giftCard.invalidCode': 'Code de bon cadeau invalide',
+    'giftCard.validationError': 'Erreur lors de la validation du code',
+    'giftCard.enterCode': 'Veuillez entrer un code de bon cadeau',
+    'giftCard.discount': 'Réduction bon cadeau',
+    'giftCard.freeOrder': 'Votre commande est gratuite !',
+    
     // Upload
     'upload.addFile': 'Ajouter photo ou PDF',
     'upload.downloadFile': 'Télécharger un fichier',
@@ -518,6 +546,20 @@ const translations = {
     'cart.total': '총액',
     'cart.freeShipping': '무료 배송!',
     'cart.checkout': '결제하기',
+    
+    // Gift Card
+    'giftCard.haveCode': '기프트 카드 코드가 있으신가요?',
+    'giftCard.apply': '적용',
+    'giftCard.codeApplied': '코드 적용됨',
+    'giftCard.remove': '제거',
+    'giftCard.errorTitle': '오류',
+    'giftCard.successTitle': '기프트 카드 적용됨!',
+    'giftCard.applied': '할인 적용:',
+    'giftCard.invalidCode': '잘못된 기프트 카드 코드',
+    'giftCard.validationError': '코드 확인 중 오류 발생',
+    'giftCard.enterCode': '기프트 카드 코드를 입력해주세요',
+    'giftCard.discount': '기프트 카드 할인',
+    'giftCard.freeOrder': '주문이 무료입니다!',
     
     // Upload
     'upload.addFile': '사진 또는 PDF 추가',
