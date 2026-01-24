@@ -1,9 +1,10 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { X, Minus, Plus, Trash2 } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CheckoutButton from './CheckoutButton';
+import GiftCardInput from './GiftCardInput';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -11,12 +12,14 @@ interface CartDrawerProps {
 }
 
 const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
-  const { items, total, removeItem, updateQuantity, itemCount, shippingCost } = useCart();
+  const { items, total, removeItem, updateQuantity, itemCount, shippingCost, appliedGiftCard } = useCart();
   const { t } = useLanguage();
 
   if (!isOpen) return null;
-
-  const finalTotal = total + (items.length > 0 ? shippingCost : 0);
+  const giftCardDiscount = appliedGiftCard?.value || 0;
+  const subtotal = total + (items.length > 0 ? shippingCost : 0);
+  const finalTotal = Math.max(0, subtotal - giftCardDiscount);
+  const isFreeOrder = appliedGiftCard && finalTotal === 0;
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
@@ -97,11 +100,10 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
           {/* Footer */}
           {items.length > 0 && (
             <div className="border-t p-4 space-y-3">
+              {/* Gift Card Input */}
+              <GiftCardInput />
+              
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium font-korean">{t('cart.subtotal')}:</span>
-                  <span className="font-bold text-stone-black">€{finalTotal.toFixed(2)}</span>
-                </div>
                 <div className="text-xs text-stone-black/60 font-korean">
                   <div className="flex justify-between">
                     <span>{t('cart.itemsTotal')}:</span>
@@ -111,11 +113,37 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                     <span>{t('cart.shipping')}:</span>
                     <span>€{shippingCost.toFixed(2)}</span>
                   </div>
+                  {appliedGiftCard && (
+                    <div className="flex justify-between text-green-600 font-medium">
+                      <span>{t('giftCard.discount')}:</span>
+                      <span>-€{giftCardDiscount.toFixed(2)}</span>
+                    </div>
+                  )}
+                </div>
+                <div className="flex justify-between items-center pt-2 border-t">
+                  <span className="font-medium font-korean">{t('cart.total')}:</span>
+                  {isFreeOrder ? (
+                    <span className="font-bold text-green-600">{t('giftCard.freeOrder')}</span>
+                  ) : (
+                    <span className="font-bold text-stone-black">€{finalTotal.toFixed(2)}</span>
+                  )}
                 </div>
               </div>
-              <CheckoutButton className="korean-button w-full hover-glow" shippingCost={shippingCost}>
-                {t('cart.checkout')}
-              </CheckoutButton>
+              
+              {isFreeOrder ? (
+                <CheckoutButton 
+                  className="korean-button w-full hover-glow" 
+                  shippingCost={shippingCost}
+                  giftCardCode={appliedGiftCard?.code}
+                  isFreeOrder={true}
+                >
+                  {t('cart.checkout')}
+                </CheckoutButton>
+              ) : (
+                <CheckoutButton className="korean-button w-full hover-glow" shippingCost={shippingCost}>
+                  {t('cart.checkout')}
+                </CheckoutButton>
+              )}
             </div>
           )}
         </div>

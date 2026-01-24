@@ -95,6 +95,28 @@ const handler = async (req: Request): Promise<Response> => {
         }
 
         console.log('Order items created with uploaded files data');
+
+        // Create gift cards for any gift card items
+        for (const item of itemsData) {
+          if (item.id?.startsWith('gift-card') && item.selectedOptions?.giftCardCode) {
+            console.log('Creating gift card:', item.selectedOptions.giftCardCode);
+            const { error: giftCardError } = await supabase
+              .from('gift_cards')
+              .insert({
+                code: item.selectedOptions.giftCardCode,
+                value: 27, // Gift card value
+                recipient_name: item.selectedOptions.recipientName || null,
+                order_id: order.id,
+                is_redeemed: false,
+              });
+
+            if (giftCardError) {
+              console.error('Error creating gift card:', giftCardError);
+            } else {
+              console.log('Gift card created successfully:', item.selectedOptions.giftCardCode);
+            }
+          }
+        }
       }
 
       // Send email notification
