@@ -142,11 +142,20 @@ const HeroSection = () => {
               {t('hero.warningNotEdible')}
             </p>
             
-            {/* Video placeholder */}
+            {/* Video promotionnelle */}
             <div className="mt-6 flex justify-center">
-              <div className="w-full max-w-lg aspect-video bg-stone-lavender/20 rounded-xl border-2 border-dashed border-stone-black/20 flex items-center justify-center">
-                <span className="text-stone-black/40 text-sm font-snap">Vidéo à venir</span>
-              </div>
+              <video 
+                className="w-full max-w-lg rounded-xl shadow-lg"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/lovable-uploads/IMG_1213.JPG"
+              >
+                <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture vidéo.
+              </video>
             </div>
           </div>
         </div>
