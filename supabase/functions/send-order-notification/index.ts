@@ -8,6 +8,31 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+// HTML escape function to prevent XSS in email templates
+const escapeHtml = (text: string | null | undefined): string => {
+  if (text === null || text === undefined) return '';
+  const map: { [key: string]: string } = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '/': '&#x2F;',
+  };
+  return String(text).replace(/[&<>"'\/]/g, (char) => map[char]);
+};
+
+// Validate URL to prevent javascript: or data: injection
+const isValidImageUrl = (url: string | null | undefined): boolean => {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url);
+    return ['http:', 'https:'].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+};
+
 interface OrderNotificationRequest {
   to: string;
   orderId: string;
@@ -35,59 +60,71 @@ const formatAddress = (address: any) => {
   if (!address) return 'Non fournie';
   
   return `
-    ${address.line1 || ''}<br>
-    ${address.line2 ? address.line2 + '<br>' : ''}
-    ${address.postal_code || ''} ${address.city || ''}<br>
-    ${address.country || ''}
+    ${escapeHtml(address.line1 || '')}<br>
+    ${address.line2 ? escapeHtml(address.line2) + '<br>' : ''}
+    ${escapeHtml(address.postal_code || '')} ${escapeHtml(address.city || '')}<br>
+    ${escapeHtml(address.country || '')}
   `;
 };
 
-const getEmailTemplate = (data: OrderNotificationRequest) => {
-  const formatOptionKey = (key: string) => {
-    const translations: { [key: string]: string } = {
-      'supportType': 'Type de support',
-      'frameColor': 'Couleur du cadre',
-      'tshirtSize': 'Taille du T-shirt',
-      'characterCount': 'Nombre de personnages',
-      'characterChoices': 'Personnages choisis',
-      'uploadedFiles': 'Fichiers uploadés'
-    };
-    return translations[key] || key;
+const formatOptionKey = (key: string) => {
+  const translations: { [key: string]: string } = {
+    'supportType': 'Type de support',
+    'frameColor': 'Couleur du cadre',
+    'tshirtSize': 'Taille du T-shirt',
+    'characterCount': 'Nombre de personnages',
+    'characterChoices': 'Personnages choisis',
+    'uploadedFiles': 'Fichiers uploadés'
   };
+  return translations[key] || escapeHtml(key);
+};
 
+const sanitizeSelectedOptions = (options: any): string => {
+  if (!options || typeof options !== 'object') return '';
+  
+  return Object.entries(options)
+    .filter(([key, value]) => key !== 'uploadedFiles' && value !== undefined && value !== null && value !== '')
+    .map(([key, value]) => 
+      `<div style="margin: 3px 0;"><strong>${formatOptionKey(key)}:</strong> ${escapeHtml(String(value))}</div>`
+    ).join('');
+};
+
+const getEmailTemplate = (data: OrderNotificationRequest) => {
   const itemsHtml = data.items.map(item => {
     // Determine product type
     let productType = '';
-    if (item.name.toLowerCase().includes('personnalisé')) {
+    const itemNameLower = (item.name || '').toLowerCase();
+    if (itemNameLower.includes('personnalisé')) {
       productType = '<div style="color: #D4AF37; font-weight: bold; font-size: 13px; margin-top: 4px;">🎨 Chibis personnalisés</div>';
-    } else if (item.name.toLowerCase().includes('pré-imprimé') || item.name.toLowerCase().includes('preprinted')) {
+    } else if (itemNameLower.includes('pré-imprimé') || itemNameLower.includes('preprinted')) {
       productType = '<div style="color: #D4AF37; font-weight: bold; font-size: 13px; margin-top: 4px;">✨ Chibis pré-dessinés</div>';
     }
 
     const optionsHtml = item.selectedOptions && Object.keys(item.selectedOptions).length > 0
       ? `<div style="font-size: 12px; color: #666; margin-top: 8px;">
-          ${Object.entries(item.selectedOptions)
-            .filter(([key, value]) => key !== 'uploadedFiles' && value !== undefined && value !== null && value !== '')
-            .map(([key, value]) => 
-              `<div style="margin: 3px 0;"><strong>${formatOptionKey(key)}:</strong> ${value}</div>`
-            ).join('')}
-          ${item.selectedOptions.uploadedFiles ? `<div style="margin: 3px 0;"><strong>Fichiers uploadés:</strong> ${item.selectedOptions.uploadedFiles.length} fichier(s)</div>` : ''}
+          ${sanitizeSelectedOptions(item.selectedOptions)}
+          ${item.selectedOptions.uploadedFiles ? `<div style="margin: 3px 0;"><strong>Fichiers uploadés:</strong> ${escapeHtml(String(item.selectedOptions.uploadedFiles.length))} fichier(s)</div>` : ''}
         </div>`
+      : '';
+    
+    // Only render image if URL is valid
+    const imageHtml = isValidImageUrl(item.image) 
+      ? `<img src="${escapeHtml(item.image)}" alt="Product" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px; vertical-align: top; display: inline-block;">`
       : '';
     
     return `
       <tr>
         <td style="padding: 10px; border-bottom: 1px solid #eee;">
-          ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 10px; vertical-align: top; display: inline-block;">` : ''}
+          ${imageHtml}
           <div style="display: inline-block; vertical-align: top;">
-            <strong>${item.name}</strong>
+            <strong>${escapeHtml(item.name)}</strong>
             ${productType}
             ${optionsHtml}
           </div>
         </td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: center;">${item.quantity}</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${item.price.toFixed(2)} ${data.currency}</td>
-        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; font-weight: bold;">${(item.price * item.quantity).toFixed(2)} ${data.currency}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: center;">${escapeHtml(String(item.quantity))}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right;">${escapeHtml(item.price.toFixed(2))} ${escapeHtml(data.currency)}</td>
+        <td style="padding: 10px; border-bottom: 1px solid #eee; text-align: right; font-weight: bold;">${escapeHtml((item.price * item.quantity).toFixed(2))} ${escapeHtml(data.currency)}</td>
       </tr>
     `;
   }).join('');
@@ -108,11 +145,11 @@ const getEmailTemplate = (data: OrderNotificationRequest) => {
           <table style="width: 100%; font-size: 14px;">
             <tr>
               <td style="padding: 5px 0; color: #666;">Numéro de commande:</td>
-              <td style="padding: 5px 0; font-weight: bold; text-align: right;">#${data.orderId.slice(-8).toUpperCase()}</td>
+              <td style="padding: 5px 0; font-weight: bold; text-align: right;">#${escapeHtml(data.orderId.slice(-8).toUpperCase())}</td>
             </tr>
             <tr>
               <td style="padding: 5px 0; color: #666;">Session Stripe:</td>
-              <td style="padding: 5px 0; font-family: monospace; font-size: 12px; text-align: right;">${data.sessionId}</td>
+              <td style="padding: 5px 0; font-family: monospace; font-size: 12px; text-align: right;">${escapeHtml(data.sessionId)}</td>
             </tr>
           </table>
         </div>
@@ -122,15 +159,15 @@ const getEmailTemplate = (data: OrderNotificationRequest) => {
           <table style="width: 100%; font-size: 14px;">
             <tr>
               <td style="padding: 5px 0; color: #666;">Nom:</td>
-              <td style="padding: 5px 0; font-weight: bold; text-align: right;">${data.customerName || 'Non fourni'}</td>
+              <td style="padding: 5px 0; font-weight: bold; text-align: right;">${escapeHtml(data.customerName || 'Non fourni')}</td>
             </tr>
             <tr>
               <td style="padding: 5px 0; color: #666;">Email:</td>
-              <td style="padding: 5px 0; text-align: right;">${data.customerEmail}</td>
+              <td style="padding: 5px 0; text-align: right;">${escapeHtml(data.customerEmail)}</td>
             </tr>
             <tr>
               <td style="padding: 5px 0; color: #666;">Téléphone:</td>
-              <td style="padding: 5px 0; text-align: right; font-weight: bold;">${data.customerPhone || 'Non fourni'}</td>
+              <td style="padding: 5px 0; text-align: right; font-weight: bold;">${escapeHtml(data.customerPhone || 'Non fourni')}</td>
             </tr>
             <tr>
               <td style="padding: 5px 0; color: #666;">Type:</td>
@@ -176,15 +213,15 @@ const getEmailTemplate = (data: OrderNotificationRequest) => {
           <table style="width: 100%; font-size: 14px;">
             <tr>
               <td style="padding: 5px 0;">Sous-total:</td>
-              <td style="padding: 5px 0; text-align: right;">${subtotal.toFixed(2)} ${data.currency}</td>
+              <td style="padding: 5px 0; text-align: right;">${escapeHtml(subtotal.toFixed(2))} ${escapeHtml(data.currency)}</td>
             </tr>
             <tr>
               <td style="padding: 5px 0;">Frais de livraison:</td>
-              <td style="padding: 5px 0; text-align: right;">${data.shippingCost.toFixed(2)} ${data.currency}</td>
+              <td style="padding: 5px 0; text-align: right;">${escapeHtml(data.shippingCost.toFixed(2))} ${escapeHtml(data.currency)}</td>
             </tr>
             <tr style="border-top: 2px solid rgba(255,255,255,0.3);">
               <td style="padding: 10px 0 0 0; font-size: 18px; font-weight: bold;">TOTAL:</td>
-              <td style="padding: 10px 0 0 0; text-align: right; font-size: 20px; font-weight: bold;">${total.toFixed(2)} ${data.currency}</td>
+              <td style="padding: 10px 0 0 0; text-align: right; font-size: 20px; font-weight: bold;">${escapeHtml(total.toFixed(2))} ${escapeHtml(data.currency)}</td>
             </tr>
           </table>
         </div>
@@ -213,7 +250,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: "Stone Idol <commande@stoneidol.com>",
       to: [data.to],
-      subject: `Nouvelle commande #${data.orderId.slice(-8).toUpperCase()} - ${data.totalAmount.toFixed(2)} ${data.currency}`,
+      subject: `Nouvelle commande #${escapeHtml(data.orderId.slice(-8).toUpperCase())} - ${escapeHtml(data.totalAmount.toFixed(2))} ${escapeHtml(data.currency)}`,
       html: getEmailTemplate(data),
     });
 

@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -7,6 +6,31 @@ const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
+
+// HTML escape function to prevent XSS in email templates
+const escapeHtml = (text: string | null | undefined): string => {
+  if (text === null || text === undefined) return '';
+  const map: { [key: string]: string } = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '/': '&#x2F;',
+  };
+  return String(text).replace(/[&<>"'\/]/g, (char) => map[char]);
+};
+
+// Validate URL to prevent javascript: or data: injection
+const isValidUrl = (url: string | null | undefined): boolean => {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url);
+    return ['http:', 'https:'].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
 };
 
 interface AuthEmailRequest {
@@ -18,6 +42,10 @@ interface AuthEmailRequest {
 }
 
 const getEmailTemplate = (type: string, confirmationUrl?: string, magicLinkUrl?: string) => {
+  // Validate URLs before use
+  const safeConfirmationUrl = isValidUrl(confirmationUrl) ? escapeHtml(confirmationUrl) : '#';
+  const safeMagicLinkUrl = isValidUrl(magicLinkUrl) ? escapeHtml(magicLinkUrl) : '#';
+
   switch (type) {
     case 'signup':
       return `
@@ -34,7 +62,7 @@ const getEmailTemplate = (type: string, confirmationUrl?: string, magicLinkUrl?:
           </p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="${confirmationUrl}" 
+            <a href="${safeConfirmationUrl}" 
                style="background-color: #D4AF37; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
               Confirm Your Email
             </a>
@@ -68,7 +96,7 @@ const getEmailTemplate = (type: string, confirmationUrl?: string, magicLinkUrl?:
           </p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="${magicLinkUrl}" 
+            <a href="${safeMagicLinkUrl}" 
                style="background-color: #D4AF37; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
               Sign In to Stone Idol
             </a>
@@ -101,7 +129,7 @@ const getEmailTemplate = (type: string, confirmationUrl?: string, magicLinkUrl?:
           </p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="${confirmationUrl}" 
+            <a href="${safeConfirmationUrl}" 
                style="background-color: #D4AF37; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
               Reset Password
             </a>
@@ -137,12 +165,20 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { to, subject, confirmationUrl, magicLinkUrl, type }: AuthEmailRequest = await req.json();
 
+    // Validate email format
+    if (!to || !to.includes('@')) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid email address' }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
     const html = getEmailTemplate(type, confirmationUrl, magicLinkUrl);
 
     const emailResponse = await resend.emails.send({
       from: "Stone Idol <noreply@your-domain.com>", // Replace with your verified domain
       to: [to],
-      subject,
+      subject: escapeHtml(subject),
       html,
     });
 
