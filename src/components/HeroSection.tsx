@@ -68,8 +68,8 @@ const HeroSection = () => {
             {/* 4 example mochi images */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
               <img 
-                src="/lovable-uploads/fond73.jpg" 
-                alt="True Beauty Mochi"
+                src="/lovable-uploads/fond76.jpg" 
+                alt="Weak Hero Class Mochi"
                 className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
                 loading="lazy"
               />
@@ -86,8 +86,8 @@ const HeroSection = () => {
                 loading="lazy"
               />
               <img 
-                src="/lovable-uploads/fond76.jpg" 
-                alt="Weak Hero Class Mochi"
+                src="/lovable-uploads/fond73.jpg" 
+                alt="True Beauty Mochi"
                 className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
                 loading="lazy"
               />
