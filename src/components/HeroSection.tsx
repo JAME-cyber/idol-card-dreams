@@ -145,7 +145,7 @@ const HeroSection = () => {
             {/* Video promotionnelle */}
             <div className="mt-6 flex justify-center">
               <video 
-                className="w-full max-w-md rounded-xl shadow-lg"
+                className="w-full max-w-sm rounded-xl shadow-lg"
                 controls
                 autoPlay
                 muted
