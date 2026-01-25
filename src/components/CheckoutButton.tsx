@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
@@ -54,83 +53,34 @@ const CheckoutButton = ({ className, children, shippingCost = 0, giftCardCode, i
     setIsLoading(true);
 
     try {
-      console.log("Processing free order with gift card:", giftCardCode);
+      console.log("Processing free order with gift card via secure edge function");
 
-      // Validate and redeem the gift card
-      const { data: redeemData, error: redeemError } = await supabase.functions.invoke('validate-gift-card', {
-        body: { code: giftCardCode, action: 'redeem' },
-      });
-
-      if (redeemError || !redeemData?.valid) {
-        throw new Error(redeemData?.error || redeemError?.message || 'Failed to redeem gift card');
-      }
-
-      // Create order directly in database
-      const { data: order, error: orderError } = await supabase
-        .from('orders')
-        .insert({
-          customer_email: user.email,
-          customer_name: user.user_metadata?.full_name || user.email,
-          total_amount: 0,
-          currency: 'EUR',
-          status: 'completed',
-          user_id: user.id,
-          stripe_session_id: `gift-card-${giftCardCode}-${Date.now()}`,
-        })
-        .select()
-        .single();
-
-      if (orderError) {
-        console.error('Error creating order:', orderError);
-        throw new Error('Failed to create order');
-      }
-
-      console.log('Free order created:', order.id);
-
-      // Create order items
-      const orderItems = items.map((item) => ({
-        order_id: order.id,
-        product_id: item.id,
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity,
-        image: item.image,
-        selected_options: item.selectedOptions || {},
-      }));
-
-      const { error: itemsError } = await supabase
-        .from('order_items')
-        .insert(orderItems);
-
-      if (itemsError) {
-        console.error('Error creating order items:', itemsError);
-      }
-
-      // Update gift card with redeemed_by_order_id
-      await supabase
-        .from('gift_cards')
-        .update({ redeemed_by_order_id: order.id })
-        .eq('code', giftCardCode);
-
-      // Send email notification
-      await supabase.functions.invoke('send-order-notification', {
-        body: {
-          to: 'stone.idol@yahoo.com',
-          orderId: order.id,
-          customerEmail: user.email,
-          customerName: user.user_metadata?.full_name || user.email,
-          totalAmount: 0,
-          currency: 'EUR',
+      // Use the secure server-side edge function for gift card order processing
+      const { data, error } = await supabase.functions.invoke('process-gift-card-order', {
+        body: { 
+          giftCardCode: giftCardCode,
           items: items.map(item => ({
-            ...item,
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            image: item.image,
             selectedOptions: item.selectedOptions,
           })),
           shippingCost: shippingCost,
-          orderStatus: 'completed',
-          userId: user.id,
-          giftCardCode: giftCardCode,
         },
       });
+
+      if (error) {
+        console.error('Gift card checkout error:', error);
+        throw new Error(error.message || 'Failed to process gift card order');
+      }
+
+      if (!data?.success) {
+        throw new Error(data?.error || 'Failed to process order');
+      }
+
+      console.log('Gift card order completed:', data.orderId);
 
       clearCart();
       removeGiftCard();
@@ -140,7 +90,7 @@ const CheckoutButton = ({ className, children, shippingCost = 0, giftCardCode, i
         description: "Your free order has been placed successfully.",
       });
 
-      navigate(`/checkout/success?session_id=${order.id}`);
+      navigate(`/checkout/success?session_id=${data.orderId}`);
 
     } catch (error) {
       console.error("Free checkout failed:", error);

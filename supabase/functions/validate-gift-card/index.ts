@@ -3,7 +3,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.38.4';
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -16,22 +16,66 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Verify authentication - require user to be logged in
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader?.startsWith('Bearer ')) {
+      console.error('Missing or invalid authorization header');
+      return new Response(
+        JSON.stringify({ valid: false, error: 'Authentication required' }),
+        { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    // Create client with user's auth context
+    const supabaseAuth = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader } }
+    });
+
+    // Verify the token
+    const token = authHeader.replace('Bearer ', '');
+    const { data: claimsData, error: claimsError } = await supabaseAuth.auth.getClaims(token);
+    
+    if (claimsError || !claimsData?.claims) {
+      console.error('Invalid token:', claimsError);
+      return new Response(
+        JSON.stringify({ valid: false, error: 'Invalid authentication' }),
+        { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    const userId = claimsData.claims.sub;
+    console.log(`Gift card validation request from user: ${userId}`);
+
+    // Parse and validate request body
     const { code, action } = await req.json();
     
-    if (!code) {
+    if (!code || typeof code !== 'string') {
       return new Response(
         JSON.stringify({ valid: false, error: 'Code manquant' }),
         { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
 
-    const normalizedCode = code.toUpperCase().trim();
-    console.log(`Validating gift card code: ${normalizedCode}, action: ${action}`);
+    // Sanitize and normalize code
+    const normalizedCode = code.toUpperCase().trim().slice(0, 50); // Limit length
+    
+    // Validate code format (basic alphanumeric with dashes)
+    if (!/^[A-Z0-9-]+$/.test(normalizedCode)) {
+      return new Response(
+        JSON.stringify({ valid: false, error: 'Code invalide' }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    console.log(`Validating gift card code: ${normalizedCode}, action: ${action}, user: ${userId}`);
+
+    // Use service role for database operations
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
 
     // Check if gift card exists and is not redeemed
-    const { data: giftCard, error: fetchError } = await supabase
+    const { data: giftCard, error: fetchError } = await supabaseAdmin
       .from('gift_cards')
-      .select('*')
+      .select('id, code, value, recipient_name, is_redeemed')
       .eq('code', normalizedCode)
       .single();
 
@@ -51,25 +95,15 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // If action is 'redeem', mark the gift card as used
+    // REMOVED: Direct redemption via this endpoint
+    // Redemption should only happen through process-gift-card-order
+    // This endpoint is now ONLY for validation
     if (action === 'redeem') {
-      const { error: updateError } = await supabase
-        .from('gift_cards')
-        .update({
-          is_redeemed: true,
-          redeemed_at: new Date().toISOString(),
-        })
-        .eq('id', giftCard.id);
-
-      if (updateError) {
-        console.error('Error redeeming gift card:', updateError);
-        return new Response(
-          JSON.stringify({ valid: false, error: 'Erreur lors de l\'utilisation du bon' }),
-          { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-        );
-      }
-
-      console.log('Gift card redeemed successfully:', normalizedCode);
+      console.warn(`Attempted direct redemption via validate endpoint by user ${userId}`);
+      return new Response(
+        JSON.stringify({ valid: false, error: 'Direct redemption not allowed. Use checkout process.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
     }
 
     return new Response(
@@ -81,10 +115,11 @@ const handler = async (req: Request): Promise<Response> => {
       }),
       { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error validating gift card:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return new Response(
-      JSON.stringify({ valid: false, error: error.message }),
+      JSON.stringify({ valid: false, error: errorMessage }),
       { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     );
   }
