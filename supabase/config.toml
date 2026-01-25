@@ -11,3 +11,6 @@ verify_jwt = false
 
 [functions.validate-gift-card]
 verify_jwt = false
+
+[functions.process-gift-card-order]
+verify_jwt = false
