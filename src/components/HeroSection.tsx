@@ -60,43 +60,49 @@ const HeroSection = () => {
         <div className="max-w-3xl mx-auto mb-8">
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify">
             {t('hero.mainDescription')}
-            <br /><br />
+          </p>
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.personalDescription')}
-            <br /><br />
+          </p>
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.questionDescription')}
-            
-            {/* 4 example mochi images */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
-              <img 
-                src="/lovable-uploads/fond76.jpg" 
-                alt="Weak Hero Class Mochi"
-                className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
-                loading="lazy"
-              />
-              <img 
-                src="/lovable-uploads/fond74.jpg" 
-                alt="Alchemy of Souls Mochi"
-                className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
-                loading="lazy"
-              />
-              <img 
-                src="/lovable-uploads/fond75.jpg" 
-                alt="My Dearest Mochi"
-                className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
-                loading="lazy"
-              />
-              <img 
-                src="/lovable-uploads/fond73.jpg" 
-                alt="True Beauty Mochi"
-                className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
-                loading="lazy"
-              />
-            </div>
-            <br /><br />
+          </p>
+          
+          {/* 4 example mochi images */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
+            <img 
+              src="/lovable-uploads/fond76.jpg" 
+              alt="Weak Hero Class Mochi"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              loading="lazy"
+            />
+            <img 
+              src="/lovable-uploads/fond74.jpg" 
+              alt="Alchemy of Souls Mochi"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              loading="lazy"
+            />
+            <img 
+              src="/lovable-uploads/fond75.jpg" 
+              alt="My Dearest Mochi"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              loading="lazy"
+            />
+            <img 
+              src="/lovable-uploads/fond73.jpg" 
+              alt="True Beauty Mochi"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              loading="lazy"
+            />
+          </div>
+
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.giftDescription')}
-            <br /><br />
+          </p>
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.boxDescription')}
-            <br /><br />
+          </p>
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.callToAction')}
           </p>
           
