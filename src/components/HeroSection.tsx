@@ -69,28 +69,34 @@ const HeroSection = () => {
             {t('hero.questionDescription')}
           </p>
           
-          {/* 4 example mochi images */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
-            <img 
-              src="/lovable-uploads/fond76.jpg" 
-              alt="Weak Hero Class Mochi"
-              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
-            />
-            <img 
-              src="/lovable-uploads/fond74.jpg" 
-              alt="Alchemy of Souls Mochi"
-              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
-            />
-            <img 
-              src="/lovable-uploads/fond75.jpg" 
-              alt="My Dearest Mochi"
-              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
-            />
-            <img 
-              src="/lovable-uploads/fond73.jpg" 
-              alt="True Beauty Mochi"
-              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
-            />
+          {/* 3 images grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto my-6">
+            <div className="relative overflow-hidden rounded-xl shadow-lg group">
+              <img 
+                src="/lovable-uploads/IMG_1225-2.JPG" 
+                alt="Boite de 9 Mini Kdrama Mochis"
+                className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              {/* Badge "Non comestible" */}
+              <div className="absolute top-3 left-3 z-10 bg-destructive text-destructive-foreground px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-sm font-bold shadow-lg">
+                <Ban className="w-4 h-4" />
+                <span>Non comestible</span>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl shadow-lg group">
+              <img 
+                src="/lovable-uploads/IMG_1180-2.JPG" 
+                alt="Mini Mochi K-drama citron"
+                className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-xl shadow-lg group">
+              <img 
+                src="/lovable-uploads/IMG_1227.JPG" 
+                alt="Collection Mini Mochis avec carte"
+                className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
 
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
@@ -104,33 +110,28 @@ const HeroSection = () => {
           </p>
           
           <div className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_1225-2.JPG" 
-                  alt="Boite de 9 Mini Kdrama Mochis"
-                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                {/* Badge "Non comestible" */}
-                <div className="absolute top-3 left-3 z-10 bg-destructive text-destructive-foreground px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-sm font-bold shadow-lg">
-                  <Ban className="w-4 h-4" />
-                  <span>Non comestible</span>
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_1180-2.JPG" 
-                  alt="Mini Mochi K-drama citron"
-                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg group">
-                <img 
-                  src="/lovable-uploads/IMG_1227.JPG" 
-                  alt="Collection Mini Mochis avec carte"
-                  className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+            {/* 4 example mochi images */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
+              <img 
+                src="/lovable-uploads/fond76.jpg" 
+                alt="Weak Hero Class Mochi"
+                className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
+              />
+              <img 
+                src="/lovable-uploads/fond74.jpg" 
+                alt="Alchemy of Souls Mochi"
+                className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
+              />
+              <img 
+                src="/lovable-uploads/fond75.jpg" 
+                alt="My Dearest Mochi"
+                className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
+              />
+              <img 
+                src="/lovable-uploads/fond73.jpg" 
+                alt="True Beauty Mochi"
+                className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
+              />
             </div>
             <p className="mt-4 text-xs italic text-stone-black/60 text-center">
               {t('hero.warningNotEdible')}
