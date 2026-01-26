@@ -71,22 +71,22 @@ const HeroSection = () => {
             <img 
               src="/lovable-uploads/fond76.jpg" 
               alt="Weak Hero Class Mochi"
-              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
             />
             <img 
               src="/lovable-uploads/fond74.jpg" 
               alt="Alchemy of Souls Mochi"
-              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
             />
             <img 
               src="/lovable-uploads/fond75.jpg" 
               alt="My Dearest Mochi"
-              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
             />
             <img 
               src="/lovable-uploads/fond73.jpg" 
               alt="True Beauty Mochi"
-              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
+              className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
             />
           </div>
 
