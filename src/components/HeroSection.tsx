@@ -106,7 +106,7 @@ const HeroSection = () => {
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.boxDescription')}
           </p>
-          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4 font-bold">
             {t('hero.callToAction')}
           </p>
           
