@@ -59,6 +59,9 @@ const HeroSection = () => {
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify">
             {t('hero.mainDescription')}
           </p>
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4 font-bold">
+            {t('hero.originalWay')}
+          </p>
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.personalDescription')}
           </p>
