@@ -137,7 +137,7 @@ const ShopSection = () => {
                     <div className="cursor-pointer overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
                       <img 
                         src="/lovable-uploads/IMG_1188.JPG" 
-                        alt="Ma boite de Mochis"
+                        alt="Ma Mochi Box"
                         className="w-full h-40 object-cover"
                         loading="lazy"
                       />
@@ -146,7 +146,7 @@ const ShopSection = () => {
                   <DialogContent className="max-w-3xl">
                     <img 
                       src="/lovable-uploads/IMG_1188.JPG" 
-                      alt="Ma boite de Mochis (agrandie)"
+                      alt="Ma Mochi Box (agrandie)"
                       className="w-full h-auto object-contain max-h-[80vh]"
                     />
                   </DialogContent>
