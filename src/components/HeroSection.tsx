@@ -69,30 +69,26 @@ const HeroSection = () => {
           </p>
           
           {/* 4 example mochi images */}
-          <div className="grid grid-cols-2 gap-3 my-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
             <img 
               src="/lovable-uploads/fond76.jpg" 
               alt="Weak Hero Class Mochi"
-              className="w-full h-40 md:h-48 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
             />
             <img 
               src="/lovable-uploads/fond74.jpg" 
               alt="Alchemy of Souls Mochi"
-              className="w-full h-40 md:h-48 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
             />
             <img 
               src="/lovable-uploads/fond75.jpg" 
               alt="My Dearest Mochi"
-              className="w-full h-40 md:h-48 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
             />
             <img 
               src="/lovable-uploads/fond73.jpg" 
               alt="True Beauty Mochi"
-              className="w-full h-40 md:h-48 object-cover rounded-lg shadow-md"
-              loading="lazy"
+              className="w-full h-24 md:h-32 object-cover rounded-lg shadow-md"
             />
           </div>
 
