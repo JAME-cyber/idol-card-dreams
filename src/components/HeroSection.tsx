@@ -65,9 +65,6 @@ const HeroSection = () => {
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.personalDescription')}
           </p>
-          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
-            {t('hero.questionDescription')}
-          </p>
           
           {/* 3 images grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto my-6">
@@ -98,6 +95,10 @@ const HeroSection = () => {
               />
             </div>
           </div>
+
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
+            {t('hero.questionDescription')}
+          </p>
 
           <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
             {t('hero.giftDescription')}
