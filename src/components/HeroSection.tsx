@@ -96,7 +96,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4">
+          <p className="text-sm md:text-base text-stone-black/70 leading-relaxed font-snap text-justify mt-4 font-bold">
             {t('hero.questionDescription')}
           </p>
 
