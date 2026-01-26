@@ -43,7 +43,6 @@ const HeroSection = () => {
               src="/lovable-uploads/IMG_1213.JPG" 
               alt="Mini Kdrama Mochis Collection"
               className="w-full h-full object-cover"
-              loading="lazy"
             />
           </div>
           <div className="w-40 h-40 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-lg bg-black flex items-center justify-center">
@@ -51,7 +50,6 @@ const HeroSection = () => {
               src="/lovable-uploads/enveloppe_juin.jpg" 
               alt="Stone Idol My Drama"
               className="w-full h-full object-contain"
-              loading="lazy"
             />
           </div>
         </div>
@@ -109,7 +107,6 @@ const HeroSection = () => {
                   src="/lovable-uploads/IMG_1225-2.JPG" 
                   alt="Boite de 9 Mini Kdrama Mochis"
                   className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
                 />
                 {/* Badge "Non comestible" */}
                 <div className="absolute top-3 left-3 z-10 bg-destructive text-destructive-foreground px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-sm font-bold shadow-lg">
@@ -122,7 +119,6 @@ const HeroSection = () => {
                   src="/lovable-uploads/IMG_1180-2.JPG" 
                   alt="Mini Mochi K-drama citron"
                   className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
                 />
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg group">
@@ -130,7 +126,6 @@ const HeroSection = () => {
                   src="/lovable-uploads/IMG_1227.JPG" 
                   alt="Collection Mini Mochis avec carte"
                   className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -147,6 +142,7 @@ const HeroSection = () => {
                 muted
                 loop
                 playsInline
+                preload="auto"
                 poster="/lovable-uploads/IMG_1213.JPG"
               >
                 <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
