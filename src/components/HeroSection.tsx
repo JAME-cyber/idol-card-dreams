@@ -134,9 +134,6 @@ const HeroSection = () => {
                 className="w-full h-36 md:h-32 object-contain rounded-lg shadow-md bg-white"
               />
             </div>
-            <p className="mt-4 text-xs italic text-stone-black/60 text-center">
-              {t('hero.warningNotEdible')}
-            </p>
             
             {/* Video promotionnelle */}
             <div className="mt-6 flex justify-center">
