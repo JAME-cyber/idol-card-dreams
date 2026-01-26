@@ -256,10 +256,6 @@ const ShopSection = () => {
                     €{giftCardProduct.price}
                   </span>
                 </div>
-                <div className="bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5">
-                  <span>✓</span>
-                  <span>{t('shop.shippingIncluded')}</span>
-                </div>
               </div>
 
               {/* Recipient Name Input (optional) */}
