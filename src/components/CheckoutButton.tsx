@@ -161,13 +161,8 @@ const CheckoutButton = ({ className, children, shippingCost = 0, giftCardCode, i
 
       console.log("Checkout session created, redirecting to:", data.url);
 
-      // Open Stripe checkout in a new tab
-      window.open(data.url, '_blank');
-      
-      toast({
-        title: "Redirecting to Payment",
-        description: "Please complete your payment in the new tab.",
-      });
+      // Redirect to Stripe checkout in the same window
+      window.location.href = data.url;
 
     } catch (error) {
       console.error("Checkout failed:", error);
