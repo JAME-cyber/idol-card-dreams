@@ -26,7 +26,7 @@ const ShopSection = () => {
     id: 'mochis-box',
     name: t('shop.mochisBoxName'),
     description: t('shop.mochisBoxDesc'),
-    price: 27,
+    price: 32,
     image: '/lovable-uploads/IMG_1188.JPG'
   };
 
@@ -34,7 +34,7 @@ const ShopSection = () => {
     id: 'gift-card',
     name: t('shop.giftCardName'),
     description: t('shop.giftCardDesc'),
-    price: 27,
+    price: 32,
     image: '/lovable-uploads/fond43.jpg'
   };
 
