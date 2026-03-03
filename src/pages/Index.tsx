@@ -16,7 +16,7 @@ const Index = React.memo(() => {
       {/* Banner Image avec lazy loading et gestion d'erreur */}
       <div className="w-full bg-gradient-to-b from-stone-lavender/20 to-stone-powder/20 flex justify-center py-3">
         <img 
-          src="/lovable-uploads/fond43.jpg" 
+          src="/lovable-uploads/fond122.jpg" 
           alt="Stone Idol Banner - Mini Kdrama Mochi"
           className="max-w-md md:max-w-lg h-auto object-contain rounded-xl shadow-lg"
           loading="lazy"
