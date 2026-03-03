@@ -135,21 +135,11 @@ const HeroSection = () => {
               />
             </div>
             
-            {/* Video promotionnelle */}
+            {/* Emplacement vidéo - à venir */}
             <div className="mt-6 flex justify-center">
-              <video 
-                className="w-full max-w-sm rounded-xl shadow-lg"
-                controls
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                poster="/lovable-uploads/IMG_1213.JPG"
-              >
-                <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture vidéo.
-              </video>
+              <div className="w-full max-w-sm h-64 rounded-xl shadow-lg bg-stone-beige/30 border-2 border-dashed border-stone-black/20 flex items-center justify-center">
+                <p className="text-stone-black/40 font-snap text-sm">Vidéo à venir</p>
+              </div>
             </div>
           </div>
         </div>
